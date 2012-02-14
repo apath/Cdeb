@@ -1,0 +1,7 @@
+Format de la sauvegarde
+
+[titre_Categorie1]
+sujet1{lien1`lien2}
+sujet2[lien1`lien2}
+[titre_Categorie2]
+...
