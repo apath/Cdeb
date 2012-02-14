@@ -1,4 +1,4 @@
-#include <stdio.h> /* pour fprintf, fopen, fwrite, fclose */
+#include <stdio.h> /* pour fprintf, fwrite, fclose */
 #include <string.h> /* pour strlen */
 
 int main(void)
