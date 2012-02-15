@@ -21,7 +21,7 @@ typedef struct flk{
 FLK *flk_init(void);
 void flk_free(FLK *f);
 
-typedef enum{ERR_EXIST,ERR_NOEXIST,ERR_ALLOC}e_moderr;
+typedef enum{OKEY,ERR_EXIST,ERR_NOEXIST,ERR_ALLOC}e_moderr;
 typedef enum{DEL,ADD,REPLACE}e_modtype;
 
 e_moderr flk_mod_categorie(e_modtype mod,
