@@ -38,10 +38,10 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="src\flk.h" />
-		<Unit filename="src\flk_load.c">
+		<Unit filename="src\flk_fichier.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="src\flk_save.c">
+		<Unit filename="src\flk_manip.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src\main.c">
