@@ -80,7 +80,7 @@ FLK *flk_init(void);
 void flk_free(FLK *f);
 
 /*
- * e_modtype est un type il contient des types d'erreurs 
+ * e_moderr est un type il contient des types d'erreurs 
  * retournees par les fonction qui l'utilisent
  * il sert pour debugger le retour des fonctions
  * en affichant l'erreur à l'aide de print_err
