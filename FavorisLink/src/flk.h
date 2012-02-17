@@ -176,12 +176,13 @@ e_moderr free_categories(FLK *f);
  * pour chaque categories dans un FLK cette fonction va en appeler
  * une autre qu'on lui aura envoyé en paramètre,
  * cette fonction doit être sous la forme :
- * void mafonction(char *str){ ... }
+ * void mafonction(FLK *flk,char *str){ ... }
  * str recevra le titre de la categorie actuellement scannée.
+ * flk recevra le FLK utilisé par get_categories *f.
  * pour appelé get_categories avec mafonction :
  * get_categories(f,mafonction);
  */
-e_moderr get_categories(FLK *f,void (*callback)(char *recup));
+e_moderr get_categories(FLK *f,void (*callback)(FLK *flk,char *recup));
 /*
  * get_sujets est une fonction foreach comme get_categories
  * à la différence qu'il faut lui préciser la categorie à scanner
@@ -189,28 +190,30 @@ e_moderr get_categories(FLK *f,void (*callback)(char *recup));
  * La fonction qu'on lui passe en parametre
  * reçoit aussi le titre de la catégorie pour chaque sujet scanné
  * forme de la fonction à lui passer en parametre :
- * void mafonction(f,char *str1,char *str2){ ... }
- * str1 reçoit le titre de la categorie scannée,
- * str2 reçoit le sujet actuellement scanné.
+ * void mafonction(FLK *flk,char *str1,char *str2){ ... }
+ * str1 recevra le titre de la categorie scannée,
+ * str2 recevra le sujet actuellement scanné.
+ * flk recevra le FLK utilisé par get_sujets *f.
  * get_sujets(f,"lacategorie",mafonction);
  */
 e_moderr get_sujets(FLK *f,char *titre_categorie,
-        void (*callback)(char *titre_categorie,char *recup));
+        void (*callback)(FLK *flk,char *titre_categorie,char *recup));
 /*
  * get_liens est une fonction foreach comme les deux precedentes
  * servant à recuperer les liens d'un sujet dans une categorie
  * La fonction qu'on lui passe en parametre
  * reçoit le titre du sujet et de la categorie traitée
  * sa forme doit être la suivante :
- * void mafonction(f,char *str1,char *str2,char *str3){ ... }
- * str1 reçoit le titre du sujet scanné,
- * str2 reçoit le titre de la categorie auquel le sujet appartient,
- * str3 reçoit le lien actuellement scanné.
+ * void mafonction(FLK *flk,char *str1,char *str2,char *str3){ ... }
+ * str1 recevra le titre du sujet scanné,
+ * str2 recevra le titre de la categorie auquel le sujet appartient,
+ * str3 recevra le lien actuellement scanné.
+ * flk recevra le FLK utilisé par get_liens *f.
  * l'appel de get_liens avec mafonction :
  * get_liens(f,"sujet","categorie",mafonction);
  */
 e_moderr get_liens(FLK *f,char *titre_sujet,char *titre_categorie,
-        void (*callback)(char *titre_sujet,char *titre_categorie,
+        void (*callback)(FLK *flk,char *titre_sujet,char *titre_categorie,
             char *recup));
 
 /*

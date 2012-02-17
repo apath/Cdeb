@@ -5,52 +5,65 @@
  * alpha test
  */
 
-void callback_categories(char *titre){
-    printf("ListCategories - Categorie : %s\n",titre);
+void callback_liens(FLK *f,char *titre_sujet,char *titre_categorie,
+        char *url){
+    printf("%s`",url);
 }
-void callback_sujets(char *titre_categorie,char *titre){
-    printf("ListSujets - dans categorie : %s\tSujet : %s\n",titre_categorie,titre);
+void callback_sujets(FLK *f,char *titre_categorie,char *titre){
+    printf("%s{",titre);
+    get_liens(f,titre,titre_categorie,callback_liens);
+    printf("}\n");
 }
-void callback_liens(char *titre_sujet,char *titre_categorie,char *url){
-    printf("ListLiens - dans sujet : %s\t dans categorie :%s\tLien : %s\n",
-            titre_sujet,titre_categorie,url);
+void callback_tout(FLK *f,char *titre){
+    printf("[%s]\n",titre);
+    get_sujets(f,titre,callback_sujets);
 }
 
 int main(void)
   {
     FLK *test;
     e_moderr ee;
-    char *ctitre="categorie1",*stitre="sujet1";
     test=flk_init();
     if(test){
-        ee=flk_mod_categorie(ADD,ctitre,NULL,test);
+        /* creer une categorie */
+        ee=flk_mod_categorie(ADD,"categorie1",NULL,test);
         print_err(ee,1);
-        ee=flk_mod_sujet(ADD,stitre,NULL,ctitre,test);
+        /* ajoute un sujet dans la categorie */
+        ee=flk_mod_sujet(ADD,"sujet1",NULL,"categorie1",test);
         print_err(ee,1);
-        ee=flk_mod_sujet(ADD,"sujet2",NULL,ctitre,test);
+        /* ajoute un second sujet */
+        ee=flk_mod_sujet(ADD,"sujet2",NULL,"categorie1",test);
         print_err(ee,1);
+        /* ajoute un lien dans le sujet1 */
         ee=flk_mod_url(ADD,"http://www.hi.test/",NULL,
-                stitre,ctitre,test);
+                "sujet1","categorie1",test);
         print_err(ee,1);
+        /* ajoute un second lien dans le sujet1 */
         ee=flk_mod_url(ADD,"http://www.ho.test/",NULL,
-                stitre,ctitre,test);
+                "sujet1","categorie1",test);
         print_err(ee,1);
-
-        printf("\ntest erreur\n");
-        ee=flk_mod_url(ADD,"qsdflkjsfd",NULL,
-                "sqdf",ctitre,test);
+/**/
+        printf("\n*test erreur\n");
+        /* test l'ajout d'un lien dans un sujet inexistant */
+        ee=flk_mod_url(ADD,"qsdflkjsfd",NULL,"sqdf","categorie1",test);
         print_err(ee,1);
-        printf("\ntest foreach\n");
-
-        get_categories(test,callback_categories);
-        get_sujets(test,"categorie1",callback_sujets);
-        get_liens(test,"sujet1","categorie1",callback_liens);
-
-        printf("\ntest free_liens\n");
+/**/
+        printf("\n*test affiche tout\n----------------\n");
+        /* affiche les categories leurs sujets les liens des sujets
+         * en utilisant les foreach entre eux et ajoutant un test
+         * d'affichage de la syntaxe du flk pourrait servir pour la
+         * sauvegarde */
+        get_categories(test,callback_tout);
+/**/
+        printf("\n*test free_liens\n");
+        /* test de liberation des liens d'un sujet d'une categorie */
         free_liens("sujet1","categorie1",test);
+        /* test d'ajout apres la suppression */
         flk_mod_url(ADD,"http://test.com/",NULL,"sujet1","categorie1"
                 ,test);
-        get_liens(test,"sujet1","categorie1",callback_liens);
+/**/
+        printf("\n*test affiche tout\n----------------\n");
+        get_categories(test,callback_tout);
 
         flk_free(test);
     }
