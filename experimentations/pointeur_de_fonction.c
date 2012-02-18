@@ -11,10 +11,10 @@ void dixfois(void(*pointeur)(int),int a){
 
 int main ( int argc, char** argv ){
 
-    void (*pointeur) (int a);
-    pointeur=mafonction;
+    void (*pointeur2) (int a);
+    pointeur2=mafonction;
 
-    pointeur(7);
+    pointeur2(7);
 
     mafonction(5);
 
