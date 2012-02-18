@@ -3,6 +3,9 @@
 void mafonction(int a){
     printf("%d\n",a);
 }
+void mafonction2(int a){
+	printf("%d\n",a*a);
+}
 void dixfois(void(*pointeur)(int),int a){
     int i;
     for(i=0;i<10;i++)
@@ -12,7 +15,7 @@ void dixfois(void(*pointeur)(int),int a){
 int main ( int argc, char** argv ){
 
     void (*pointeur2) (int a);
-    pointeur2=mafonction;
+    pointeur2=mafonction2;
 
     pointeur2(7);
 
