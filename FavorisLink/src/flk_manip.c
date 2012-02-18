@@ -4,11 +4,11 @@
 #include <assert.h>
 #include "flk.h"
 
-/*
- * print_err fonction basique pour l'affichage des erreurs, permet
- * de debugger plus facilement les fonctions qui retournent un
- * e_moderr
- */
+  /*
+   * print_err fonction basique pour l'affichage des erreurs, permet
+   * de debugger plus facilement les fonctions qui retournent un
+   * e_moderr
+   */
 void print_err(e_moderr error,int ok){
     switch(error){
         case ERR_EXIST:
@@ -31,12 +31,12 @@ void print_err(e_moderr error,int ok){
     }
 }
 
-/*
- * alloc_chaine
- * fonction simplifiant une tâche répétitive qui est la copie
- * d'une chaîne de caractères dans les pointeurs de char situés
- * dans les structures
- */
+  /*
+   * alloc_chaine
+   * fonction simplifiant une tâche répétitive qui est la copie
+   * d'une chaîne de caractères dans les pointeurs de char situés
+   * dans les structures
+   */
 char *alloc_chaine(char *s){
     char *ptr;
     ptr=malloc(sizeof(char)*strlen(s)+1);
@@ -44,11 +44,11 @@ char *alloc_chaine(char *s){
     return ptr;
 }
 
-/*
- * flk_init
- * initialisation d'un FLK , alloue la mémoire pour l'index
- * des catégories
- */
+  /*
+   * flk_init
+   * initialisation d'un FLK , alloue la mémoire pour l'index
+   * des catégories
+   */
 FLK *flk_init(void){
     FLK *ptr;
     ptr=malloc(sizeof(FLK));
@@ -56,32 +56,32 @@ FLK *flk_init(void){
         ptr->categories_index=NULL;
     return ptr;
 }
-/*
- * flk_free
- * libere toutes les categories d'un FLK avec les sujets et
- * liens qu'elles contiennent.
- * puis libere la structure flk gardant l'index des categories.
- */
+  /*
+   * flk_free
+   * libere toutes les categories d'un FLK avec les sujets et
+   * liens qu'elles contiennent.
+   * puis libere la structure flk gardant l'index des categories.
+   */
 void flk_free(FLK *f){
     free_categories(f);
     free(f);
 }
 
-/*
- * structure temporaire servant à garder l'item précédent celui que
- * l'on recherche, ça permet de pouvoir supprimer un item et replacer
- * les liens dans la liste chaînée sans devoir la re boucler à nouveau
- */
+  /*
+   * structure temporaire servant à garder l'item précédent celui que
+   * l'on recherche, ça permet de pouvoir supprimer un item et replacer
+   * les liens dans la liste chaînée sans devoir la re boucler à nouveau
+   */
 struct temp{
     struct categorie *cptr,*cptrtmp;
     struct sujet *sptr,*sptrtmp;
     struct lien *lptr,*lptrtmp;
 };
 
-/*
- * fonctions internes pour la recherche des items
- * categorie,sujet,lien
- */
+  /*
+   * fonctions internes pour la recherche des items
+   * categorie,sujet,lien
+   */
 struct temp *cherche_categorie(char *titre,FLK *f)
   {
     struct temp *tmp;
@@ -130,10 +130,10 @@ struct temp *cherche_lien(char *url,char *stitre,char *ctitre,FLK *f)
     return NULL;
   }
 
-/*
- * fonctions free
- * liberation de tout les liens,sujets ou categories.
- */
+  /*
+   * fonctions free
+   * liberation de tout les liens,sujets ou categories.
+   */
 e_moderr free_liens(char *stitre,char *ctitre,FLK *f)
   {
     struct temp *tmp;
@@ -144,6 +144,7 @@ e_moderr free_liens(char *stitre,char *ctitre,FLK *f)
         while(tmp->lptr){
             l=tmp->lptr;
             tmp->lptr=tmp->lptr->next;
+            free(l->url),l->url=NULL;
             free(l),l=NULL;
         }
         tmp->sptr->liens_index=NULL;
@@ -163,7 +164,9 @@ e_moderr free_sujets(char *ctitre,FLK *f)
             s=tmp->sptr;
             tmp->sptr=tmp->sptr->next;
             free_liens(s->titre,tmp->cptr->titre,f);
+            free(s->titre),s->titre=NULL;
             free(s),s=NULL;
+            tmp->cptr->sujets_index=tmp->sptr;
         }
         tmp->cptr->sujets_index=NULL;
         free(tmp);
@@ -173,21 +176,23 @@ e_moderr free_sujets(char *ctitre,FLK *f)
   }
 e_moderr free_categories(FLK *f)
   {
-    struct categorie *c;
-    while(f->categories_index){
-        c=f->categories_index;
-        f->categories_index=f->categories_index->next;
+    struct categorie *c,*ctmp;
+    c=f->categories_index;
+    while(c){
+        ctmp=c->next;
         free_sujets(c->titre,f);
+        free(c->titre),c->titre=NULL;
         free(c),c=NULL;
+        c=ctmp;
     }
     f->categories_index=NULL;
     return OKEY;
   }
 
-/*
- * fonctions mod
- * fonctions de modification de categorie,sujet ou lien
- */
+  /*
+   * fonctions mod
+   * fonctions de modification de categorie,sujet ou lien
+   */
 e_moderr flk_mod_categorie(e_modtype mod,
         char *titre_categorie,char *ntitre,FLK *f)
   {
@@ -214,11 +219,11 @@ e_moderr flk_mod_categorie(e_modtype mod,
     }
     if(mod==DEL){
         if(cptr){
-              if(cptrtmp!=NULL) cptrtmp->next=cptr->next;
-              free_sujets(titre_categorie,f);
-              free(cptr->titre),cptr->titre=NULL;
-              free(cptr),cptr=NULL;
-              return OKEY;
+            if(cptrtmp!=NULL) cptrtmp->next=cptr->next;
+            free_sujets(titre_categorie,f);
+            free(cptr->titre),cptr->titre=NULL;
+            free(cptr),cptr=NULL;
+            return OKEY;
         } else return ERR_NOEXIST;
     }
     if(mod==RENAME){
@@ -251,6 +256,7 @@ e_moderr flk_mod_sujet(e_modtype mod,
         if(!tmp) return ERR_CATNOEXIST;
         cptr=tmp->cptr;
         sptr=NULL,sptrtmp=NULL;
+        free(tmp),tmp=NULL;
     }
     if(mod==ADD){
         if(!sptr){
@@ -306,6 +312,7 @@ e_moderr flk_mod_url(e_modtype mod,
         if(!tmp) return ERR_SUJNOEXIST;
         sptr=tmp->sptr;
         lptr=NULL,lptrtmp=NULL;
+        free(tmp),tmp=NULL;
     }
     if(mod==ADD){
         if(!lptr){
@@ -337,11 +344,11 @@ e_moderr flk_mod_url(e_modtype mod,
     return ERR_UNKMOD;
   }
 
-/*
- * foreach fonction pour scanner un FLK, une categorie, un sujet
- * permet d'appeler une fonction tiers et de lui retourner les 
- * items scannés.
- */
+  /*
+   * foreach fonction pour scanner un FLK, une categorie, un sujet
+   * permet d'appeler une fonction tiers et de lui retourner les
+   * items scannés.
+   */
 e_moderr get_categories(FLK *f,void (*callback)(FLK *flk,char *recup))
   {
     struct categorie *cptr;
