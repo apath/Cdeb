@@ -59,8 +59,10 @@ int main(void)
         /* test de liberation des liens d'un sujet d'une categorie */
         free_liens("sujet1","categorie1",test);
         /* test d'ajout apres la suppression */
-        flk_mod_url(ADD,"http://test.com/",NULL,"sujet1","categorie1"
-                ,test);
+        flk_mod_url(ADD,"http://test.com/",NULL,"sujet1","categorie1",
+                test);
+        flk_mod_url(ADD,"http://abcd.test/",NULL,"sujet2","categorie1",
+                test);
 /**/
         printf("\n*test affiche tout\n----------------\n");
         get_categories(test,callback_tout);
