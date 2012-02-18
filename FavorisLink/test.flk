@@ -1,0 +1,9 @@
+[Films]
+Science Fiction{sfxlien1`sfxlien2}
+Action[actionlien1`actionlien2`actionlien3}
+[News]
+Politique{politiclien1}
+Meteo{meteolien1`meteolien2}
+[Loisirs]
+Jeux{jeulien1`jeulien2`jeulien3}
+Sport{sportlien1`sportlien2}
