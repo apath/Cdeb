@@ -11,7 +11,7 @@ void dixfois(void(*pointeur)(int),int a){
 
 int main ( int argc, char** argv ){
 
-    void (*pointeur) (inta);
+    void (*pointeur) (int a);
     pointeur=mafonction;
 
     pointeur(7);
