@@ -219,16 +219,16 @@ e_moderr get_liens(FLK *f,char *titre_sujet,char *titre_categorie,
 /*
  * EN PROGRESSION / A TERMINER
  * flk_load devra servir à charger un fichier dans un FLK
- * on lui précisera uniquement l'adresse ou le nom du fichier
- * et la fonction retournera un pointeur/l'adresse de type FLK
+ * int pour le retour codes d'erreur
  */
-FLK *flk_load(char *fichier);
+int flk_load(FLK *f,char *fichier);
 /*
  * EN PROGRESSION / A TERMINER
  * flk_save devra servir à enregistrer un FLK directement dans
  * un fichier en lui précisant l'adresse/nom d'un fichier à enregistré
  * et le FLK
+ * int pour le retour codes d'erreur
  */
-int flk_save(char *fichier,FLK *f);
+int flk_save(FLK *f,char *fichier);
 
 #endif

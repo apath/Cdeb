@@ -176,14 +176,13 @@ e_moderr free_sujets(char *ctitre,FLK *f)
   }
 e_moderr free_categories(FLK *f)
   {
-    struct categorie *c,*ctmp;
-    c=f->categories_index;
-    while(c){
-        ctmp=c->next;
-        free_sujets(c->titre,f);
-        free(c->titre),c->titre=NULL;
-        free(c),c=NULL;
-        c=ctmp;
+    struct categorie *ctmp;
+    while(f->categories_index){
+        ctmp=f->categories_index->next;
+        free_sujets(f->categories_index->titre,f);
+        free(f->categories_index->titre),f->categories_index->titre=NULL;
+        free(f->categories_index);
+        f->categories_index=ctmp;
     }
     f->categories_index=NULL;
     return OKEY;

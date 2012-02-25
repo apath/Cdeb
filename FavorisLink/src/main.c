@@ -67,6 +67,13 @@ int main(void)
         printf("\n*test affiche tout\n----------------\n");
         get_categories(test,callback_tout);
 
+        /* test lecture fichier */
+        printf("\n*test chargement d'un fichier .flk\n");
+        flk_load(test,"test.flk"); /* chargement */
+        printf("\naffichage du FLK apres chargement fichier test.flk\n");
+        get_categories(test,callback_tout);
+
+        /* liberation du FLK */
         flk_free(test);
     }
     return EXIT_SUCCESS;
