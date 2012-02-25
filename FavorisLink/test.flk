@@ -1,6 +1,8 @@
 [Films]
 Science Fiction{sfxlien1`sfxlien2}
-Action[actionlien1`actionlien2`actionlien3}
+Test{}
+Action{actionlien1`actionlien2`actionlien3}
+[TEST]
 [News]
 Politique{politiclien1}
 Meteo{meteolien1`meteolien2}
