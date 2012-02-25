@@ -4,3 +4,5 @@ execute_debug.bat
 
 Ces fichiers servent à la compilation directement à l'aide de gcc, et le debug à l'aide de gdb.
 Ils utilisent l'emplacement de mingw, les modifier si mingw ne se trouve pas à l'adresse c:\mingw
+
+FavorisLink.cbp projet codeblocks
