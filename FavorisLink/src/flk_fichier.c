@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "flk.h"
+#define MAXCSL 2048 /* longueur max pour les chaines */
 /*
  * flk_load sert à charger un fichier .flk
  * dans un FLK initialisé,
@@ -17,9 +18,9 @@ int flk_load(FLK *f,char *fichier){
            ct,st,lu,/* drapeaux cat,suj,url */
            z; /* compteur cat,suj,url */
     char buff[256], /* buff fread */
-         categorie_titre[2048],
-         sujet_titre[2048],
-         lien_url[2048];
+         categorie_titre[MAXCSL],
+         sujet_titre[MAXCSL],
+         lien_url[MAXCSL];
     FILE *rf;
     if(f){
         rf=fopen(fichier,"rb");
@@ -29,13 +30,16 @@ int flk_load(FLK *f,char *fichier){
                   {
                     if((buff[i]!='\r')&&(buff[i]!='\n')){
                         if((lu==1)&&((buff[i]!='`')&&(buff[i]!='}'))){
-                            lien_url[z]=buff[i]; z++;
+                            if(z<MAXCSL) lien_url[z]=buff[i];
+                            z++;
                         }
                         if((st==1)&&(buff[i]!='{')){
-                            sujet_titre[z]=buff[i]; z++;
+                            if(z<MAXCSL) sujet_titre[z]=buff[i];
+                            z++;
                         }
                         if((ct==1)&&(buff[i]!=']')){
-                            categorie_titre[z]=buff[i]; z++;
+                            if(z<MAXCSL) categorie_titre[z]=buff[i];
+                            z++;
                         }
                         if(buff[i]=='['){
                             z=0; ct=1; st=0; lu=0;
