@@ -348,20 +348,22 @@ e_moderr flk_mod_url(e_modtype mod,
    * permet d'appeler une fonction tiers et de lui retourner les
    * items scannés.
    */
-e_moderr get_categories(FLK *f,void (*callback)(FLK *flk,char *recup))
+e_moderr get_categories(FLK *f,int (*callback)(FLK *flk,char *recup,
+            const void *userdef),const void *userdefine)
   {
     struct categorie *cptr;
     cptr=f->categories_index;
     if(cptr){
         while(cptr){
-            callback(f,cptr->titre);
+            if(callback(f,cptr->titre,userdefine)) break;
             cptr=cptr->next;
         }
     } else return ERR_NOEXIST;
     return OKEY;
   }
 e_moderr get_sujets(FLK *f,char *titre_categorie,
-        void (*callback)(FLK *flk,char *titre_categorie,char *recup))
+        int (*callback)(FLK *flk,char *titre_categorie,char *recup,
+            const void *userdef),const void *userdefine)
   {
     struct sujet *sptr;
     struct temp *tmp;
@@ -370,15 +372,16 @@ e_moderr get_sujets(FLK *f,char *titre_categorie,
         sptr=tmp->cptr->sujets_index;
         free(tmp),tmp=NULL;
         while(sptr){
-            callback(f,titre_categorie,sptr->titre);
+            if(callback(f,titre_categorie,sptr->titre,userdefine))
+                break;
             sptr=sptr->next;
         }
     } else return ERR_CATNOEXIST;
     return OKEY;
   }
 e_moderr get_liens(FLK *f,char *titre_sujet,char *titre_categorie,
-        void (*callback)(FLK *flk,char *titre_sujet,char *titre_categorie,
-            char *recup))
+        int (*callback)(FLK *flk,char *titre_sujet,char *titre_categorie,
+            char *recup,const void *userdef),const void *userdefine)
   {
     struct lien *lptr;
     struct temp *tmp;
@@ -387,7 +390,8 @@ e_moderr get_liens(FLK *f,char *titre_sujet,char *titre_categorie,
         lptr=tmp->sptr->liens_index;
         free(tmp),tmp=NULL;
         while(lptr){
-            callback(f,titre_sujet,titre_categorie,lptr->url);
+            if(callback(f,titre_sujet,titre_categorie,lptr->url,userdefine))
+                break;
             lptr=lptr->next;
         }
     } else return ERR_SUJNOEXIST;

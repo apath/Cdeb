@@ -176,52 +176,85 @@ e_moderr free_categories(FLK *f);
  * pour chaque categories dans un FLK cette fonction va en appeler
  * une autre qu'on lui aura envoyé en paramètre,
  * cette fonction doit être sous la forme :
- * void mafonction(FLK *flk,char *str){ ... }
+ * int mafonction(FLK *flk,char *str,const void* userdefine){ ... }
  * str recevra le titre de la categorie actuellement scannée.
  * flk recevra le FLK utilisé par get_categories *f.
- * pour appelé get_categories avec mafonction :
- * get_categories(f,mafonction);
+ * userdefine recevra le pointeur passé en paramètre de get_categories
+ * ce pointeur est à la discrétion du codeur donc ça peut être un
+ * pointeur vers un tableau de char, une structure, un fichier, etc..
+ *
+ * pour appeler get_categories avec mafonction :
+ * get_categories(f,mafonction,userdefine);
+ * si userdefine n'est pas utilisé :
+ * get_categories(f,mafonction,NULL);
+ * > mafonction doit retourner un int soit 1 ou 0
+ *   1 stop le scan en cours si non besoin de le continuer
+ *   0 continue le scan en cours
  */
-e_moderr get_categories(FLK *f,void (*callback)(FLK *flk,char *recup));
+e_moderr get_categories(FLK *f,int (*callback)(FLK *flk,char *recup,const void *userdef),const void *userdefine);
 /*
  * get_sujets est une fonction foreach comme get_categories
  * à la différence qu'il faut lui préciser la categorie à scanner
  * evidemment.
  * La fonction qu'on lui passe en parametre
- * reçoit aussi le titre de la catégorie pour chaque sujet scanné
+ * reçoit aussi le titre de la catégorie pour chaque sujets scannés
  * forme de la fonction à lui passer en parametre :
- * void mafonction(FLK *flk,char *str1,char *str2){ ... }
+ * int mafonction(FLK *flk,char *str1,char *str2,const void* userdefine){ ... }
  * str1 recevra le titre de la categorie scannée,
  * str2 recevra le sujet actuellement scanné.
  * flk recevra le FLK utilisé par get_sujets *f.
- * get_sujets(f,"lacategorie",mafonction);
+ * userdefine recevra le pointeur qu'on aura passé à get_sujets.
+ *
+ * appel de get_sujets avec mafonction :
+ * get_sujets(f,"lacategorie",mafonction,userdefine);
+ * si userdefine n'est pas utilisé :
+ * get_sujets(f,"lacategorie",mafonction,NULL);
+ *
+ * > ma fonction doit retourner un int soit 0 ou 1 :
+ *   1 stop le scan en cours
+ *   0 continue le scan en cours
  */
 e_moderr get_sujets(FLK *f,char *titre_categorie,
-        void (*callback)(FLK *flk,char *titre_categorie,char *recup));
+        int (*callback)(FLK *flk,char *titre_categorie,char *recup,const void *userdef),const void *userdefine);
 /*
  * get_liens est une fonction foreach comme les deux precedentes
  * servant à recuperer les liens d'un sujet dans une categorie
  * La fonction qu'on lui passe en parametre
  * reçoit le titre du sujet et de la categorie traitée
- * sa forme doit être la suivante :
- * void mafonction(FLK *flk,char *str1,char *str2,char *str3){ ... }
- * str1 recevra le titre du sujet scanné,
- * str2 recevra le titre de la categorie auquel le sujet appartient,
- * str3 recevra le lien actuellement scanné.
- * flk recevra le FLK utilisé par get_liens *f.
+ * son prototype doit être le suivant :
+ * int mafonction(FLK *flk,char *str1,char *str2,char *str3,const void *userdefine){ ... }
+ *    str1 recevra le titre du sujet scanné,
+ *    str2 recevra le titre de la categorie auquel le sujet appartient,
+ *    str3 recevra le lien actuellement scanné.
+ *    userdefine est du type void* il recevera le pointeur qu'on lui aura
+ * passé en paramètre de get_liens.
+ *    flk recevra le FLK utilisé par get_liens *f.
+ *
+ * > mafonction doit retourner un int, soit 1 ou 0, on retourne 1 pour
+ *   stoper le scan en cours et donc ne pas lister tout les objets suivants
+ *   et on retourne 0 pour continuer le scan.
+ *
  * l'appel de get_liens avec mafonction :
- * get_liens(f,"sujet","categorie",mafonction);
+ * get_liens(f,"sujet","categorie",mafonction,userdefine);
+ * userdefine est un pointeur, on peut lui passer une adresse pour ensuite
+ * la récupérer dans nôtre fonction callback.
+ * Si userdefine n'est pas utilisé on le met à NULL
+ * exemple :
+ * get_liens(f,"sujet8","categorie1",macallback,NULL);
  */
 e_moderr get_liens(FLK *f,char *titre_sujet,char *titre_categorie,
-        void (*callback)(FLK *flk,char *titre_sujet,char *titre_categorie,
-            char *recup));
+        int (*callback)(FLK *flk,char *titre_sujet,char *titre_categorie,
+            char *recup,const void *userdef),const void *userdefine);
 
 /*
- * EN PROGRESSION / A TERMINER
- * flk_load devra servir à charger un fichier dans un FLK
- * int pour le retour codes d'erreur
+ * flk_load sert à charger un fichier dans un FLK
+ * un int pour le retour codes d'erreur :
+ * 2 - erreur ouverture du fichier
+ * 1 - erreur f non initialisé (s'il est NULL = erreur)
+ * 0 - si le chargement s'est déroulé correctement
  */
 int flk_load(FLK *f,char *fichier);
+
 /*
  * EN PROGRESSION / A TERMINER
  * flk_save devra servir à enregistrer un FLK directement dans
