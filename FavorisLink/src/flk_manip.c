@@ -351,12 +351,13 @@ e_moderr flk_mod_url(e_modtype mod,
 e_moderr get_categories(FLK *f,int (*callback)(FLK *flk,char *recup,
             const void *userdef),const void *userdefine)
   {
-    struct categorie *cptr;
+    struct categorie *cptr,*cptrtmp;
     cptr=f->categories_index;
     if(cptr){
         while(cptr){
+            cptrtmp=cptr->next;
             if(callback(f,cptr->titre,userdefine)) break;
-            cptr=cptr->next;
+            cptr=cptrtmp;
         }
     } else return ERR_NOEXIST;
     return OKEY;
@@ -365,16 +366,17 @@ e_moderr get_sujets(FLK *f,char *titre_categorie,
         int (*callback)(FLK *flk,char *titre_categorie,char *recup,
             const void *userdef),const void *userdefine)
   {
-    struct sujet *sptr;
+    struct sujet *sptr,*sptrtmp;
     struct temp *tmp;
     tmp=cherche_categorie(titre_categorie,f);
     if(tmp){
         sptr=tmp->cptr->sujets_index;
         free(tmp),tmp=NULL;
         while(sptr){
+            sptrtmp=sptr->next;
             if(callback(f,titre_categorie,sptr->titre,userdefine))
                 break;
-            sptr=sptr->next;
+            sptr=sptrtmp;
         }
     } else return ERR_CATNOEXIST;
     return OKEY;
@@ -383,16 +385,17 @@ e_moderr get_liens(FLK *f,char *titre_sujet,char *titre_categorie,
         int (*callback)(FLK *flk,char *titre_sujet,char *titre_categorie,
             char *recup,const void *userdef),const void *userdefine)
   {
-    struct lien *lptr;
+    struct lien *lptr,*lptrtmp;
     struct temp *tmp;
     tmp=cherche_sujet(titre_sujet,titre_categorie,f);
     if(tmp){
         lptr=tmp->sptr->liens_index;
         free(tmp),tmp=NULL;
         while(lptr){
+            lptrtmp=lptr->next;
             if(callback(f,titre_sujet,titre_categorie,lptr->url,userdefine))
                 break;
-            lptr=lptr->next;
+            lptr=lptrtmp;
         }
     } else return ERR_SUJNOEXIST;
     return OKEY;
