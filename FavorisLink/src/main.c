@@ -29,9 +29,12 @@ int callback_test(FLK *f,char *stitre,char *ctitre,char *url,
     int n;
     const char *str = (const char*)userdefine;/* recuperation pointeur */
     n=strlen(str);
-    if(!memcmp(url,str,n))/* si l'url commence par la chaine passée dans
+    if(!memcmp(url,str,n)){/* si l'url commence par la chaine passée dans
                              userdefine */
         printf("%s\n",url); /* alors affichage de l'url */
+        flk_mod_url(DEL,url,NULL,stitre,ctitre,f); /* et suppression
+                                                      de celle-ci */
+    }
     return 0;
 }
 
@@ -86,21 +89,22 @@ int main(void)
         /* test lecture fichier */
         printf("\n*test chargement d'un fichier .flk\n");
         flk_load(test,"test.flk"); /* chargement */
-        printf("\naffichage du FLK apres chargement fichier test.flk\n");
+        printf("\n*affichage du FLK apres chargement fichier test.flk\n");
         get_categories(test,callback_tout,NULL);
 /**/
         flk_mod_url(ADD,"ftp://bla.bla/",NULL,"sujet1","categorie1",test);
         flk_mod_url(ADD,"http://test/a/",NULL,"sujet1","categorie1",test);
         flk_mod_url(ADD,"https://aa/",NULL,"sujet1","categorie1",test);
         /* affiche tout à nouveau */
-        printf("\naffiche tout a nouveau\n");
+        printf("\n*affiche tout a nouveau\n");
         get_categories(test,callback_tout,NULL);
         /* test callback avec userdefine pour afficher uniquement les
          * liens du sujet1 dans la categorie1 qui commencent par
          * "http:" */
         printf("\n*test callback userdefine http: sur sujet1 categorie1\n");
         get_liens(test,"sujet1","categorie1",callback_test,"http:");
-
+        printf("\n*affiche tout apres suppression des liens http: du sujet1 categorie1\n");
+        get_categories(test,callback_tout,NULL);
 
         /* liberation du FLK */
         flk_free(test);
