@@ -256,11 +256,12 @@ e_moderr get_liens(FLK *f,char *titre_sujet,char *titre_categorie,
 int flk_load(FLK *f,char *fichier);
 
 /*
- * EN PROGRESSION / A TERMINER
- * flk_save devra servir à enregistrer un FLK directement dans
- * un fichier en lui précisant l'adresse/nom d'un fichier à enregistré
- * et le FLK
- * int pour le retour codes d'erreur
+ * flk_save sert à enregistrer un FLK dans un fichier en lui précisant
+ * le FLK et l'adresse/nom d'un fichier à enregistré.
+ * un int pour le retour codes d'erreur :
+ * 2 - erreur creation du fichier
+ * 1 - erreur f non initialisé (NULL = erreur)
+ * 0 - tout est ok
  */
 int flk_save(FLK *f,char *fichier);
 
