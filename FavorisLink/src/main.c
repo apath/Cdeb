@@ -8,7 +8,7 @@
 
 int callback_liens(FLK *f,char *titre_sujet,char *titre_categorie,
         char *url,const void *userdefine){
-    printf("%s`",url,userdefine);
+    printf("%s`",url);
     return 0;
 }
 int callback_sujets(FLK *f,char *titre_categorie,char *titre,const void *userdefine){
@@ -105,6 +105,9 @@ int main(void)
         get_liens(test,"sujet1","categorie1",callback_test,"http:");
         printf("\n*affiche tout apres suppression des liens http: du sujet1 categorie1\n");
         get_categories(test,callback_tout,NULL);
+/**/
+        /* enregistrement du FLK dans un fichier */
+        flk_save(test,"enregistre.flk");
 
         /* liberation du FLK */
         flk_free(test);
