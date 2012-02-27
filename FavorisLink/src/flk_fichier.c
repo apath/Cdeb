@@ -87,3 +87,47 @@ int flk_load(FLK *f,char *fichier){
     } else return 1;/* problem flk n'existe pas */
     return 0;/* tout est ok */
 }
+
+/*
+ * enregistrement FLK dans fichier
+ *
+ * */
+int scanliens(FLK *f,char *stitre,char *ctitre,char *url,const void *ud){
+    FILE *wf;
+    (void)f,(void)stitre,(void)ctitre; /* paramètres non utilisés */
+    wf=(FILE*)ud;
+    fprintf(wf,"%s`",url);
+    return 0;
+}
+int scansujet(FLK *f,char *ctitre,char *stitre,const void *ud){
+    FILE *wf;
+    wf=(FILE*)ud;
+    fprintf(wf,"%s{",stitre);
+    get_liens(f,stitre,ctitre,scanliens,ud);
+    fprintf(wf,"}\r\n");
+    return 0;
+}
+int scantout(FLK *f,char *ctitre,const void *ud){
+    FILE *wf;
+    wf=(FILE*)ud;
+    fprintf(wf,"[%s]\r\n",ctitre);
+    get_sujets(f,ctitre,scansujet,ud);
+    return 0;
+}
+/*
+ * flk_save
+ * sert à enregistrer un FLK dans un fichier
+ * usage :
+ *         flk_save(f,"sauvegarde.flk");
+ */
+int flk_save(FLK *f,char *fichier){
+    FILE *wf;
+    if(f){
+        wf=fopen(fichier,"wb");
+        if(wf){
+            get_categories(f,scantout,wf);
+            fclose(wf);
+        }else return 2; /* erreur ne peut créer le fichier */
+    }else return 1; /* erreur FLK non initialisé */
+    return 0; /* tout est ok */
+}
