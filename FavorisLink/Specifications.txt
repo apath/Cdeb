@@ -2,7 +2,7 @@ Format de la sauvegarde FLK :
 
 [titre_Categorie1]
 sujet1{lien1`lien2}
-sujet2[lien1`lien2}
+sujet2{lien1`lien2}
 [titre_Categorie2]
 
 ...
@@ -11,7 +11,7 @@ sujet2[lien1`lien2}
 
 Les sauts de ligne peuvent être de la forme \r\n ou \n mais ne sont pas obligatoires :
 
-[titre_Categorie1]sujet1{lien1`lien2}sujet2[lien1`lien2}[titre_Categorie2]
+[titre_Categorie1]sujet1{lien1`lien2}sujet2{lien1`lien2}[titre_Categorie2]
 ...
 
 --------------------------------
@@ -20,7 +20,7 @@ Il peut y avoir le caractère de séparation des liens ` à la fin d'une liste de l
 
 [titre_Categorie1]
 sujet1{lien1`lien2`}
-sujet2[lien1`lien2`}
+sujet2{lien1`lien2`}
 [titre_Categorie2]
 ...
 
@@ -30,7 +30,7 @@ Une catégorie peut ne pas contenir de sujets, et un sujet peut ne pas contenir d
 
 [titre_Categorie1]
 sujet1{}
-sujet2[lien1`lien2`}
+sujet2{lien1`lien2`}
 [titre_Categorie2]
 [titre_Categorie3]
 sujetA{lien1}
