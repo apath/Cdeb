@@ -212,7 +212,10 @@ e_moderr flk_mod_categorie(e_modtype mod,
                     cptr->next=f->categories_index;
                     f->categories_index=cptr;
                     return OKEY;
-                } else return ERR_ALLOC_TITRE;
+                } else {
+                    free(cptr);
+                    return ERR_ALLOC_TITRE;
+                }
             } else return ERR_ALLOC_STRUCT;
         } else return ERR_EXIST;
     }
@@ -266,7 +269,10 @@ e_moderr flk_mod_sujet(e_modtype mod,
                     sptr->next=cptr->sujets_index;
                     cptr->sujets_index=sptr;
                     return OKEY;
-                } else return ERR_ALLOC_TITRE;
+                } else {
+                    free(sptr);
+                    return ERR_ALLOC_TITRE;
+                }
             } else return ERR_ALLOC_STRUCT;
         } else return ERR_EXIST;
     }
@@ -321,7 +327,10 @@ e_moderr flk_mod_url(e_modtype mod,
                     lptr->next=sptr->liens_index;
                     sptr->liens_index=lptr;
                     return OKEY;
-                } else return ERR_ALLOC_TITRE;
+                } else {
+                    free(lptr);
+                    return ERR_ALLOC_TITRE;
+                }
             } else return ERR_ALLOC_STRUCT;
         } else return ERR_EXIST;
     }
