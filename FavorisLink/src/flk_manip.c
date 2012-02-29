@@ -222,6 +222,7 @@ e_moderr flk_mod_categorie(e_modtype mod,
     if(mod==DEL){
         if(cptr){
             if(cptrtmp!=NULL) cptrtmp->next=cptr->next;
+            else f->categories_index=cptr->next;
             free_sujets(titre_categorie,f);
             free(cptr->titre),cptr->titre=NULL;
             free(cptr),cptr=NULL;
@@ -279,6 +280,7 @@ e_moderr flk_mod_sujet(e_modtype mod,
     if(mod==DEL){
         if(sptr){
             if(sptrtmp!=NULL) sptrtmp->next=sptr->next;
+            else cptr->sujets_index=sptr->next;
             free_liens(titre_sujet,titre_categorie,f);
             free(sptr->titre),sptr->titre=NULL;
             free(sptr),sptr=NULL;
@@ -337,6 +339,7 @@ e_moderr flk_mod_url(e_modtype mod,
     if(mod==DEL){
         if(lptr){
             if(lptrtmp!=NULL) lptrtmp->next=lptr->next;
+            else sptr->liens_index=lptr->next;
             free(lptr->url),lptr->url=NULL;
             free(lptr),lptr=NULL;
             return OKEY;
