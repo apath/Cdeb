@@ -1,0 +1,19 @@
+HELP console FLK
+
+Commandes :
+ls 		- affiche le contenu du repertoire actuel.
+tree		- affiche l'arbre du repertoire actuel.
+cd ..|n|s	- pour se deplacer dans un repertoire ou revenir en arriere.
+del *|n|s	- pour supprimer une ou toutes les selection(s) affichee(s) du repertoire actuel.
+add s		- permet d'ajouter une entree dans le repertoire actuel.
+rename s1 s2	- renomme s1 du repertoire actuel en s2.
+save s.flk	- enregistrer le FLK dans un fichier.
+load s.flk	- charger un fichier.
+quit|exit	- fermer la console FLK.
+help		- afficher l'aide.
+
+Les paramètres :
+*		- tout.
+n		- un nombre.
+s		- une chaine de caracteres.
+..		- "repertoire" precedent.

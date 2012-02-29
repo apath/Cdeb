@@ -265,4 +265,10 @@ int flk_load(FLK *f,char *fichier);
  */
 int flk_save(FLK *f,char *fichier);
 
+/*
+ * flk_console ouvre une console special pour la manipulation
+ * d'un FLK en utilisant des commandes
+ */
+void flk_console(FLK *f);
+
 #endif
