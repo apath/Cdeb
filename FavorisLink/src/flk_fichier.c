@@ -22,6 +22,7 @@ int flk_load(FLK *f,char *fichier){
          sujet_titre[MAXCSL],
          lien_url[MAXCSL];
     FILE *rf;
+    c=i=ct=st=lu=z=0;
     if(f){
         rf=fopen(fichier,"rb");
         if(rf){
