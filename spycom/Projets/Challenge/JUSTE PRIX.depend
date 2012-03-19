@@ -1,0 +1,154 @@
+# depslib dependency file v1.0
+1327404017 source:f:\c-deb\codes sources\juste prix\juste prix\plusmoins.c
+	<stdio.h>
+	<windows.h>
+
+1327397810 source:f:\c-deb\codes sources\juste prix\juste prix\simon.c
+	<stdio.h>
+	<windows.h>
+
+1327412419 source:f:\c-deb\codes sources\juste prix\juste prix\suite.c
+	<stdio.h>
+	<windows.h>
+	"fonctions.h"
+
+1327397387 f:\c-deb\codes sources\juste prix\juste prix\fonctions.h
+
+1327397469 source:f:\c-deb\codes sources\juste prix\juste prix\fonctions.c
+	<stdio.h>
+
+1327401528 source:f:\c-deb\codes sources\juste prix\juste prix\main.c
+	<stdio.h>
+	<time.h>
+	<windows.h>
+	"fonctions.h"
+	"Simon.h"
+	"Suite.h"
+	"PlusMoins.h"
+	"Challenge.h"
+
+1327328690 f:\c-deb\codes sources\juste prix\juste prix\simon.h
+
+1327329738 f:\c-deb\codes sources\juste prix\juste prix\suite.h
+
+1327412262 source:f:\c-deb\codes sources\juste prix\juste prix\challenge.c
+	<stdio.h>
+	<time.h>
+	<windows.h>
+	<string.h>
+	"fonctions.h"
+	"Simon.h"
+	"Suite.h"
+	"PlusMoins.h"
+	"Challenge.h"
+
+1327330629 f:\c-deb\codes sources\juste prix\juste prix\plusmoins.h
+
+1327338707 f:\c-deb\codes sources\juste prix\juste prix\challenge.h
+
+1327404017 source:f:\c-deb\codes sources\juste prix\plusmoins.c
+	<stdio.h>
+	<windows.h>
+
+1327397810 source:f:\c-deb\codes sources\juste prix\simon.c
+	<stdio.h>
+	<windows.h>
+
+1327412419 source:f:\c-deb\codes sources\juste prix\suite.c
+	<stdio.h>
+	<windows.h>
+	"fonctions.h"
+
+1327424933 f:\c-deb\codes sources\juste prix\fonctions.h
+
+1327397469 source:f:\c-deb\codes sources\juste prix\fonctions.c
+	<stdio.h>
+
+1327426092 source:f:\c-deb\codes sources\juste prix\main.c
+	<stdio.h>
+	<time.h>
+	<windows.h>
+	"fonctions.h"
+	"Simon.h"
+	"Suite.h"
+	"PlusMoins.h"
+	"Challenge.h"
+	"Fricfrac.h"
+
+1327424933 f:\c-deb\codes sources\juste prix\simon.h
+
+1327424933 f:\c-deb\codes sources\juste prix\suite.h
+
+1327424932 f:\c-deb\codes sources\juste prix\plusmoins.h
+
+1327338707 f:\c-deb\codes sources\juste prix\challenge.h
+
+1327425691 source:f:\c-deb\codes sources\juste prix\challenge.c
+	<stdio.h>
+	<time.h>
+	<windows.h>
+	<string.h>
+	"fonctions.h"
+	"Simon.h"
+	"Suite.h"
+	"PlusMoins.h"
+	"Fricfrac.h"
+	"Challenge.h"
+
+1327425618 source:f:\c-deb\codes sources\juste prix\fricfrac.c
+	<stdio.h>
+	<windows.h>
+
+1327425084 f:\c-deb\codes sources\juste prix\fricfrac.h
+
+1327404017 source:c:\users\spycom\documents\prog\c\projets c\juste prix challenge\plusmoins.c
+	<stdio.h>
+	<windows.h>
+
+1327397810 source:c:\users\spycom\documents\prog\c\projets c\juste prix challenge\simon.c
+	<stdio.h>
+	<windows.h>
+
+1327412419 source:c:\users\spycom\documents\prog\c\projets c\juste prix challenge\suite.c
+	<stdio.h>
+	<windows.h>
+	"fonctions.h"
+
+1327424933 c:\users\spycom\documents\prog\c\projets c\juste prix challenge\fonctions.h
+
+1327397469 source:c:\users\spycom\documents\prog\c\projets c\juste prix challenge\fonctions.c
+	<stdio.h>
+
+1327426092 source:c:\users\spycom\documents\prog\c\projets c\juste prix challenge\main.c
+	<stdio.h>
+	<time.h>
+	<windows.h>
+	"fonctions.h"
+	"Simon.h"
+	"Suite.h"
+	"PlusMoins.h"
+	"Challenge.h"
+	"Fricfrac.h"
+
+1327424933 c:\users\spycom\documents\prog\c\projets c\juste prix challenge\simon.h
+
+1327424933 c:\users\spycom\documents\prog\c\projets c\juste prix challenge\suite.h
+
+1327424932 c:\users\spycom\documents\prog\c\projets c\juste prix challenge\plusmoins.h
+
+1327338707 c:\users\spycom\documents\prog\c\projets c\juste prix challenge\challenge.h
+
+1327425084 c:\users\spycom\documents\prog\c\projets c\juste prix challenge\fricfrac.h
+
+1327429308 source:c:\users\spycom\documents\prog\c\projets c\juste prix challenge\challenge.c
+	<stdio.h>
+	<time.h>
+	<windows.h>
+	<string.h>
+	"fonctions.h"
+	"Simon.h"
+	"Suite.h"
+	"PlusMoins.h"
+	"Fricfrac.h"
+	"Challenge.h"
+
