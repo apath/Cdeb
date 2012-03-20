@@ -1,0 +1,33 @@
+Menu:
+- Consulter contact.
+- Traiter contact.
+- Quitter
+
+
+Consultation par:
+
+1- Nom
+2- Identifiant
+3- Num.telephone
+4- Ville
+
+
+
+Menu traitement:
+
+1-     Ajouter un contact.
+2-     Supprimer un contact.
+3-     Mise à jour d’un contact.
+4-     Imprimer données.
+5-     Quitter.
+
+Fiche contact
+
+1- Identifiant
+2- Nom
+3- Prénom
+4- Sexe
+5- Date de naissance (jour, mois, année)
+6- Adresse mail
+7- Num.telephone
+8- Adresse
