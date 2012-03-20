@@ -21,13 +21,13 @@ Menu traitement:
 4-     Imprimer données.
 5-     Quitter.
 
-Fiche contact
-
-1- Identifiant
-2- Nom
-3- Prénom
-4- Sexe
-5- Date de naissance (jour, mois, année)
-6- Adresse mail
-7- Num.telephone
-8- Adresse
+struct Fiche contact:
+1- identifiant
+2- nom
+3- prenom
+4- sexe
+5- date_naissance
+6- email
+7- numfix
+8- nummobil
+9- adresse
