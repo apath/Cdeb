@@ -1,10 +1,6 @@
 #ifndef FONCTIONS_H_INCLUDED
 #define FONCTIONS_H_INCLUDED
 
-int recherche_id(struct Fiche,int id_rechercher,int capacite);
-
-char longueur_chaine(char *chaine) ;
-
 struct Fiche
 {
     int id;
@@ -18,5 +14,9 @@ struct Fiche
     char *adresse;
 };
 
+void initialise_fiche(struct Fiche *contact,int capacite);
+int recherche_id(struct Fiche *contact,int id_rechercher,int capacite);
+void affiche_id(struct Fiche *contact,int i);
+char *longueur_chaine(char *chaine);
 
-#endif // FONCTIONS_H_INCLUDED
+#endif /* FONCTIONS_H_INCLUDED */
