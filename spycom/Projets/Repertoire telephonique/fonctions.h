@@ -1,5 +1,6 @@
 #ifndef FONCTIONS_H_INCLUDED
 #define FONCTIONS_H_INCLUDED
+#include <time.h>
 
 struct Fiche
 {
@@ -7,7 +8,7 @@ struct Fiche
     char *nom;
     char *prenom;
     char *sexe;
-    char *date_naissance;
+    time_t date_naissance;
     char *email;
     char *numfix;
     char *nummobil;
@@ -18,5 +19,6 @@ void initialise_fiche(struct Fiche *contact,int capacite);
 int recherche_id(struct Fiche *contact,int id_rechercher,int capacite);
 void affiche_id(struct Fiche *contact,int i);
 char *longueur_chaine(char *chaine);
+time_t ret_naissance(int j,int m,int a);
 
 #endif /* FONCTIONS_H_INCLUDED */

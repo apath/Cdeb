@@ -10,7 +10,6 @@ void initialise_fiche(struct Fiche *contact,int capacite){
         contact[i].nom=NULL;
         contact[i].prenom=NULL;
         contact[i].sexe=NULL;
-        contact[i].date_naissance=NULL;
         contact[i].email=NULL;
         contact[i].numfix=NULL;
         contact[i].nummobil=NULL;
@@ -24,7 +23,7 @@ void affiche_id(struct Fiche *contact,int i){
     printf("Nom: %s\n", contact[i].nom);
     printf("Prenom: %s\n", contact[i].prenom);
     printf("Sexe: %s\n", contact[i].sexe);
-    printf("Date de naissance: %s\n", contact[i].date_naissance);
+    printf("Date de naissance: %s", ctime(&contact[i].date_naissance));
     printf("Email: %s\n", contact[i].email);
     printf("Telephone fixe: %s\n", contact[i].numfix);
     printf("Telephone mobile: %s\n", contact[i].nummobil);
@@ -48,3 +47,18 @@ char *longueur_chaine(char *chaine){ /* la fonction retourne un pointeur */
     strcpy(pointeur,chaine);
     return pointeur;
 }
+
+/* ret_naissance retourne une date dans un time_t
+ * on affiche le time_t avec la fonction ctime() */
+time_t ret_naissance(int j,int m,int a){
+    time_t date_naissance;
+    struct tm *dn;
+    date_naissance = time(NULL);
+    dn = localtime(&date_naissance);
+    dn->tm_year = a-1900;
+    dn->tm_mon = m-1;
+    dn->tm_mday = j;
+    date_naissance = mktime(dn);
+    return date_naissance;
+}
+
