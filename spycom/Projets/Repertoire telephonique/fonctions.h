@@ -15,10 +15,11 @@ struct Fiche
     char *adresse;
 };
 void ajouter_contact(struct Fiche *contact, int capacite);
-void initialise_fiche(struct Fiche *contact,int capacite,int i);
+void initialise_fiche(struct Fiche *contact,int capacite);
 int recherche_id(struct Fiche *contact,int id_rechercher,int capacite);
 void affiche_id(struct Fiche *contact,int i);
 char *longueur_chaine(char *chaine);
 time_t ret_naissance(int j,int m,int a);
+void affiche_naissance(time_t date);
 
 #endif /* FONCTIONS_H_INCLUDED */
