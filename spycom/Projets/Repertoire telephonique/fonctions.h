@@ -14,8 +14,8 @@ struct Fiche
     char *nummobil;
     char *adresse;
 };
-
-void initialise_fiche(struct Fiche *contact,int capacite);
+void ajouter_contact(struct Fiche *contact, int capacite);
+void initialise_fiche(struct Fiche *contact,int capacite,int i);
 int recherche_id(struct Fiche *contact,int id_rechercher,int capacite);
 void affiche_id(struct Fiche *contact,int i);
 char *longueur_chaine(char *chaine);

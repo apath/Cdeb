@@ -5,7 +5,9 @@
 int main()
 {
     struct Fiche contact[10];
-    initialise_fiche(contact,10);
+    initialise_fiche(contact,10,0);
+
+    ajouter_contact(contact,10);
 
     contact[0].id=1;
     contact[0].nom=longueur_chaine("Dupont");

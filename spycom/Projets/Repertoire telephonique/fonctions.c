@@ -3,8 +3,40 @@
 #include <string.h>
 #include "fonctions.h"
 
-void initialise_fiche(struct Fiche *contact,int capacite){
-    int i;
+void ajouter_contact(struct Fiche *contact, int capacite){
+    int i, id_libre = -1;
+     /*recherche d'une fiche libre*/
+    for(i=0;i<capacite;i++){
+        if(contact[i].id==0){
+            id_libre=i;
+        }
+    }
+    if(id_libre!= -1){
+        initialise_fiche(contact,id_libre+1,id_libre);/*Initialisation de la fiche libre*/
+        contact[id_libre].id=id_libre+1;
+        printf("Identifiant: %d\n", contact[id_libre].id);
+        printf("Nom: ");
+        scanf("%s",&contact[id_libre].nom);
+        printf("Prenom: ");
+        scanf("%s",&contact[id_libre].prenom);
+        printf("Sexe: ");
+        scanf("%s",&contact[id_libre].sexe);
+        printf("Date de naissance: ");
+        scanf("%s",&contact[id_libre].date_naissance);
+        printf("Email: ");
+        scanf("%s",&contact[id_libre].email);
+        printf("Telephone fixe: ");
+        scanf("%s",&contact[id_libre].numfix);
+        printf("Telephone mobile: ");
+        scanf("%s",&contact[id_libre].nummobil);
+        printf("Adresse: ");
+        scanf("%s",&contact[id_libre].adresse);
+    }
+}
+
+/*ajout en parametre de int i pour permettre l'initialisation
+ *d'une seule fiche*/
+void initialise_fiche(struct Fiche *contact,int capacite,int i){
     for(i=0;i<capacite;i++){
         contact[i].id=0;
         contact[i].nom=NULL;
@@ -18,7 +50,7 @@ void initialise_fiche(struct Fiche *contact,int capacite){
 }
 
 void affiche_id(struct Fiche *contact,int i){
-    i-=1;
+    i--;
     printf("Identifiant: %d\n", contact[i].id);
     printf("Nom: %s\n", contact[i].nom);
     printf("Prenom: %s\n", contact[i].prenom);
@@ -61,4 +93,3 @@ time_t ret_naissance(int j,int m,int a){
     date_naissance = mktime(dn);
     return date_naissance;
 }
-
