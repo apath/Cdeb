@@ -6,7 +6,7 @@
 void affiche_tout(struct Fiche *contact,int capacite){
  int i;
  for(i=0;i<capacite;i++){
-    affiche_id(contact,i+1);
+    if(contact[i].id!=0) affiche_id(contact,i+1);
  }
 }
 
@@ -19,7 +19,6 @@ void supp_contact(struct Fiche *contact,int i){
     free(contact[i].nom),contact[i].nom=NULL;
     free(contact[i].prenom),contact[i].prenom=NULL;
     free(contact[i].sexe),contact[i].sexe=NULL;
-    /*free(contact[i].date_naissance),contact[i].date_naissance=NULL;*/
     free(contact[i].email),contact[i].email=NULL;
     free(contact[i].numfix),contact[i].numfix=NULL;
     free(contact[i].nummobil),contact[i].nummobil=NULL;
