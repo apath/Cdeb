@@ -15,6 +15,12 @@ int main(void)
         affiche_id(contact,1);
     }
 
+    affiche_tout(contact,10);
+
+    if(!recherche_id(contact,1,10)){
+        supp_contact(contact,1);
+    }
+
     /* ajouter_contact trouve automatiquement un emplacement libre
      * et donne l'id qui convient pour le nouveau contact
      * ici ce sera le second emplacement qui sera libre */

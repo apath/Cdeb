@@ -3,6 +3,29 @@
 #include <string.h>
 #include "fonctions.h"
 
+void affiche_tout(struct Fiche *contact,int capacite){
+ int i;
+ for(i=0;i<capacite;i++){
+    affiche_id(contact,i+1);
+ }
+}
+
+/*Ajout de la fonction supp_contact.
+ *Voir pour la date de naissance si il faut la reinitialiser ici.
+ *int i correspond a l'id de la fiche contact à supprimer. */
+void supp_contact(struct Fiche *contact,int i){
+    i--;
+    contact[i].id=0;
+    free(contact[i].nom),contact[i].nom=NULL;
+    free(contact[i].prenom),contact[i].prenom=NULL;
+    free(contact[i].sexe),contact[i].sexe=NULL;
+    /*free(contact[i].date_naissance),contact[i].date_naissance=NULL;*/
+    free(contact[i].email),contact[i].email=NULL;
+    free(contact[i].numfix),contact[i].numfix=NULL;
+    free(contact[i].nummobil),contact[i].nummobil=NULL;
+    free(contact[i].adresse),contact[i].adresse=NULL;
+}
+
 /* get_str remplace le scanf, on lui passe un buffer en paramètre et la taille max
  * de celui-ci (max-1 pour le 0 de fin de chaîne) et la fonction utilise getchar()
  * pour remplir le buffer puis termine la châine par zéro et la retourne */
