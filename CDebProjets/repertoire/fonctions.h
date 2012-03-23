@@ -14,6 +14,9 @@ struct Fiche
     char *nummobil;
     char *adresse;
 };
+
+int recherche_nom(struct Fiche *contact,char *nom_rechercher,int capacite);
+void supprime_tout(struct Fiche *contact,int capacite);
 void affiche_tout(struct Fiche *contact,int capacite);
 void supp_contact(struct Fiche *contact,int i);
 void ajouter_contact(struct Fiche *contact, int capacite);

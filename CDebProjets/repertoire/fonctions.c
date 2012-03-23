@@ -1,17 +1,41 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include "fonctions.h"
 
-void affiche_tout(struct Fiche *contact,int capacite){
+/*recherche par nom*/
+int recherche_nom(struct Fiche *contact,char *nom_rechercher,int capacite){
+    int i,l;
+    /*Met la premiere letre en ma j et le reste en mini*/
+    l=strlen(nom_rechercher);
+    for(i=0;i<l;i++){
+        if(i==0){
+            nom_rechercher[i]=toupper(nom_rechercher[i]);
+        }
+        else{
+            nom_rechercher[i]=tolower(nom_rechercher[i]);
+        }
+    }
+    for(i=0;i<capacite;i++){
+        if(strcmp(contact[i].nom,nom_rechercher)) {
+            affiche_id(contact,i);
+            return 0; /* le nom est trouvé */
+        }
+    }
+    return 1; /* le nom n'est pas trouvé */
+}
+
+
+/*supprime toutes les fiches existantes par recherche d'ID*/
+void supprime_tout(struct Fiche *contact,int capacite){
  int i;
  for(i=0;i<capacite;i++){
-    if(contact[i].id!=0) affiche_id(contact,i+1);
+    if(contact[i].id!=0) supp_contact(contact,i+1);
  }
 }
 
 /*Ajout de la fonction supp_contact.
- *Voir pour la date de naissance si il faut la reinitialiser ici.
  *int i correspond a l'id de la fiche contact à supprimer. */
 void supp_contact(struct Fiche *contact,int i){
     i--;
@@ -74,6 +98,15 @@ void initialise_fiche(struct Fiche *contact,int capacite){
     }
 }
 
+/*affiche toute les fiches existantes par recherche d'ID*/
+void affiche_tout(struct Fiche *contact,int capacite){
+ int i;
+ for(i=0;i<capacite;i++){
+    if(contact[i].id!=0) affiche_id(contact,i+1);
+ }
+}
+
+/*affiche une fiche demande par son id*/
 void affiche_id(struct Fiche *contact,int i){
     i--;
     printf("---------------------------\n");
