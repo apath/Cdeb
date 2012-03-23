@@ -40,7 +40,7 @@ void ajouter_contact(struct Fiche *contact, int capacite){
     int i;
     for(i=0;i<capacite;i++)
         if(recherche_id(contact,i+1,capacite)) break;
-    contact[i].id=i; i-=1;
+    contact[i-1].id=i; i-=1;
     printf("Nom: ");
     contact[i].nom=longueur_chaine(get_str(buff,256));
     printf("Prenom: ");
