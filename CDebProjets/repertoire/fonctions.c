@@ -69,8 +69,13 @@ void ajouter_contact(struct Fiche *contact, int capacite){
     printf("Nom: ");
     contact[i].nom=longueur_chaine(get_str(buff,256));
      /* Formatage de contact[i].nom ici*/
+    /* tu n'es pas forcé de créer un nouveau tableau pour modifier le nom
+     * car la taille ne changera pas seulement les valeurs, utilises
+     * directement contact[i].nom */
     l=strlen(contact[i].nom);
-    char nom_formate[l];
+    char nom_formate[l]; /* attention on déclare les var avant les instructions dans les proprietes de ton projet dans build option de compilation
+    coche l'option "ansi", "wall" et "wallextra" pour avoir des warinings
+    dans ces cas là */
     strcpy(nom_formate,contact[i].nom);
     for(j=0;j<l;j++){
         if(j==0){

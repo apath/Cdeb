@@ -1,9 +1,16 @@
 
 
--	Il faut modifier la fonction ajouter_contact pour s'assurer que le nom
-	commence bien par une majuscule et que le reste soit bien en minuscule
-	sans quoi la fonction recherche_nom ne trouvera pas le contact dont le
-	nom n'est pas correctement formaté.
+-	Lorsqu'on travail sur une chaîne de caractère il n'est pas nécessaire de
+	connaître sa taille (strlen) car on sait qu'elle termine par le caractère \0
+	Du coup ça permet de faire une boucle comme ceci pour la traverser :
+	int i;
+	char tableau[10]="bonjour";
+	for(i=0;tableau[i];i++) /* tant que tableau[i] n'est pas zéro ça fonctionne
+				pour la condition de test de la boucle */
+	{
+		printf("%c",tableau[i]);
+	}
+
 
 -	L'enregistrement dans un fichier pourrait se faire un contact par ligne
 	les informations seraient séparées par une virgule, une donnée vide contiendrait
