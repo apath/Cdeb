@@ -67,6 +67,9 @@ void ajouter_contact(struct Fiche *contact, int capacite){
     contact[i-1].id=i; i-=1;
     printf("Nom: ");
     contact[i].nom=longueur_chaine(get_str(buff,256));
+    /*
+     * faire le formatage de contact[i].nom ici
+     */
     printf("Prenom: ");
     contact[i].prenom=longueur_chaine(get_str(buff,256));
     printf("Sexe: ");

@@ -1,14 +1,27 @@
 
--	Il faudrait faire une fonction pour afficher tout les contacts
-	Dans une boucle appeler la fonction affiche_id, si l'id n'est pas 
-	à zéro (il faut que le contact exist pour l'afficher).
-	Le prototype pourrait être :
-		void affiche_tout(struct Fiche *contact,int capacite);
 
+-	Il faut modifier la fonction ajouter_contact pour s'assurer que le nom
+	commence bien par une majuscule et que le reste soit bien en minuscule
+	sans quoi la fonction recherche_nom ne trouvera pas le contact dont le
+	nom n'est pas correctement formaté.
 
--	Grâce à la fonction qui les affiche tous on peut choisir un id à supprimer et
-	donc créer une fonction de suppression d'un contact par id.
-	Le prototype pourrait être :
-		void supp_contact(struct Fiche *contact,int id,int capacite);
-	Utilisation de la fonction recherche_id si retourne 0 alors l'id est trouvé
-	et on le supprime : free des pointeurs de char* du contact et mise à zéro de l'id.
+-	L'enregistrement dans un fichier pourrait se faire un contact par ligne
+	les informations seraient séparées par une virgule, une donnée vide contiendrait
+	null :
+
+	nom,prenom,sexe,date_naissance,email,numfix,nummobil,adresse
+
+	Dupont,Henry,M,20/9/1980,dupont@mail.com,1234123434,4321432143,9 rue dupont
+	Dupuit,Charles,M,14/1/1990,dupuit@mail.com,null,0213902394,3 allee dupuit
+
+	La fonction serait de la forme :
+	int save_fiche(struct Fiche *contact,int capacite,char *nom_fichier);
+	elle retourne un code en cas d'erreurs, 0 en cas de réussite.
+	utilisation de la fonction fwrite pour l'écriture dans le fichier. (Pas
+	d'utilisation de fprintf)
+
+-	Le chargement d'un fichier se fera à l'aide de la fonction fread et non de fscanf.
+	La fonction serait de la forme :
+	int load_fiche(struct Fiche *contact,int capacite,char *nom_fichier);
+	retourne un code en cas d'erreurs, 0 en cas de réussite.
+	
