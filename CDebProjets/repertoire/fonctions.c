@@ -62,6 +62,8 @@ char *get_str(char *s,int max){
 void ajouter_contact(struct Fiche *contact, int capacite){
     char buff[256];
     int i,j;
+    FILE *FICHIER=NULL;
+
 
     for(i=0;i<capacite;i++)
         if(recherche_id(contact,i+1,capacite)) break;
@@ -79,14 +81,13 @@ void ajouter_contact(struct Fiche *contact, int capacite){
         }
     }
        /* Fin formatage */
-       printf("%s",contact[i].nom);
     printf("Prenom: ");
     contact[i].prenom=longueur_chaine(get_str(buff,256));
     printf("Sexe: ");
     contact[i].sexe=longueur_chaine(get_str(buff,256));
     printf("Date de naissance: ");
     /*pour la date attendre que yrnas ait fait la fonction de parsing "0/0/0" */
-    /*contact[id_libre].date_naissance=x(get_str(buff,256));*/
+    /*contact[i].date_naissance=x(get_str(buff,256));*/
     printf("Email: ");
     contact[i].email=longueur_chaine(get_str(buff,256));
     printf("Telephone fixe: ");
@@ -95,10 +96,19 @@ void ajouter_contact(struct Fiche *contact, int capacite){
     contact[i].nummobil=longueur_chaine(get_str(buff,256));
     printf("Adresse: ");
     contact[i].adresse=longueur_chaine(get_str(buff,256));
+/*essai ajout dans un fichier texte*/
+    FICHIER=fopen("repertoire.txt","a");
+    if (FICHIER != NULL){
+        fprintf(FICHIER,"%d,%s,%s,%s,%s,%s,%s,%s,%s\n",contact[i].id,contact[i].nom,contact[i].prenom,contact[i].sexe,contact[i].date_naissance,contact[i].email,contact[i].numfix,contact[i].nummobil,contact[i].adresse);
+        fclose(FICHIER);
+    }
+    else
+        printf("Impossible d'ouvrir le fichier repertoire.txt");
 }
 
 void initialise_fiche(struct Fiche *contact,int capacite){
     int i;
+
     for(i=0;i<capacite;i++){
         contact[i].id=0;
         contact[i].nom=NULL;
