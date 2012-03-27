@@ -4,7 +4,7 @@
 
 int main(void)
 {
-
+/*micro modif*/
     struct Fiche contact[10];
     initialise_fiche(contact,10);
 
