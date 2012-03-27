@@ -1,16 +1,11 @@
-
-
--	Lorsqu'on travail sur une chaîne de caractère il n'est pas nécessaire de
-	connaître sa taille (strlen) car on sait qu'elle termine par le caractère \0
-	Du coup ça permet de faire une boucle comme ceci pour la traverser :
-	int i;
-	char tableau[10]="bonjour";
-	for(i=0;tableau[i];i++) /* tant que tableau[i] n'est pas zéro ça fonctionne
-				pour la condition de test de la boucle */
-	{
-		printf("%c",tableau[i]);
-	}
-
+-	Pour l'enregistrement et lecture fichier il y a deux exemples dans le dossier
+	'lesfichiers' sur l'utilisation de fwrite et fread. Pour l'enregistrement à la
+	fin de chaque ligne il faut ajouter le caractère de saut de ligne '\n'. La
+	lecture sera un peu plus difficile mais l'enregistrement ça devrait aller
+	Faire une boucle sur la fiche utilisant sa capacite et à chaque information d'un
+	contact dont l'id est valide utiliser fwrite (pour la date de naissance mettre
+	"null" pour le moment) ajouter une virgule apres chaque informations du contact et
+	un \n à la fin de l'ecriture d'un contact.
 
 -	L'enregistrement dans un fichier pourrait se faire un contact par ligne
 	les informations seraient séparées par une virgule, une donnée vide contiendrait
