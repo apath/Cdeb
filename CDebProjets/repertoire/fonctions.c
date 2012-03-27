@@ -4,39 +4,45 @@
 #include <ctype.h>
 #include "fonctions.h"
 
-/*recherche par nom*/
-int recherche_nom(struct Fiche *contact,char *nom_rechercher,int capacite){
+  /*recherche par nom*/
+int recherche_nom(struct Fiche *contact,const char *nom_rechercher,int capacite){
+    char *buff_nom;
     int i,l;
-    /*Met la premiere letre en ma j et le reste en mini*/
     l=strlen(nom_rechercher);
+    buff_nom=malloc(sizeof(char)*l);
+    if(!buff_nom) exit(1);
+    strcpy(buff_nom,nom_rechercher);
     for(i=0;i<l;i++){
         if(i==0){
-            nom_rechercher[i]=toupper(nom_rechercher[i]);
+            buff_nom[i]=toupper(buff_nom[i]);
         }
         else{
-            nom_rechercher[i]=tolower(nom_rechercher[i]);
+            buff_nom[i]=tolower(buff_nom[i]);
         }
     }
     for(i=0;i<capacite;i++){
-        if(strcmp(contact[i].nom,nom_rechercher)) {
-            affiche_id(contact,i);
-            return 0; /* le nom est trouvé */
+        if(contact[i].id!=0){
+            if(!strcmp(contact[i].nom,buff_nom)) {
+                affiche_id(contact,i);
+                return 0; /* le nom est trouvé */
+            }
         }
     }
+    free(buff_nom);
     return 1; /* le nom n'est pas trouvé */
 }
 
 
-/*supprime toutes les fiches existantes par recherche d'ID*/
+  /*supprime toutes les fiches existantes par recherche d'ID*/
 void supprime_tout(struct Fiche *contact,int capacite){
- int i;
- for(i=0;i<capacite;i++){
-    if(contact[i].id!=0) supp_contact(contact,i+1);
- }
+    int i;
+    for(i=0;i<capacite;i++){
+        if(contact[i].id!=0) supp_contact(contact,i+1);
+    }
 }
 
-/*Ajout de la fonction supp_contact.
- *int i correspond a l'id de la fiche contact à supprimer. */
+  /*Ajout de la fonction supp_contact.
+   *int i correspond a l'id de la fiche contact à supprimer. */
 void supp_contact(struct Fiche *contact,int i){
     i--;
     contact[i].id=0;
@@ -49,9 +55,9 @@ void supp_contact(struct Fiche *contact,int i){
     free(contact[i].adresse),contact[i].adresse=NULL;
 }
 
-/* get_str remplace le scanf, on lui passe un buffer en paramètre et la taille max
- * de celui-ci (max-1 pour le 0 de fin de chaîne) et la fonction utilise getchar()
- * pour remplir le buffer puis termine la châine par zéro et la retourne */
+  /* get_str remplace le scanf, on lui passe un buffer en paramètre et la taille max
+   * de celui-ci (max-1 pour le 0 de fin de chaîne) et la fonction utilise getchar()
+   * pour remplir le buffer puis termine la châine par zéro et la retourne */
 char *get_str(char *s,int max){
     int i; char c;
     for(i=0;(c=getchar())!='\n'&&i<max-1;i++) s[i]=c;
@@ -64,8 +70,10 @@ void ajouter_contact(struct Fiche *contact, int capacite){
     int i,j;
 
     for(i=0;i<capacite;i++)
-        if(recherche_id(contact,i+1,capacite)) break;
-    contact[i-1].id=i; i-=1;
+        if(contact[i].id==0){
+            contact[i].id=i+1;
+            break;
+        }
     printf("Nom: ");
     contact[i].nom=longueur_chaine(get_str(buff,256));
 
@@ -83,8 +91,8 @@ void ajouter_contact(struct Fiche *contact, int capacite){
     printf("Sexe: ");
     contact[i].sexe=longueur_chaine(get_str(buff,256));
     printf("Date de naissance: ");
-    /*pour la date attendre que yrnas ait fait la fonction de parsing "0/0/0" */
-    /*contact[i].date_naissance=x(get_str(buff,256));*/
+      /*pour la date attendre que yrnas ait fait la fonction de parsing "0/0/0" */
+      /*contact[i].date_naissance=x(get_str(buff,256));*/
     printf("Email: ");
     contact[i].email=longueur_chaine(get_str(buff,256));
     printf("Telephone fixe: ");
@@ -110,15 +118,15 @@ void initialise_fiche(struct Fiche *contact,int capacite){
     }
 }
 
-/*affiche toute les fiches existantes par recherche d'ID*/
+  /*affiche toute les fiches existantes par recherche d'ID*/
 void affiche_tout(struct Fiche *contact,int capacite){
- int i;
- for(i=0;i<capacite;i++){
-    if(contact[i].id!=0) affiche_id(contact,i+1);
- }
+    int i;
+    for(i=0;i<capacite;i++){
+        if(contact[i].id!=0) affiche_id(contact,i+1);
+    }
 }
 
-/*affiche une fiche demande par son id*/
+  /*affiche une fiche demande par son id*/
 void affiche_id(struct Fiche *contact,int i){
     i--;
     printf("---------------------------\n");
@@ -143,12 +151,19 @@ int recherche_id(struct Fiche *contact,int id_rechercher,int capacite){
 }
 
 char *longueur_chaine(char *chaine){ /* la fonction retourne un pointeur */
-    char *pointeur= NULL;
-    pointeur= malloc(sizeof(char)*(strlen(chaine)+1));
-    if (pointeur == NULL) {   /* On vérifie si l'allocation a marché ou pas */
-        exit(0); /* On arrête tout */
+    char *pointeur= NULL,vide[5]="vide";
+    int n;
+    n=strlen(chaine);
+    if(n!=0){
+        pointeur = malloc(sizeof(char)*(n+1));
+        if(pointeur) strcpy(pointeur,chaine);
+    } else {
+        pointeur = malloc(sizeof(char)*5);
+        if(pointeur) strcpy(pointeur,vide);
     }
-    strcpy(pointeur,chaine);
+    if (pointeur == NULL) {   /* On vérifie si l'allocation a marché ou pas */
+        exit(1); /* On arrête tout */
+    }
     return pointeur;
 }
 
@@ -165,21 +180,21 @@ time_t ret_naissance(int j,int m,int a){
     date_naissance = mktime(dn);
     return date_naissance;
 }
-/* affichage de la date de naissance en time_t sous la forme j/m/a */
+  /* affichage de la date de naissance en time_t sous la forme j/m/a */
 void affiche_naissance(time_t date){
     struct tm *dn;
     dn = localtime(&date);
     printf("%d/%d/%d\n",dn->tm_mday,dn->tm_mon+1,dn->tm_year+1900);
 }
 
-/*Ajout dans un fichier texte*/
-int save_fiche(struct Fiche *contact,int capacite,char *fichier){
+  /*Ajout dans un fichier texte*/
+int save_fiche(struct Fiche *contact,int capacite,const char *fichier){
     int i;
     char retour='\n',virgule=',';
     char date[9]="00/00/00";
 
     FILE *FICHIER=NULL;
-    FICHIER=fopen(fichier,"wb"); /* wb = write binary / le b c'est surtout pour windows qui créer des problèmes lors de l'écriture sans ça */
+    FICHIER=fopen(fichier,"wb"); /* wb = write binary / le b c'est surtout pour windows qui créer des prob                                     lèmes lors de l'écriture sans ça */
     if (FICHIER != NULL){
         for(i=0;i<capacite;i++){
             if(contact[i].id!=0){
@@ -204,5 +219,5 @@ int save_fiche(struct Fiche *contact,int capacite,char *fichier){
         fclose(FICHIER);
         return 0;
     }
-    else return 1;
+    return 1;
 }

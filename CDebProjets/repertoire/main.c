@@ -11,7 +11,7 @@ int main(void)
     ajouter_contact(contact,10);
     ajouter_contact(contact,10);
 
-    recherche_nom(contact,longueur_chaine("DUPONT"),10);
+    recherche_nom(contact,"DUPONT",10);
 
     affiche_tout(contact,10);
     save_fiche(contact,10,"fichier.txt");
