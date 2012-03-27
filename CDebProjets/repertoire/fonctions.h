@@ -26,5 +26,6 @@ void affiche_id(struct Fiche *contact,int i);
 char *longueur_chaine(char *chaine);
 time_t ret_naissance(int j,int m,int a);
 void affiche_naissance(time_t date);
+int save_fiche(struct Fiche *contact,int capacite,char *fichier);
 
 #endif /* FONCTIONS_H_INCLUDED */

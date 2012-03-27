@@ -62,16 +62,13 @@ char *get_str(char *s,int max){
 void ajouter_contact(struct Fiche *contact, int capacite){
     char buff[256];
     int i,j;
-    FILE *FICHIER=NULL;
-
 
     for(i=0;i<capacite;i++)
         if(recherche_id(contact,i+1,capacite)) break;
     contact[i-1].id=i; i-=1;
     printf("Nom: ");
     contact[i].nom=longueur_chaine(get_str(buff,256));
-     /* Formatage de contact[i].nom ici
-    l=strlen(contact[i].nom);*/
+
     for(j=0;contact[i].nom[j];j++){
         if(j==0){
             contact[i].nom[j]=toupper(contact[i].nom[j]);
@@ -80,7 +77,7 @@ void ajouter_contact(struct Fiche *contact, int capacite){
             contact[i].nom[j]=tolower(contact[i].nom[j]);
         }
     }
-       /* Fin formatage */
+
     printf("Prenom: ");
     contact[i].prenom=longueur_chaine(get_str(buff,256));
     printf("Sexe: ");
@@ -96,14 +93,6 @@ void ajouter_contact(struct Fiche *contact, int capacite){
     contact[i].nummobil=longueur_chaine(get_str(buff,256));
     printf("Adresse: ");
     contact[i].adresse=longueur_chaine(get_str(buff,256));
-/*Ajout dans un fichier texte*/
-    FICHIER=fopen("repertoire.txt","a");
-    if (FICHIER != NULL){
-        fprintf(FICHIER,"%d,%s,%s,%s,%s,%s,%s,%s,%s\n",contact[i].id,contact[i].nom,contact[i].prenom,contact[i].sexe,contact[i].date_naissance,contact[i].email,contact[i].numfix,contact[i].nummobil,contact[i].adresse);
-        fclose(FICHIER);
-    }
-    else
-        printf("Impossible d'ouvrir le fichier repertoire.txt");
 }
 
 void initialise_fiche(struct Fiche *contact,int capacite){
@@ -181,4 +170,23 @@ void affiche_naissance(time_t date){
     struct tm *dn;
     dn = localtime(&date);
     printf("%d/%d/%d\n",dn->tm_mday,dn->tm_mon+1,dn->tm_year+1900);
+}
+
+/*Ajout dans un fichier texte*/
+int save_fiche(struct Fiche *contact,int capacite,char *fichier){
+    int i;
+    char retour='\n';
+    FILE *FICHIER=NULL;
+    FICHIER=fopen(fichier,"wb"); /* wb = write binary / le b c'est surtout pour windows qui créer des problèmes lors de l'écriture sans ça */
+    if (FICHIER != NULL){
+        for(i=0;i<capacite;i++){
+            if(contact[i].id!=0){
+                fwrite(contact[i].nom,sizeof(char),strlen(contact[i].nom),FICHIER);
+                fwrite(&retour,sizeof(char),1,FICHIER);
+            }
+        }
+        fclose(FICHIER);
+        return 0;
+    }
+    else return 1;
 }
