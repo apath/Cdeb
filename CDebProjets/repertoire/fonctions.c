@@ -9,7 +9,9 @@ int recherche_nom(struct Fiche *contact,const char *nom_rechercher,int capacite)
     char *buff_nom;
     int i,l;
     l=strlen(nom_rechercher);
-    buff_nom=malloc(sizeof(char)*l);
+    buff_nom=malloc(sizeof(char)*l+1); /* l'erreur de heap etait ici
+                                          j'avais oublié le +1 pour le
+                                          caractère \0 */
     if(!buff_nom) exit(1);
     strcpy(buff_nom,nom_rechercher);
     for(i=0;i<l;i++){
@@ -85,7 +87,6 @@ void ajouter_contact(struct Fiche *contact, int capacite){
             contact[i].nom[j]=tolower(contact[i].nom[j]);
         }
     }
-
     printf("Prenom: ");
     contact[i].prenom=longueur_chaine(get_str(buff,256));
     printf("Sexe: ");

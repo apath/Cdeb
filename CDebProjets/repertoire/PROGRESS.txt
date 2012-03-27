@@ -1,26 +1,3 @@
--	Pour l'enregistrement et lecture fichier il y a deux exemples dans le dossier
-	'lesfichiers' sur l'utilisation de fwrite et fread. Pour l'enregistrement à la
-	fin de chaque ligne il faut ajouter le caractère de saut de ligne '\n'. La
-	lecture sera un peu plus difficile mais l'enregistrement ça devrait aller
-	Faire une boucle sur la fiche utilisant sa capacite et à chaque information d'un
-	contact dont l'id est valide utiliser fwrite (pour la date de naissance mettre
-	"null" pour le moment) ajouter une virgule apres chaque informations du contact et
-	un \n à la fin de l'ecriture d'un contact.
-
--	L'enregistrement dans un fichier pourrait se faire un contact par ligne
-	les informations seraient séparées par une virgule, une donnée vide contiendrait
-	null :
-
-	nom,prenom,sexe,date_naissance,email,numfix,nummobil,adresse
-
-	Dupont,Henry,M,20/9/1980,dupont@mail.com,1234123434,4321432143,9 rue dupont
-	Dupuit,Charles,M,14/1/1990,dupuit@mail.com,null,0213902394,3 allee dupuit
-
-	La fonction serait de la forme :
-	int save_fiche(struct Fiche *contact,int capacite,char *nom_fichier);
-	elle retourne un code en cas d'erreurs, 0 en cas de réussite.
-	utilisation de la fonction fwrite pour l'écriture dans le fichier. (Pas
-	d'utilisation de fprintf)
 
 -	Le chargement d'un fichier se fera à l'aide de la fonction fread et non de fscanf.
 	La fonction serait de la forme :
