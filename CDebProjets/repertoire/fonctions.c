@@ -175,13 +175,29 @@ void affiche_naissance(time_t date){
 /*Ajout dans un fichier texte*/
 int save_fiche(struct Fiche *contact,int capacite,char *fichier){
     int i;
-    char retour='\n';
+    char retour='\n',virgule=',';
+    char date[9]="00/00/00";
+
     FILE *FICHIER=NULL;
     FICHIER=fopen(fichier,"wb"); /* wb = write binary / le b c'est surtout pour windows qui créer des problèmes lors de l'écriture sans ça */
     if (FICHIER != NULL){
         for(i=0;i<capacite;i++){
             if(contact[i].id!=0){
                 fwrite(contact[i].nom,sizeof(char),strlen(contact[i].nom),FICHIER);
+                fwrite(&virgule,sizeof(char),1,FICHIER);
+                fwrite(contact[i].prenom,sizeof(char),strlen(contact[i].prenom),FICHIER);
+                fwrite(&virgule,sizeof(char),1,FICHIER);
+                fwrite(contact[i].sexe,sizeof(char),strlen(contact[i].sexe),FICHIER);
+                fwrite(&virgule,sizeof(char),1,FICHIER);
+                fwrite(date,sizeof(char),strlen(date),FICHIER);
+                fwrite(&virgule,sizeof(char),1,FICHIER);
+                fwrite(contact[i].email,sizeof(char),strlen(contact[i].email),FICHIER);
+                fwrite(&virgule,sizeof(char),1,FICHIER);
+                fwrite(contact[i].numfix,sizeof(char),strlen(contact[i].numfix),FICHIER);
+                fwrite(&virgule,sizeof(char),1,FICHIER);
+                fwrite(contact[i].nummobil,sizeof(char),strlen(contact[i].nummobil),FICHIER);
+                fwrite(&virgule,sizeof(char),1,FICHIER);
+                fwrite(contact[i].adresse,sizeof(char),strlen(contact[i].adresse),FICHIER);
                 fwrite(&retour,sizeof(char),1,FICHIER);
             }
         }
