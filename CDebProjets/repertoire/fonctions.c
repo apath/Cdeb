@@ -96,7 +96,7 @@ void ajouter_contact(struct Fiche *contact, int capacite){
     contact[i].nummobil=longueur_chaine(get_str(buff,256));
     printf("Adresse: ");
     contact[i].adresse=longueur_chaine(get_str(buff,256));
-/*essai ajout dans un fichier texte*/
+/*Ajout dans un fichier texte*/
     FICHIER=fopen("repertoire.txt","a");
     if (FICHIER != NULL){
         fprintf(FICHIER,"%d,%s,%s,%s,%s,%s,%s,%s,%s\n",contact[i].id,contact[i].nom,contact[i].prenom,contact[i].sexe,contact[i].date_naissance,contact[i].email,contact[i].numfix,contact[i].nummobil,contact[i].adresse);
