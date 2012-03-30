@@ -181,6 +181,7 @@ time_t ret_naissance(int j,int m,int a){
     date_naissance = mktime(dn);
     return date_naissance;
 }
+
   /* affichage de la date de naissance en time_t sous la forme j/m/a */
 void affiche_naissance(time_t date){
     struct tm *dn;
@@ -195,7 +196,7 @@ int save_fiche(struct Fiche *contact,int capacite,const char *fichier){
     char date[9]="00/00/00";
 
     FILE *FICHIER=NULL;
-    FICHIER=fopen(fichier,"wb"); /* wb = write binary / le b c'est surtout pour windows qui créer des prob                                     lèmes lors de l'écriture sans ça */
+    FICHIER=fopen(fichier,"ab");
     if (FICHIER != NULL){
         for(i=0;i<capacite;i++){
             if(contact[i].id!=0){
@@ -215,6 +216,44 @@ int save_fiche(struct Fiche *contact,int capacite,const char *fichier){
                 fwrite(&virgule,sizeof(char),1,FICHIER);
                 fwrite(contact[i].adresse,sizeof(char),strlen(contact[i].adresse),FICHIER);
                 fwrite(&retour,sizeof(char),1,FICHIER);
+            }
+        }
+        fclose(FICHIER);
+        return 0;
+    }
+    return 1;
+}
+
+ /* Lecture du fichier .txt*/
+int load_fiche(struct Fiche *contact,int capacite,char *nom_fichier){
+    int i;
+    char retour='\n',virgule=',';
+    char date;
+
+    FILE *FICHIER=NULL;
+    FICHIER=fopen(nom_fichier,"rb");
+    if (FICHIER != NULL){
+        fseek(FICHIER,0, SEEK_SET);
+        for(i=0;i<capacite;i++){
+            if(contact[i].id!=0){
+                contact[i].id=fread(&contact[i],sizeof(int),strlen (contact[i].id),FICHIER);
+                fread(&virgule,sizeof(char),1,FICHIER);
+                contact[i].nom=fread(&contact[i],sizeof(char),strlen(contact[i].nom),FICHIER);
+                fread(&virgule,sizeof(char),1,FICHIER);
+                contact[i].prenom=fread(&contact[i],sizeof(char),strlen(contact[i].prenom),FICHIER);
+                fread(&virgule,sizeof(char),1,FICHIER);
+                contact[i].sexe=fread(&contact[i],sizeof(char),strlen(contact[i].sexe),FICHIER);
+                fread(&virgule,sizeof(char),1,FICHIER);
+                contact[i].date_naissance=fread(&contact[i],sizeof(char),strlen(date),FICHIER);
+                fread(&virgule,sizeof(char),1,FICHIER);
+                contact[i].email=fread(&contact[i],sizeof(char),strlen(contact[i].email),FICHIER);
+                fread(&virgule,sizeof(char),1,FICHIER);
+                contact[i].numfix=fread(&contact[i],sizeof(char),strlen(contact[i].numfix),FICHIER);
+                fread(&virgule,sizeof(char),1,FICHIER);
+                contact[i].nummobil=fread(&contact[i],sizeof(char),strlen(contact[i].nummobil),FICHIER);
+                fread(&virgule,sizeof(char),1,FICHIER);
+                contact[i].adresse=fread(&contact[i],sizeof(char),strlen(contact[i].adresse),FICHIER);
+                fread(&retour,sizeof(char),1,FICHIER);
             }
         }
         fclose(FICHIER);
