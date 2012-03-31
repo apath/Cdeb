@@ -3,4 +3,8 @@
 	La fonction serait de la forme :
 	int load_fiche(struct Fiche *contact,int capacite,char *nom_fichier);
 	retourne un code en cas d'erreurs, 0 en cas de réussite.
+
+	* j'ai mis un exemple d'une possibilité de faire en utilisant simplement des compteurs pour récupérer les données voulues à toi de remplacer les printf, d'ajouter ce qu'il manque et de terminer cette fonction hehe
+	Le main est changé pour ne lire que le fichier.txt comme base de test. Ça te permetra de ne pas t'embeter a recréer un fichier.txt et entrer les contacts à chaque fois pour tester ta fonction. Lorsque la fonction sera complète affiche_tout devrait afficher les deux contacts que contient le fichier.txt
+	Ah, ne pas oublier de terminer le tableau de char par zéro avant d'enregistrer la chaîne qu'il contient.
 	
