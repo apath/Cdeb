@@ -1,0 +1,2 @@
+Einstein,Albert,M,00/00/00,einstein@albert.com,2384238482,9543593948,48 allee des arbres
+Canon,Gauss,F,00/00/00,canon@gauss.org,234284823,474747474,99 rue du paradis
