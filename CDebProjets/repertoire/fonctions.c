@@ -196,7 +196,13 @@ int save_fiche(struct Fiche *contact,int capacite,const char *fichier){
     char date[9]="00/00/00";
 
     FILE *FICHIER=NULL;
-    FICHIER=fopen(fichier,"ab");
+    FICHIER=fopen(fichier,"wb"); /* le "a" pour append est utilisé uniquement lorsqu'on veut ouvrir
+                                    un fichier déjà existant, ou le créer en cas de problème lorsqu'il
+                                    n'existe pas (utilisé pour les fichier de log etc en gros).
+                                    Dans nôtre cas cela créerait des doublons de contact,
+                                    si on venait à ajouter à la fin du fichier la fiche vu qu'on n'utilise
+                                    pas le fichier comme une base de donnée mais comme une sauvegarde : 
+                                    la fiche étant entièrement chargée en mémoire on utilise "w" */
     if (FICHIER != NULL){
         for(i=0;i<capacite;i++){
             if(contact[i].id!=0){
@@ -226,34 +232,58 @@ int save_fiche(struct Fiche *contact,int capacite,const char *fichier){
 
  /* Lecture du fichier .txt*/
 int load_fiche(struct Fiche *contact,int capacite,char *nom_fichier){
-    int i;
-    char retour='\n',virgule=',';
-    char date;
+    size_t i,count; /* i et count sont des compteurs en size_t car fread nous retourne
+                       le nombre d'elements lu ici des char : le nombre de bytes lu */
+    char buff[256]; /* pareil qu'avec fwrite, on utilisera un buffer ici
+                       pour charger le fichier par morceaux avec fread */
+    int ctd,ctc,ctb; /* compteur de donnée,de contacts,de bytes */
 
     FILE *FICHIER=NULL;
-    FICHIER=fopen(nom_fichier,"rb");
+    ctd=ctc=ctb=0; /* on met tout les compteurs à zéro */
+    FICHIER=fopen(nom_fichier,"rb"); /* pas besoin de fseek on se trouve déjà au début du fichier
+                                        fseek ralentit concidérablement le temps de lecture il ne
+                                        faut l'utiliser que lorsqu'on ne peut pas faire autrement, ou
+                                        simplement pour récupérer la taille d'un fichier */
     if (FICHIER != NULL){
-        fseek(FICHIER,0, SEEK_SET);
-        for(i=0;i<capacite;i++){
-            if(contact[i].id!=0){
-                contact[i].id=fread(&contact[i],sizeof(int),strlen (contact[i].id),FICHIER);
-                fread(&virgule,sizeof(char),1,FICHIER);
-                contact[i].nom=fread(&contact[i],sizeof(char),strlen(contact[i].nom),FICHIER);
-                fread(&virgule,sizeof(char),1,FICHIER);
-                contact[i].prenom=fread(&contact[i],sizeof(char),strlen(contact[i].prenom),FICHIER);
-                fread(&virgule,sizeof(char),1,FICHIER);
-                contact[i].sexe=fread(&contact[i],sizeof(char),strlen(contact[i].sexe),FICHIER);
-                fread(&virgule,sizeof(char),1,FICHIER);
-                contact[i].date_naissance=fread(&contact[i],sizeof(char),strlen(date),FICHIER);
-                fread(&virgule,sizeof(char),1,FICHIER);
-                contact[i].email=fread(&contact[i],sizeof(char),strlen(contact[i].email),FICHIER);
-                fread(&virgule,sizeof(char),1,FICHIER);
-                contact[i].numfix=fread(&contact[i],sizeof(char),strlen(contact[i].numfix),FICHIER);
-                fread(&virgule,sizeof(char),1,FICHIER);
-                contact[i].nummobil=fread(&contact[i],sizeof(char),strlen(contact[i].nummobil),FICHIER);
-                fread(&virgule,sizeof(char),1,FICHIER);
-                contact[i].adresse=fread(&contact[i],sizeof(char),strlen(contact[i].adresse),FICHIER);
-                fread(&retour,sizeof(char),1,FICHIER);
+        while((count=fread(buff,sizeof(char),256,FICHIER))){ /* tant que fread lit quelque chose */
+            for(i=0;i<count;i++){ /* on peut alors utiliser ce que fread a chargé dans buff en sachant
+                                     le nombre de char qu'il a chargé dedans */
+                if(buff[i]==','){/* si on tombe sur une virgule */
+                    switch(ctd){ /* on peut utiliser un switch pour le compteur de données nous
+                                    permettant de savoir quelle est le type de la donnée lu */
+                        case 0:printf("\n< nom\n"); break; /* si 0 alors c'est le nom donc la chaine
+                                                            qui sera contenu dans notre tableau de char
+                                                            pourra être envoyée dans le contact actuel
+                                                            dans l'entrée "nom" de celui-ci */
+                        case 1:printf("\n< prenom\n"); break;
+                        case 2:printf("\n< sexe\n"); break;
+                        case 3:printf("\n< date naissace\n"); break;
+                               /*etc*/
+                        default:; /* le default vide pour fermer le switch */
+                    }
+                    printf("une virgule! compteur de bytes (ctb) = %d,compteur de données (ctd) =%d\n\n",
+                            ctb,ctd);
+                    ctb=0; /* compteur de bytes à zéro pour la chaine suivante */
+                    ctd+=1; /* incrémente le compteur de données */
+                }
+                else if(buff[i]=='\n'){ /* si on tombe sur un saut de ligne */
+                    printf("\nun saut de ligne! compteur de contacts (ctc) = %d\n",ctc);
+                    ctc+=1; /* incrémente le compteur de contacts */
+                    ctd=0; /* met le compteur de données à zéro pour la suite */
+                    ctb=0; /* met le compteur de bytes à zéro pour la chaine suivante */
+
+                } else { /* sinon ça veut dire qu'on lit des données et là c'est à nous d'imaginer
+                            comment les récupérer, il est possible d'utiliser un compteur pour le type
+                            des données, la virgule servant à l'incrémenter, et d'utiliser un tableau
+                            de char temporaire pour sauvegarder la chaine lu à ce moment, puis de
+                            l'enregistrer dans un contact lors du saut de ligne, et le saut de ligne
+                            servira à créer un compteur pour le nombre de contact lu, le compteur du 
+                            saut de ligne servira aussi à arrêter la lecture lorsque qu'il atteindra la
+                            capacite de notre fiche */
+                    printf("%c",buff[i]); /* remplacer ce printf par la mise du caractère dans un tableau
+                                             de char utilisant le compteur de bytes pour l'emplacement */
+                    ctb+=1; /* incrémente le compteur de bytes */
+                }
             }
         }
         fclose(FICHIER);
