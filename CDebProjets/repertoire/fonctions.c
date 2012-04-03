@@ -201,7 +201,7 @@ int save_fiche(struct Fiche *contact,int capacite,const char *fichier){
                                     n'existe pas (utilisé pour les fichier de log etc en gros).
                                     Dans nôtre cas cela créerait des doublons de contact,
                                     si on venait à ajouter à la fin du fichier la fiche vu qu'on n'utilise
-                                    pas le fichier comme une base de donnée mais comme une sauvegarde : 
+                                    pas le fichier comme une base de donnée mais comme une sauvegarde :
                                     la fiche étant entièrement chargée en mémoire on utilise "w" */
     if (FICHIER != NULL){
         for(i=0;i<capacite;i++){
@@ -221,6 +221,7 @@ int save_fiche(struct Fiche *contact,int capacite,const char *fichier){
                 fwrite(contact[i].nummobil,sizeof(char),strlen(contact[i].nummobil),FICHIER);
                 fwrite(&virgule,sizeof(char),1,FICHIER);
                 fwrite(contact[i].adresse,sizeof(char),strlen(contact[i].adresse),FICHIER);
+                fwrite(&virgule,sizeof(char),1,FICHIER);
                 fwrite(&retour,sizeof(char),1,FICHIER);
             }
         }
@@ -251,14 +252,17 @@ int load_fiche(struct Fiche *contact,int capacite,char *nom_fichier){
                 if(buff[i]==','){/* si on tombe sur une virgule */
                     switch(ctd){ /* on peut utiliser un switch pour le compteur de données nous
                                     permettant de savoir quelle est le type de la donnée lu */
-                        case 0:printf("\n< nom\n"); break; /* si 0 alors c'est le nom donc la chaine
+                        case 0:printf("\n< Nom\n"); break; /* si 0 alors c'est le nom donc la chaine
                                                             qui sera contenu dans notre tableau de char
                                                             pourra être envoyée dans le contact actuel
                                                             dans l'entrée "nom" de celui-ci */
-                        case 1:printf("\n< prenom\n"); break;
-                        case 2:printf("\n< sexe\n"); break;
-                        case 3:printf("\n< date naissace\n"); break;
-                               /*etc*/
+                        case 1:printf("\n< Prenom\n"); break;
+                        case 2:printf("\n< Sexe\n"); break;
+                        case 3:printf("\n< Date naissace\n"); break;
+                        case 4:printf("\n< Email\n"); break;
+                        case 5:printf("\n< Telephone fixe\n"); break;
+                        case 6:printf("\n< Telephone mobil\n"); break;
+                        case 7:printf("\n< Adresse\n"); break;
                         default:; /* le default vide pour fermer le switch */
                     }
                     printf("une virgule! compteur de bytes (ctb) = %d,compteur de données (ctd) =%d\n\n",
@@ -272,12 +276,13 @@ int load_fiche(struct Fiche *contact,int capacite,char *nom_fichier){
                     ctd=0; /* met le compteur de données à zéro pour la suite */
                     ctb=0; /* met le compteur de bytes à zéro pour la chaine suivante */
 
-                } else { /* sinon ça veut dire qu'on lit des données et là c'est à nous d'imaginer
+                }
+                else { /* sinon ça veut dire qu'on lit des données et là c'est à nous d'imaginer
                             comment les récupérer, il est possible d'utiliser un compteur pour le type
                             des données, la virgule servant à l'incrémenter, et d'utiliser un tableau
                             de char temporaire pour sauvegarder la chaine lu à ce moment, puis de
                             l'enregistrer dans un contact lors du saut de ligne, et le saut de ligne
-                            servira à créer un compteur pour le nombre de contact lu, le compteur du 
+                            servira à créer un compteur pour le nombre de contact lu, le compteur du
                             saut de ligne servira aussi à arrêter la lecture lorsque qu'il atteindra la
                             capacite de notre fiche */
                     printf("%c",buff[i]); /* remplacer ce printf par la mise du caractère dans un tableau
