@@ -300,7 +300,7 @@ int load_fiche(struct Fiche *contact,int capacite,char *nom_fichier)
                                         permettant de savoir quelle est le type de la donnée lu */
                     case 0:
                         contact[ct_contact].nom=longueur_chaine(tampon);
-
+                        contact[ct_contact].id=ct_contact+1;
                         break;
                     case 1:
                         contact[ct_contact].prenom=longueur_chaine(tampon);
@@ -325,15 +325,13 @@ int load_fiche(struct Fiche *contact,int capacite,char *nom_fichier)
                         break;
                     default:; /* le default vide pour fermer le switch */
                     }
-                    printf("une virgule! compteur de bytes (ctb) = %d,compteur de données (ctd) =%d\n\n",
-                           ct_byte,ct_donnee);
                     ct_byte=0; /* compteur de bytes à zéro pour la chaine suivante */
                     ct_donnee+=1; /* incrémente le compteur de données */
                 }
                 else if(buff[i]=='\n')  /* si on tombe sur un saut de ligne */
                 {
-                    printf("\nun saut de ligne! compteur de contacts (ctc) = %d\n",ct_contact);
                     ct_contact+=1; /* incrémente le compteur de contacts */
+                    if(ct_contact-1==capacite)break;
                     ct_donnee=0; /* met le compteur de données à zéro pour la suite */
                     ct_byte=0; /* met le compteur de bytes à zéro pour la chaine suivante */
 
