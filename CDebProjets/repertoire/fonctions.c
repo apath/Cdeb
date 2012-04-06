@@ -293,7 +293,7 @@ int load_fiche(struct Fiche *contact,int capacite,char *nom_fichier)
                                          le nombre de char qu'il a chargé dedans */
                 if(buff[i]==',') /* si on tombe sur une virgule */
                 {
-                    tampon[ct_byte+1]='\0';
+                    tampon[ct_byte]='\0';
                     switch(ct_donnee)
                     {
                         /* on peut utiliser un switch pour le compteur de données nous
