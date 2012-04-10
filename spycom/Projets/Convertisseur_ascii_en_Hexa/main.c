@@ -1,11 +1,12 @@
 #include <stdio.h>
+#include <ctype.h>
 
 int main ( int argc, char** argv )
 {
     size_t i=0,k=0,compteur;
     int j;
     unsigned char buff[1024];
-    FILE *fichier=NULL,*fichierlog=NULL;
+    FILE *fichier=NULL;
 
     if(argc==2)
     {
@@ -27,7 +28,10 @@ int main ( int argc, char** argv )
                     }
                     j=16;
                     while(j!=0){
-                        printf("%c",buff[k]);
+                            if(isalnum(buff[k]))
+                                printf("%c",buff[k]);
+                            else
+                                printf(".");
                         k++;
                         j--;
                     }
