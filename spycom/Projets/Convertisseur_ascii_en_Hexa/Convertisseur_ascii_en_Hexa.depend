@@ -2,6 +2,7 @@
 1333910792 source:c:\users\spycom\documents\prog\c\projets c\repertoire telephonique\convertisseur_ascii_en_hexa\main.c
 	<stdio.h>
 
-1333911304 source:c:\users\spycom\documents\prog\c\projets c\convertisseur_ascii_en_hexa\main.c
+1334090766 source:c:\users\spycom\documents\prog\c\projets c\convertisseur_ascii_en_hexa\main.c
 	<stdio.h>
+	<ctype.h>
 

@@ -14,8 +14,6 @@ int main ( int argc, char** argv )
         fichier=fopen(argv[1],"rb");
         if (fichier != NULL)
         {
-            /* ici tu peux ouvrir ton nouveau fichier en ecriture, l'ouverture du fichier à lire s'etant
-             * bien déroulée */
             while((compteur=fread(buff,sizeof(char),1024,fichier)))
             {
                 i=0;
@@ -23,19 +21,23 @@ int main ( int argc, char** argv )
                 while(i<compteur)
                 {
                     j=16;
-                    while(j!=0){
+                    while(j!=0 && i<compteur)
+                    {
                         printf("%2x ",buff[i]);
                         i++;
                         j--;
                     }
                     j=16;
-                    while(j!=0){
-                            if(isalnum(buff[k])){
-                                printf("%c",buff[k]);
-                            }
-                            else{
-                                printf(".");
-                            }
+                    while(j!=0 && k<compteur)
+                    {
+                        if(isalnum(buff[k]))
+                        {
+                            printf("%c",buff[k]);
+                        }
+                        else
+                        {
+                            printf(".");
+                        }
                         k++;
                         j--;
                     }
@@ -44,7 +46,6 @@ int main ( int argc, char** argv )
             }
         }
         fclose(fichier);
-
     }
     return 0;
 }
