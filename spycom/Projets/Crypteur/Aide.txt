@@ -1,0 +1,4 @@
+J'ai commence l'exercice.
+Alors j'ai vu comment recuperer les parmetres.( Ex: crypteur.exe  c fichier.txt sesame )
+Sinon maintenant je cherche comment convertir mon buffer en binaire.
+Et j'ai compris comment fonctionne le XOR reste a mettre en application.
