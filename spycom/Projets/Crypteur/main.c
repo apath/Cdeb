@@ -19,8 +19,11 @@ int main( int argc, char** argv )
             if (fichier != NULL){
                 while((compteur=fread(buff,sizeof(char),1024,fichier)))
                 {
-                    for(i=0;i<compteur;i++)
-                        printf("%i",buff[i]);
+                    for(i=0;i<compteur;i++){
+                        /* "crypt" uniquement à l'aide du premier char
+                         * du mot de passe */
+                        printf("%c",buff[i]^argv[3][0]);
+                    }
                 }
             printf("COUCOU %s",argv[3]);
             }
