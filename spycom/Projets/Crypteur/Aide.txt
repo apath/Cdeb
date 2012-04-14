@@ -2,3 +2,16 @@ J'ai commence l'exercice.
 Alors j'ai vu comment recuperer les parmetres.( Ex: crypteur.exe  c fichier.txt sesame )
 Sinon maintenant je cherche comment convertir mon buffer en binaire.
 Et j'ai compris comment fonctionne le XOR reste a mettre en application.
+
+Ton buffer est déjà en binaire!! Les char,int etc... sont stockés en binaire
+
+C'est evident que ce soit directement en binaire nôtre technologie ne permet pas d'écrire un A en mémoire comme si on le dessinait à la main.
+Donc pour résoudre ton problème c'est très simple utiliser directement chaque char de ton buffer avec ceux de ton mot de passe, exemple :
+char buff[1024],pass[10],c;
+c=buff[0]^pass[0];
+Prevention : Utilise le caractère ^ , en C c'est l'opérateur XOR tout comme le * est à la multiplication. Pas besoin de faire toi-même l'operation binaire à la main, le xor est une instruction assembleur de base lorsque ton programme sera compilé le code assembleur contiendra le "xor" interprété directement par le processeur, pas la peine d'alourdir ton algorithme si le processeur prend déjà en charge l'opération. Je te donnerai un exercice sur la manipulation binaire apres celui-ci si tu veux.
+Pour en revenir à l'exemple : la variable "c" reçoit le xor entre le premier caractère du buffer et le premier du mot de passe. C'est le resultat de l'operation.
+Le problème de logique dans cet exercice est que le mot de
+passe est plus petit que le contenue du fichier et qu'il va falloir que tu
+arrive à le répéter dessus, comme une roue (dont le mot de passe serait enroulé à son perimetre) qui roulerait sur une ligne et la ligne serait les caractères qui se suivent dans le fichier, la roue imprimant un xor entre les caractères se croisant, et ces resultats de chaque xor entre chaque croisement constitue le fichier crypter/decrypter.
+Je t'ajoute une illustration du concept!
