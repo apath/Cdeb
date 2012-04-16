@@ -1,8 +1,13 @@
-J'ai commence l'exercice.
-Alors j'ai vu comment recuperer les parmetres.( Ex: crypteur.exe  c fichier.txt sesame )
-Sinon maintenant je cherche comment convertir mon buffer en binaire.
-Et j'ai compris comment fonctionne le XOR reste a mettre en application.
+16/04/2012:
+spycom
+Ok merci.
+L'histoire de caractere par caractere ma mis la puce à l'oreille.
+Donc je pense que le code est fini ?
+Dis moi si tu vois des choses à changer.
 
+
+14/04/2012:
+apath:
 Ton buffer est déjà en binaire!! Les char,int etc... sont stockés en binaire
 
 C'est evident que ce soit directement en binaire nôtre technologie ne permet pas d'écrire un A en mémoire comme si on le dessinait à la main.
@@ -15,3 +20,10 @@ Le problème de logique dans cet exercice est que le mot de
 passe est plus petit que le contenue du fichier et qu'il va falloir que tu
 arrive à le répéter dessus, comme une roue (dont le mot de passe serait enroulé à son perimetre) qui roulerait sur une ligne et la ligne serait les caractères qui se suivent dans le fichier, la roue imprimant un xor entre les caractères se croisant, et ces resultats de chaque xor entre chaque croisement constitue le fichier crypter/decrypter.
 Je t'ajoute une illustration du concept!
+
+13/04/2012:
+spycom
+J'ai commence l'exercice.
+Alors j'ai vu comment recuperer les parmetres.( Ex: crypteur.exe  c fichier.txt sesame )
+Sinon maintenant je cherche comment convertir mon buffer en binaire.
+Et j'ai compris comment fonctionne le XOR reste a mettre en application.
