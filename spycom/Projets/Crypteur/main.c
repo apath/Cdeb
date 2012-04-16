@@ -8,6 +8,20 @@ int main( int argc, char** argv )
     int caractere_lu=0,i=0,compteur=0,compteur_point=0;
     char *key, * lettre, *nom_fichier;
     char ajout_crypt[11]=".crypt.txt",ajout_supcrypt[5]=".txt",nom_fichier_modif[256];
+
+    /* c'est une erreur de créer une extension "à la main" car si on venait à
+     * crypter un fichier .jpg (ton algorithme le permet) ou autre, il se retrouvera avec l'extension
+     * .txt etc,
+     * c'est pourquoi je t'avais conseillé de faire txt.crypt en exemple, d'ajouter le .crypt
+     * à la fin du nom du fichier simplement, et de le retirer lors du decrypt, ça t'aurai
+     * épargné les boucles etc, rendant du même fait ton programme "utilisable pour tout"
+     * suffisait d'un strcat pour l'ajout de .crypt et d'ajouter un \0
+     * placé à la place du . de .crypt pour supprimer le .crypt lors du decryptage.
+     * reduisant le code actuel pour le faire à seulement quelques lignes */
+
+    /* comme tu as pu le remarqué, le cryptage et decryptage avec le xor utilise la même
+     * méthode, il n'y a que l'extension du fichier qui change tu peux alors créer une fonction
+     * qui prend en parametre le nom du fichier à lire, le nom du fichier à créer, et le mot de passe utilisé */
     FILE *fichier_decrypte=NULL;
     FILE *fichier_crypte=NULL;
 

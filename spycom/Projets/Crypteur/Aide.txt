@@ -1,4 +1,15 @@
 16/04/2012:
+apath:
+Le programme est terminé et fonctionnel,
+cependant j'ai mis quelques commentaires dedans pour que tu vois certaines erreurs
+non pas de syntaxe etc (car je le trouve très bien surtout ton utilisation des pointeurs), mais de logique dans la conception. Il faut que tu ajoutes
+du dynamisme dans cette logique, pense à la possibilité de réutiliser ton algo :
+Séparer le code "fonctionnel" du main pour l'integrer dans un autre programme qui par
+exemple regrouperait tout tes algo servant à chiffrer des fichiers avec option, "quel
+algorithme voulez-vous utilisez pour chiffrer votre fichier ?" tu vois ce que je veux dire
+si tu met tout dans le main ton code est scellé dans du béton armé. Libère le ! 
+
+16/04/2012:
 spycom
 Ok merci.
 L'histoire de caractere par caractere ma mis la puce à l'oreille.
