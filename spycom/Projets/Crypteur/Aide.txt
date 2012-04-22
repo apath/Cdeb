@@ -1,3 +1,7 @@
+22/04/2012:
+spycom:
+correction faite j'ai suivi tes conseils.Un programme comme cela ca fait plaisir.
+
 16/04/2012:
 apath:
 Le programme est terminé et fonctionnel,

@@ -1,0 +1,13 @@
+Mode d'emploi crypteur:
+
+1- Mettre le fichier crypter ou à crypter dans le même dossier que le programme crypteur.exe
+2- Lancer l'invite de commandes CMD
+3- Mettez vous dans le dossier de crypteur.exe
+4- Pour crypter tapez: crypteur.exe c 1 2 (1=nomdufichier complet, 2=cle cryptage).
+5- Pour decrypter tapez: crypteur.exe d 1 2 (1=nomdufichier complet, 2=cle utiliser pour le cryptage).
+6- Terminé ;).
+
+spycom
+http://c-deb.blogspot.fr/
+
+
