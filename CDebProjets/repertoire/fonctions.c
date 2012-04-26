@@ -152,7 +152,7 @@ void affiche_tout(struct Fiche *contact,int capacite)
 void affiche_id(struct Fiche *contact,int i)
 {
     i--;
-    printf("---------------------------\n");
+    printf("---------------------------------------------------------------\n");
     printf("Identifiant: %d\n", contact[i].id);
     printf("Nom: %s\n", contact[i].nom);
     printf("Prenom: %s\n", contact[i].prenom);
@@ -163,7 +163,7 @@ void affiche_id(struct Fiche *contact,int i)
     printf("Telephone fixe: %s\n", contact[i].numfix);
     printf("Telephone mobile: %s\n", contact[i].nummobil);
     printf("Adresse: %s\n", contact[i].adresse);
-    printf("---------------------------\n");
+    printf("---------------------------------------------------------------\n");
 }
 
 int recherche_id(struct Fiche *contact,int id_rechercher,int capacite)
@@ -308,8 +308,8 @@ int load_fiche(struct Fiche *contact,int capacite,char *nom_fichier)
                     case 2:
                         contact[ct_contact].sexe=longueur_chaine(tampon);
                         break;
-                   /* case 3:
-                        contact[ct_contact].date_naissance=longueur_chaine(tampon);*/
+                        /* case 3:
+                             contact[ct_contact].date_naissance=longueur_chaine(tampon);*/
                         break;
                     case 4:
                         contact[ct_contact].email=longueur_chaine(tampon);

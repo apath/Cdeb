@@ -4,19 +4,124 @@
 
 int main(void)
 {
+    int choix,sortir=2,choix_recherche,ID_recherche,choix_supp;
+    char *nom=NULL;
+
     struct Fiche contact[10];
     initialise_fiche(contact,10);
     load_fiche(contact,10,"fichier.txt");
+    while(sortir!=1)
+    {
+        printf("---------------------------------------------------------------\n");
+        printf("---------REPERTOIRE PREMIER PROJET DE L EQUIPE C-DEB-----------\n");
+        printf("---------------------------------------------------------------\n\n");
+        printf("1-RECHERCHER CONTACT\n");
+        printf("2-AJOUTER CONTACT\n");
+        printf("3-AFFICHER TOUS LES CONTACTS\n");
+        printf("4-SUPPRIMER UN CONTACT\n");
+        printf("5-SUPPRIMER TOUS LES CONTACTS\n");
+        printf("6-QUITTER\n");
+        printf("Votre choix: ");
+        scanf("%d",&choix);
 
-    /*ajouter_contact(contact,10);
-    ajouter_contact(contact,10);
+        switch(choix)
+        {
+        case 1:
+            printf("---------------------------------------------------------------\n");
+            printf("                      RECHERCHER CONTACT\n");
+            printf("---------------------------------------------------------------\n");
+            printf("1-Rechercher par nom\n");
+            printf("2-Rechercher par ID\n");
+            printf("Votre choix: ");
+            scanf("%d",&choix_recherche);
+            if(choix_recherche==1)
+            {
+                printf("Entrez le nom a rechercher: ");
+                scanf("%s",nom);
+                recherche_nom(contact,nom,10);
+            }
+            else if(choix_recherche==2)
+            {
+                printf("Entrez le numero d' ID a rechercher: ");
+                scanf("%d",&ID_recherche);
+                affiche_id(contact,ID_recherche);
+            }
 
-    recherche_nom(contact,"DUPONT",10);
-    save_fiche(contact,10,"fichier.txt");
-    affiche_tout(contact,10);
+            break;
+        case 2:
+            printf("---------------------------------------------------------------\n");
+            printf("                        AJOUTER CONTACT\n");
+            printf("---------------------------------------------------------------\n");
+            ajouter_contact(contact,10);
+            break;
+        case 3:
+            printf("---------------------------------------------------------------\n");
+            printf("                  AFFICHER TOUS LES CONTACTS\n");
+            printf("---------------------------------------------------------------\n");
+            affiche_tout(contact,10);
+            break;
+        case 4:
+            printf("---------------------------------------------------------------\n");
+            printf("                      SUPPRIMER UN CONTACT\n");
+            printf("---------------------------------------------------------------\n");
+            printf("Entrez le numero d' ID de la fiche a supprimer: ");
+            scanf("%d",&ID_recherche);
+            printf("Etes vous sur de vouloir supprimer la fiche id ===> %d ?\n",ID_recherche);
+            printf("1-oui\n");
+            printf("2-non\n");
+            printf("Votre choix: ");
+            scanf("%d",&choix_supp);
+            if(choix_supp==1)
+            {
+                            supp_contact(contact,ID_recherche);
+            }
+            else
+            {
+                printf("---------------------------------------------------------------\n");
+                printf("               Le contact ne sera pas supprime.\n");
+                printf("---------------------------------------------------------------\n");
+            }
 
-    supprime_tout(contact,10);*/
-    affiche_tout(contact,10);
 
+            break;
+        case 5:
+            printf("---------------------------------------------------------------\n");
+            printf("                   SUPPRIMER TOUS LES CONTACTS\n");
+            printf("---------------------------------------------------------------\n");
+            printf("Etes vous sur de vouloir tout supprimer ?\n");
+            printf("1-oui\n");
+            printf("2-non\n");
+            printf("Votre choix: ");
+            scanf("%d",&choix_supp);
+            if(choix_supp==1)
+            {
+                supprime_tout(contact,10);
+            }
+            else
+            {
+                printf("---------------------------------------------------------------\n");
+                printf("               Les contacts ne seront pas supprimes.\n");
+                printf("---------------------------------------------------------------\n");
+            }
+            break;
+
+        case 6:
+            printf("---------------------------------------------------------------\n");
+            printf("                            QUITTER\n");
+            printf("---------------------------------------------------------------\n");
+            printf("Etes vous sur de vouloir quitter ?\n");
+            printf("1-oui\n");
+            printf("2-non\n");
+            printf("Votre choix: ");
+            scanf("%d",&sortir);
+            break;
+        default:
+            printf("---------------------------------------------------------------\n");
+            printf("                  Ce choix n'existe pas\n");
+            printf("                  Merci de recommencer.\n");
+            printf("---------------------------------------------------------------\n");
+            break;
+        }
+    }
     return 0;
 }
