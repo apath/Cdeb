@@ -1,0 +1,145 @@
+									
+									PROJET N 2: CENFOOT
+
+                                               <-------------------------------B
+|------------------|--------------------|-------------------|-------------------|
+|                  |                    |                   |                   |
+|                  |                    |                   |                   |
+|_______           |                    |                   |            _______|
+|       |          |                  __|__                 |           |       |
+|       |          |                /   |   \               |           |       |
+|       | ZONE: 1  |     ZONE: 2   /    |    \  ZONE: 3     |  ZONE: 4  |       |
+|A      |          |              |     |     |             |           |      B|
+|       |          |               \    |    /              |           |       |
+|       |          |                \ __|__ /               |           |       |
+|_______|          |                    |                   |           |_______|
+|                  |                    |                   |                   |
+|                  |                    |                   |                   |
+|------------------|--------------------|-------------------|-------------------|
+A------------------------------->
+
+
+
+ATTAQUE A
+ZONE 4:
+		Note ATTAQUEA: 1 attaquant.
+		Note DEFENSEB: 1 defenseurs.
+ZONE 3:
+		Note ATTAQUEA: 1 milieu ou 1 attaquant.
+		Note DEFENSEB: 1 milieu ou 1 defenseur.
+ZONE 2:
+		Note ATTAQUEA: 1 milieu ou 1 defenseur.
+		Note DEFENSEB: 1 milieu ou 1 attaquant.
+ZONE 1:
+		Note ATTAQUEA: 1 defenseur.
+		Note DEFENSEB: 1 attaquant.
+ZONE BUT:
+		Note ATTAQUEA: 1 attaquant.
+		Note DEFENSEB: 1 gardien.
+		
+ATTAQUE B
+ZONE 1:
+		Note ATTAQUEB: 1 attaquant.
+		Note DEFENSEA: 1 defenseurs.
+ZONE 2:
+		Note ATTAQUEB: 1 milieu ou 1 attaquant.
+		Note DEFENSEA: 1 milieu ou 1 defenseur.
+ZONE 3:
+		Note ATTAQUEB: 1 milieu ou 1 defenseur.
+		Note DEFENSEA: 1 milieu ou 1 attaquant.
+ZONE 4:
+		Note ATTAQUEB: 1 defenseur.
+		Note DEFENSEA: 1 attaquant.
+ZONE BUT:
+		Note ATTAQUEB: 1 attaquant.
+		Note DEFENSEA: 1 gardien.
+		
+Modele joueur:
+pos//numero//nom//note defense//note attaque
+
+EQUIPE A:
+G 	1-Cole,85,15
+D	2-Joe,75,60
+D	3-Fanfan,70,60
+D	4-Touteve,70,55
+D	5-Rohr,80,30
+M	6-Platini,50,90
+M	7-Théodor,60,75
+M	8-Pjanic,65,78
+M	9-Taranti,55,88
+A	10-Miller,25,85
+A   11-Rodrigue,35,90
+
+EQUIPE B:
+G	1-Benayou,91,20
+D	2-Schmeich,76,15
+D	3-Valenci,73,60
+D	4-Essien,80,75
+D	5-Djamo,50,70
+M	6-Tailor,45,78
+M	7-Legommé,55,81
+M	8-Valbuen,12,89
+M	9-Govou,35,90
+A	10-Villa,10,95
+A	11-Hazard,30,95
+
+Choix Mentalité:
+|-->defensif.
+	|-->-5 Bonus +5.
+|-->equilibre.
+	|-->-1 Bonus  +1.
+|-->offensif.
+	|-->-5 Bonus +5.
+	
+Choix Bonus
+|-->Audacieux:
+	|-->bonus entre -25 et +25.
+|-->Standard:
+	|-->bonus entre -5 et +10.
+	
+NOTE:
+	|-->Addition des notes des joueurs att pour attaque et def pour defense + mentalité + bonus.
+			
+Match:
+2 * 45 second
+
+PREMIERE MI-TEMPS
+|-->rand pour action ou pas.
+	|-->Mentalité(parametre de base=>equilibre;defensif;offensif).
+	|-->Si action rand pour equipe 1 et 2 qui attaque.
+		|-->rand savoir de quel zone part l'attaque.
+			|-->Choisir au hasard  les joueurs qui s'affrontent.
+				|-->afficher note de chacun.
+				|-->Calcul de la note (note joueur+note mentalité).
+				|-->Choix du bonus.
+				|-->Calcul de la note finale(note joueur+note mentalité+note bonue).(voir exemple).
+				|-->Si note attaque plus grand que la note defense:
+					|-->si zone attaque 1 pour B ou si zone attaque 4 pour a
+						|-->On rentre dans la zone but.Si note attaque bat note defense alors le score augmente.
+					|-->sinon zone +1 pour attaqueA ou - 1 pour attaqueB. Et on recommence la comparaison attaque defense.
+				|-->Si note attaque plus petite que la note defense:
+					|-->chaques joueurs utilisés perds 3 points sur ses notes def et att.
+					|-->retour au debut(action ou pas).
+|-->MI-TEMPS
+|-->changements de joeurs.//A voir
+DEUXIEME MI-TEMPS
+|-->identique a la  1ere.
+Fin du match affichage du gagnant.
+
+--------------------------------------------------------------------------------EXEMPLE---------------------------------------------------------------------------------
+Zone but attaque B choix mentalité offensif defense A choix mentalité equilibre:
+			note attaqueB:Hazard=95.
+				|-->Application du mentalité offensif. Mentalité ente -5 et +5=3.
+				|-->Bonus audacieux=2.
+				|-->Donc note =95+3+2-->100.
+			note defenseA:Cole=85.
+				|-->Application du mentalité equilibre. Mentalité ente -1 et +1=1.
+				|-->Bonus standard=10.
+				|-->Donc note =85+1+10 -->96.
+			note attaque >note defense donc score B +1.				
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+				
+
+															
