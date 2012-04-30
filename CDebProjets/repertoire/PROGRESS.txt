@@ -1,6 +1,17 @@
+apath: chez moi ça fonctionne la recherche, par nom et id, seulement l'id commence à 1 et
+non à zéro donc si on met zéro ça le fait planter car affiche_id fait i--; (dans fonctions.c)
+et si on met zéro ça va donner -1 pour la lecture dans le tableau de contact ça fera
+contact[i-1] et on se retrouve en dehors du tableau du coup erreur de segmentation.
+faut faire une vérification de ID_recherche dans le main un genre de :
+
+if(ID_recherche!=0) affiche_id(...);
+else printf("ID doit être supérieur à zéro\n");
+
+A part ce petit oubli c'est du bon travail ça fonctionne bien.
+
+-----------------
 Apath et Yrnas.
 J'ai fait le menu rapidos mais il y a quelques erreurs.
 Merci de jeter un coup d'oeil et de modifier si besoin.
 Il serait bien de finir se projet.
 
-	
