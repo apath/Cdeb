@@ -2,14 +2,16 @@
 #include <stdlib.h>
 #include "fonctions.h"
 
+#define TAILLE_REPERTOIRE 250
+
 int main(void)
 {
     int choix,sortir=2,choix_recherche,ID_recherche,choix_supp;
-    char *nom=NULL;
+    char nom[20];
 
-    struct Fiche contact[10];
-    initialise_fiche(contact,10);
-    load_fiche(contact,10,"fichier.txt");
+    struct Fiche contact[TAILLE_REPERTOIRE];
+    initialise_fiche(contact,TAILLE_REPERTOIRE);
+    load_fiche(contact,TAILLE_REPERTOIRE,"fichier.txt");
     while(sortir!=1)
     {
         printf("---------------------------------------------------------------\n");
@@ -38,7 +40,7 @@ int main(void)
             {
                 printf("Entrez le nom a rechercher: ");
                 scanf("%s",nom);
-                recherche_nom(contact,nom,10);
+                recherche_nom(contact,nom,TAILLE_REPERTOIRE);
             }
             else if(choix_recherche==2)
             {
@@ -52,13 +54,14 @@ int main(void)
             printf("---------------------------------------------------------------\n");
             printf("                        AJOUTER CONTACT\n");
             printf("---------------------------------------------------------------\n");
-            ajouter_contact(contact,10);
+            ajouter_contact(contact,TAILLE_REPERTOIRE);
+            save_fiche(contact,TAILLE_REPERTOIRE,"fichier.txt");
             break;
         case 3:
             printf("---------------------------------------------------------------\n");
             printf("                  AFFICHER TOUS LES CONTACTS\n");
             printf("---------------------------------------------------------------\n");
-            affiche_tout(contact,10);
+            affiche_tout(contact,TAILLE_REPERTOIRE);
             break;
         case 4:
             printf("---------------------------------------------------------------\n");
@@ -81,8 +84,7 @@ int main(void)
                 printf("               Le contact ne sera pas supprime.\n");
                 printf("---------------------------------------------------------------\n");
             }
-
-
+            save_fiche(contact,TAILLE_REPERTOIRE,"fichier.txt");
             break;
         case 5:
             printf("---------------------------------------------------------------\n");
@@ -95,7 +97,7 @@ int main(void)
             scanf("%d",&choix_supp);
             if(choix_supp==1)
             {
-                supprime_tout(contact,10);
+                supprime_tout(contact,TAILLE_REPERTOIRE);
             }
             else
             {
@@ -103,6 +105,7 @@ int main(void)
                 printf("               Les contacts ne seront pas supprimes.\n");
                 printf("---------------------------------------------------------------\n");
             }
+            save_fiche(contact,TAILLE_REPERTOIRE,"fichier.txt");
             break;
 
         case 6:
@@ -114,6 +117,7 @@ int main(void)
             printf("2-non\n");
             printf("Votre choix: ");
             scanf("%d",&sortir);
+            save_fiche(contact,TAILLE_REPERTOIRE,"fichier.txt");
             break;
         default:
             printf("---------------------------------------------------------------\n");

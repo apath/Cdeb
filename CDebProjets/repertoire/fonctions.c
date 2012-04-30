@@ -4,6 +4,15 @@
 #include <ctype.h>
 #include "fonctions.h"
 
+/*sert a vider le buffer pour enlever les entrées restées en memoires*/
+void viderBuffer()
+{
+    int c = 0;
+    while (c != '\n' && c != EOF)
+    {
+        c = getchar();
+    }
+}
 /*recherche par nom*/
 int recherche_nom(struct Fiche *contact,const char *nom_rechercher,int capacite)
 {
@@ -32,7 +41,7 @@ int recherche_nom(struct Fiche *contact,const char *nom_rechercher,int capacite)
         {
             if(!strcmp(contact[i].nom,buff_nom))
             {
-                affiche_id(contact,i);
+                affiche_id(contact,i+1);
                 return 0; /* le nom est trouvé */
             }
         }
@@ -90,6 +99,7 @@ void ajouter_contact(struct Fiche *contact, int capacite)
             contact[i].id=i+1;
             break;
         }
+    viderBuffer();
     printf("Nom: ");
     contact[i].nom=longueur_chaine(get_str(buff,256));
 

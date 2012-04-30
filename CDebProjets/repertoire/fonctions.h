@@ -16,6 +16,7 @@ struct Fiche
 };
 
 int recherche_nom(struct Fiche *contact,const char *nom_rechercher,int capacite);
+void viderBuffer();
 void supprime_tout(struct Fiche *contact,int capacite);
 void affiche_tout(struct Fiche *contact,int capacite);
 void supp_contact(struct Fiche *contact,int i);
