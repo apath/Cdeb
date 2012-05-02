@@ -20,9 +20,10 @@ int main(void)
         printf("1-RECHERCHER CONTACT\n");
         printf("2-AJOUTER CONTACT\n");
         printf("3-AFFICHER TOUS LES CONTACTS\n");
-        printf("4-SUPPRIMER UN CONTACT\n");
-        printf("5-SUPPRIMER TOUS LES CONTACTS\n");
-        printf("6-QUITTER\n");
+        printf("4-MODIFIER CONTACT\n");
+        printf("5-SUPPRIMER UN CONTACT\n");
+        printf("6-SUPPRIMER TOUS LES CONTACTS\n");
+        printf("7-QUITTER\n");
         printf("Votre choix: ");
         scanf("%d",&choix);
 
@@ -80,6 +81,16 @@ int main(void)
             break;
         case 4:
             printf("---------------------------------------------------------------\n");
+            printf("                      MODIFIER CONTACT\n");
+            printf("---------------------------------------------------------------\n");
+            printf("Entrez le numero d' ID a modifier: ");
+            scanf("%d",&ID_recherche);
+            affiche_id(contact,ID_recherche);
+            modifier_contact(contact,ID_recherche);
+            save_fiche(contact,TAILLE_REPERTOIRE,"fichier.txt");
+            break;
+        case 5:
+            printf("---------------------------------------------------------------\n");
             printf("                      SUPPRIMER UN CONTACT\n");
             printf("---------------------------------------------------------------\n");
             printf("Entrez le numero d' ID de la fiche a supprimer: ");
@@ -101,7 +112,7 @@ int main(void)
             }
             save_fiche(contact,TAILLE_REPERTOIRE,"fichier.txt");
             break;
-        case 5:
+        case 6:
             printf("---------------------------------------------------------------\n");
             printf("                   SUPPRIMER TOUS LES CONTACTS\n");
             printf("---------------------------------------------------------------\n");
@@ -123,7 +134,7 @@ int main(void)
             save_fiche(contact,TAILLE_REPERTOIRE,"fichier.txt");
             break;
 
-        case 6:
+        case 7:
             printf("---------------------------------------------------------------\n");
             printf("                            QUITTER\n");
             printf("---------------------------------------------------------------\n");

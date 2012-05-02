@@ -176,6 +176,83 @@ void affiche_id(struct Fiche *contact,int i)
     printf("---------------------------------------------------------------\n");
 }
 
+
+
+void modifier_contact(struct Fiche *contact,int i)
+{
+    int choix,j;
+    char buff[256];
+    i--;
+    printf("Que souhaitez vous modifier: \n");
+    printf("1-Nom\n");
+    printf("2-Prenom\n");
+    printf("3-Sexe\n");
+    printf("4-Date de naissance\n");
+    printf("5-Email\n");
+    printf("6-Telephone fixe\n");
+    printf("7-Telephone mobile\n");
+    printf("8-Adresse\n");
+    printf("9-Annuler\n");
+    printf("Votre choix: ");
+    scanf("%d",&choix);
+    viderBuffer();
+    switch(choix)
+    {
+    case 1:
+        printf("Nom: ");
+        contact[i].nom=longueur_chaine(get_str(buff,256));
+        for(j=0; contact[i].nom[j]; j++)
+        {
+            if(j==0)
+            {
+                contact[i].nom[j]=toupper(contact[i].nom[j]);
+            }
+            else
+            {
+                contact[i].nom[j]=tolower(contact[i].nom[j]);
+            }
+        }
+
+        break;
+    case 2:
+        printf("Prenom: ");
+        contact[i].prenom=longueur_chaine(get_str(buff,256));
+        break;
+    case 3:
+        printf("Sexe: ");
+        contact[i].sexe=longueur_chaine(get_str(buff,256));
+        break;
+    case 4:
+        printf("Date de naissance: ");
+        /*pour la date attendre que yrnas ait fait la fonction de parsing "0/0/0" */
+        /*contact[i].date_naissance=x(get_str(buff,256));*/
+        break;
+    case 5:
+        printf("Email: ");
+        contact[i].email=longueur_chaine(get_str(buff,256));
+        break;
+    case 6:
+        printf("Telephone fixe: ");
+        contact[i].numfix=longueur_chaine(get_str(buff,256));
+        break;
+    case 7:
+        printf("Telephone mobile: ");
+        contact[i].nummobil=longueur_chaine(get_str(buff,256));
+        break;
+    case 8:
+        printf("Adresse: ");
+        contact[i].adresse=longueur_chaine(get_str(buff,256));
+        break;
+    case 9:
+        printf("Vous avez choisi de ne rien modifier\n");
+        break;
+    default :
+        printf("Ce choix n'existe pas\n");
+        break;
+    }
+}
+
+
 int recherche_id(struct Fiche *contact,int id_rechercher,int capacite)
 {
     int i;
