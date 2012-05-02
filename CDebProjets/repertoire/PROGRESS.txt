@@ -1,3 +1,11 @@
+spycom:
+J'ai modifié légèrement le menu. 
+C'est bizarre, moi la recherch d'ID marche sans problème chez moi.
+A moins que tu parlais d'une ID inexistante ou une ID a valeur négative ?
+Sinon il reste le problème de la date de naissance deans la fonction ajouter_contact.
+Et pour finir j'aimerais integrer une fonction modifier une fiche contact . Tu t'y prendrais comment ?
+A bientôt.
+
 apath: chez moi ça fonctionne la recherche, par nom et id, seulement l'id commence à 1 et
 non à zéro donc si on met zéro ça le fait planter car affiche_id fait i--; (dans fonctions.c)
 et si on met zéro ça va donner -1 pour la lecture dans le tableau de contact ça fera

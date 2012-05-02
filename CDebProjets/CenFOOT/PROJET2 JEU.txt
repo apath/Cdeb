@@ -116,6 +116,7 @@ PREMIERE MI-TEMPS
 				|-->Si note attaque plus grand que la note defense:
 					|-->si zone attaque 1 pour B ou si zone attaque 4 pour a
 						|-->On rentre dans la zone but.Si note attaque bat note defense alors le score augmente.
+						|-->chaques joueurs utilisés perds 3 points sur ses notes def et att.
 					|-->sinon zone +1 pour attaqueA ou - 1 pour attaqueB. Et on recommence la comparaison attaque defense.
 				|-->Si note attaque plus petite que la note defense:
 					|-->chaques joueurs utilisés perds 3 points sur ses notes def et att.

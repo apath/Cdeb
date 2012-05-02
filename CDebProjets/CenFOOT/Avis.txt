@@ -1,3 +1,21 @@
+spycom: ok je vaux bien tenter le chef de projet mais je compte sur toi si je part dans des trucs impossible pour me le dire.
+Sinon le mecanisme est simple il est fait à coup de rand.
+tu prend 2 equipes qui on 11 joueurs chacunes. Chaque joueur posséde une note sur 100 pour offensif et pour défensif avec un numéro de maillot(1 a 11) et un poste(Gardien,defenseur,milieu ,attaquant)
+Le match démarre.(2 mi temps de 45s chacune)
+1-Chaque joueur choisi la mentalité de son equipe(prevoir IA) qui affectera la note lors des actions.(voir pour changer la mentalité de l'équipe à n'importe quel moment sauf si action en cours)
+2-On fait un rand toute les secondes(si c'est possible) pour savoir si on demarre une action.
+3-Si une action demarre il faut un rand pour savoir qui attaque et qui defend.
+4-Un autre rand pour savoir de quel zone l'action part.(4 zone + 1 zone but)
+5-En fonction de la zone un autre rand pour le choix du joueur.(voir fiche projet)
+6-Choix du bonus note donné avec un rand
+6-Calcul de la note des 2 joueurs qui s'affontent.(note joueur+note mentalité+note bonus)
+7-Si attaquant gagne soit il y a but soit il change de zone.Si c'est defenseur l'action se termine.
+8-Chaques joueurs utilisés perds 3 points sur ses notes def et off.
+
+Le deroulement est le même sur les 2 mi-temps.
+Sinon on pourrait peut être intégrer des remplacemetns à la mi-temps.
+Voila j'espère que tu comprend mieux.
+
 apath: suis partant si tu es le chef de projet que tu me dis par où commencer etc
 parce que le foot et moi ça fait deux et j'avoue avoir un petit peu de mal à comprendre
 le mécanisme du jeu. 

@@ -6,7 +6,7 @@
 
 int main(void)
 {
-    int choix,sortir=2,choix_recherche,ID_recherche,choix_supp;
+    int choix,sortir=2,choix_recherche,ID_recherche,choix_supp,resultat,choix_ajout;
     char nom[20];
 
     struct Fiche contact[TAILLE_REPERTOIRE];
@@ -40,7 +40,22 @@ int main(void)
             {
                 printf("Entrez le nom a rechercher: ");
                 scanf("%s",nom);
-                recherche_nom(contact,nom,TAILLE_REPERTOIRE);
+                resultat=recherche_nom(contact,nom,TAILLE_REPERTOIRE);
+                if (resultat==1)
+                {
+                    printf("---------------------------------------------------------------\n");
+                    printf("              Contact inexistant. Voulez vous le rajoutter ?\n");
+                    printf("---------------------------------------------------------------\n");
+                    printf("1-oui\n");
+                    printf("2-non\n");
+                    printf("Votre choix: ");
+                    scanf("%d",&choix_ajout);
+                    if (choix_ajout==1)
+                    {
+                        ajouter_contact(contact,TAILLE_REPERTOIRE);
+                        save_fiche(contact,TAILLE_REPERTOIRE,"fichier.txt");
+                    }
+                }
             }
             else if(choix_recherche==2)
             {
@@ -76,7 +91,7 @@ int main(void)
             scanf("%d",&choix_supp);
             if(choix_supp==1)
             {
-                            supp_contact(contact,ID_recherche);
+                supp_contact(contact,ID_recherche);
             }
             else
             {
