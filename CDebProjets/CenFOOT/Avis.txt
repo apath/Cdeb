@@ -1,3 +1,5 @@
+apath: j'ai fait une illustration du projet et redefini les zones, comme ça l'action de départ commence en zone zéro, puis les deux moitié de terrain sont séparée ce qui permet de couper en deux le terrain je pense que niveau prog ça sera plus simple de faire comme ça et aussi pour recommencer l'action de départ en cas de but on retourne à la zone zéro et recommence l'action. Dis moi si j'ai bien compris et mis correctement les positions des joueurs def/atk/millieu[def/atk].
+
 spycom: ok je vaux bien tenter le chef de projet mais je compte sur toi si je part dans des trucs impossible pour me le dire.
 Sinon le mecanisme est simple il est fait à coup de rand.
 tu prend 2 equipes qui on 11 joueurs chacunes. Chaque joueur posséde une note sur 100 pour offensif et pour défensif avec un numéro de maillot(1 a 11) et un poste(Gardien,defenseur,milieu ,attaquant)
