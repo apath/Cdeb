@@ -1,3 +1,40 @@
+apath: oui je parlais d'un id à zéro (car les contacts commencent à 1) dans la recherche en utilisant un id 0 ça faisait
+planter le programme, la fonction affiche_id utilise un id minimum de 1 (i--)
+on tombait avec zéro à contact[-1] et donc plantage. sinon ça fonctionne bien pour les id
+valides! juste une petite verif dans le main je l'ai ajouté.
+
+Pour la date de naissance, fais une fonction qui prend en paramète une chaine de caractère
+de la forme :
+"20/01/2000"
+le prototype serait :
+void test_date(char *date){
+    int j,m,a;
+    /* ici tu pond un code capable d'extraire le jour, mois et année dans les int
+       j m et a */
+    printf("jour : %d\tmois : %d\tannee : %d\n",j,m,a);
+}
+cette fonction devra afficher
+jour : 20	mois : 1	annee : 2000
+ça te sert d'exemple pour tester ta routine servant à extraire d'une chaine les trois entier.
+Pour les extraire on en avait déjà parler y a une tonne de façon de faire, je t'avais dis
+aussi qu'il y avait l'astuce de couper la chaîne à l'aide du caractère \0 et d'utiliser un pointeur (ou pas)
+le principe :
+dans le tableau de char *date, se trouve :
+"20/01/2000"
+on peut couper la chaine en trois chaînes:
+2 0 \0 0 1 \0 2 0 0 0 \0
+en remplacant les slash par un fin de chaîne (le caractère \0, le zéro) et
+avoir un pointeur et la fonction atoi (stdlib.h) on peut convertir ces morceaux de chaînes
+en entier et les mettre dans les int j,m,a; pour jour mois et année.
+et une fois que ça c'est fait suffit d'utiliser la fonction ret_naissance qui est
+déjà faite et fonctionnel! donc faut juste demander à l'utilisateur lorsqu'il creer
+un contact, d'entrer la date de naissance sous la forme "00/00/0000" et d'extraire jj/mm/aa
+et utilise la fonction ret_naissance qui retourne un time_t et donc ça ferait un genre de :
+
+contact[i].date_naissance = ret_naissance(j,m,a);
+en concidérant que ta fonction utiliser les int j m a pour contenir les entiers extraits de la chaîne "00/00/0000"
+
+
 spycom:
 J'ai modifié légèrement le menu. 
 C'est bizarre, moi la recherch d'ID marche sans problème chez moi.

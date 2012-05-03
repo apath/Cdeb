@@ -1,3 +1,8 @@
+apath: heu bah justement dans la réalité on commence au centre non ? enfin j'veux dire, quand il y a eu un but. car se serait plus simple de coder comme ça :
+un but = on revient à la zone zéro
+si tel ou tel équipe est en mode atk on bouge dans la zone côté adverse si l'atk reussi
+(moyenne des points) sinon on recule dans la zone de l'équipe dont l'atk à échouée et celle-ci passe en defense (puis on refait moyenne des points) ?
+
 spycom: Le soucis est qu'une action peut commencer de n'importe quelle zone comme dans la realite. Là je pense que tu avais compris
  qu'on attaquait que lorsque qu'on etait dans le camp adverse. Il faut s'imaginer que le match se deroule sans nous et qu'on intervient 
  à un moment donné quand l'ordinateur decide qu'il y a le depart d'une action.
