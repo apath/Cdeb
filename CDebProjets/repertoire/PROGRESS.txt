@@ -3,7 +3,8 @@ J'ai modifié légèrement le menu.
 C'est bizarre, moi la recherch d'ID marche sans problème chez moi.
 A moins que tu parlais d'une ID inexistante ou une ID a valeur négative ?
 Sinon il reste le problème de la date de naissance deans la fonction ajouter_contact.
-Et pour finir j'aimerais integrer une fonction modifier une fiche contact . Tu t'y prendrais comment ? /*Je l'ai fait dit moi ce que tu en pense*/
+Dit moi comment faire en me mettant sur la piste histoire de finir le projet.
+
 A bientôt.
 
 apath: chez moi ça fonctionne la recherche, par nom et id, seulement l'id commence à 1 et
