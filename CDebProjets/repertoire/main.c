@@ -64,7 +64,7 @@ int main(void)
                 scanf("%d",&ID_recherche);
                 if(ID_recherche>0&&ID_recherche<=TAILLE_REPERTOIRE)
                     affiche_id(contact,ID_recherche);
-                else printf("ID doit etre compris entre 0 et %d\n",TAILLE_REPERTOIRE);
+                else printf("ID doit etre compris entre 1 et %d\n",TAILLE_REPERTOIRE);
             }
 
             break;
