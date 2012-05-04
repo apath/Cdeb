@@ -1,3 +1,10 @@
+spycom: Je t'ai mis en exemple d'action. Une equipe peu attaquer plusieurs fois de suite. C'est tirer au sort on va dire à l'aide de rand()
+Dans la relite une action offensif peut demarrer de son camp. Le centre c'est en cas de but au à l'engagement de 1 et 2 mi-temps.
+Les action faut pas les imaginées dans la continuitées. Tu peux en avoir une à la 1ere minute puis une autre à la 23 ....
+C'est la dessus qu'on intervient. On laisse ce qui se passe entre.
+Je sais pas si je m'explique bien ?
+
+
 apath: heu bah justement dans la réalité on commence au centre non ? enfin j'veux dire, quand il y a eu un but. car se serait plus simple de coder comme ça :
 un but = on revient à la zone zéro
 si tel ou tel équipe est en mode atk on bouge dans la zone côté adverse si l'atk reussi

@@ -89,7 +89,7 @@ Choix Mentalité:
 |-->equilibre.
 	|-->-1 Bonus  +1.
 |-->offensif.
-	|-->-5 Bonus +5.
+	|-->-7 Bonus +7.
 	
 Choix Bonus
 |-->Audacieux:
