@@ -1,3 +1,9 @@
+apath: ok merci pour l'exemple mais j'aimerai un petit détail, la zone d'action est-elle
+déterminée avec un rand ? car dans l'exemple ça passe de la zone but à la zone 2 ou est-ce
+que la zone but c'est la zone 1 ? Voilà ce que j'aimerai savoir c'est si on s'occupe de gérer les changements de zones en fonction d'un déplacement de zone (comme si la balle avait une trajectoire) ou simplement on prend une zone au hazard et on fait une action ?
+Ce que j'avais compris c'est qu'on changeait de zone en fonction de l'equipe gagnante sur l'action dans la zone en cours, et qu'on faisait la progression dans la zone suivante donc pour l'equipe dont l'action attaque avait réussi elle gagnerait du terrain sur la perdante de la zone actuel. exemple
+on se trouve en zone 1, l'équipe A (de cette partie du terrain) choisi la defense l'equipe B l'atk pour aller mettre un but, mais l'équipe A reussi la defense. On se déplace alors en zone 2 etc. D'où mon problème de la configuration des zone, n'ayant pas de zone zéro (au centre) comment déterminé au début du match si c'est la zone 2 ou 3 au départ je veux dire : où va "atterir la balle"?
+
 spycom: Je t'ai mis en exemple d'action. Une equipe peu attaquer plusieurs fois de suite. C'est tirer au sort on va dire à l'aide de rand()
 Dans la relite une action offensif peut demarrer de son camp. Le centre c'est en cas de but au à l'engagement de 1 et 2 mi-temps.
 Les action faut pas les imaginées dans la continuitées. Tu peux en avoir une à la 1ere minute puis une autre à la 23 ....
