@@ -1,3 +1,18 @@
+apath: d'accord maintenant j'ai compris comment se déroule la base du jeu.
+heuuu pour le nom : ActionFoot !?
+
+là je pensais pour les équipes, on pourrait créer un fichier speciale "equipe.txt" dans
+lequel on y mettrait les joueurs et qu'on chargerait au lancement du programme dans des 
+structure etc. exemple du format :
+EQUIPE POS NUMERO NOM DEF ATK
+ce qui donnerait :
+A G 1 Cole 85 15
+A D 2 Joe 75 60
+B G 1 Benayou 91 20
+B D 2 Schmeich 76 15
+
+ça permettrait de pouvoir modifier les équipes en dehors du code & sans avoir à recompiler.
+
 spycom: Oui la zone initiale de l'action est determiné avec un rand.
 Sinon il ya 6 zones: zone_but_a zone1 zone2 zone3 zone4 zone_but_b.
 Le changement de zone s'effectue que si l'attaque gagne.(zone par zone)
