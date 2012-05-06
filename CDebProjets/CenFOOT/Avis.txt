@@ -1,3 +1,24 @@
+spycom: Oui la zone initiale de l'action est determiné avec un rand.
+Sinon il ya 6 zones: zone_but_a zone1 zone2 zone3 zone4 zone_but_b.
+Le changement de zone s'effectue que si l'attaque gagne.(zone par zone)
+Si la defense se gagne l'action est terminé et on attend que l'ordi nous repropose une  action.
+En fin de compte l'exemple il faut voir cela comme ca: 
+-L'ordi decide a quel moment et d'ou part l'action. 
+-Une fois l'action terminée l'ordi recommence le choix de l'action.
+Entre ces deux moments il faut s'imaginer que le match continue sans aucune occasion d'aller marquer.
+Les actions n'ont aucun rapport entre elles. Elles ne sont pas liées.
+Les événements suivants sont issues d'un rand(ou une autre facon de tirer au hasard si tu en connais):
+-DEBUT ACTION
+-ZONE ACTION INITIALE
+-EQUIPE ATTAQUE
+-EQUIPE DEFENSE
+-NOTE MENTALITE
+-NOTE BONUS
+
+Sinon reflechi à un nom pour le jeu je mettrais un sondage sur le forum avec les propositions. Parceque C_en_foot ressemble trop à s'en foutre. lol
+
+
+
 apath: ok merci pour l'exemple mais j'aimerai un petit détail, la zone d'action est-elle
 déterminée avec un rand ? car dans l'exemple ça passe de la zone but à la zone 2 ou est-ce
 que la zone but c'est la zone 1 ? Voilà ce que j'aimerai savoir c'est si on s'occupe de gérer les changements de zones en fonction d'un déplacement de zone (comme si la balle avait une trajectoire) ou simplement on prend une zone au hazard et on fait une action ?
