@@ -1,3 +1,7 @@
+spycom: Je n'arrive pas à utiliser la fonction atoi pour recupere les 3 variables j,m,a.
+Comment tu fais pour recuperer 3 valeurs ?
+@ bientot j'espère.
+
 apath: oui je parlais d'un id à zéro (car les contacts commencent à 1) dans la recherche en utilisant un id 0 ça faisait
 planter le programme, la fonction affiche_id utilise un id minimum de 1 (i--)
 on tombait avec zéro à contact[-1] et donc plantage. sinon ça fonctionne bien pour les id
