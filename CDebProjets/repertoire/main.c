@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "fonctions.h"
 
-#define TAILLE_REPERTOIRE 250
+#define TAILLE_REPERTOIRE 10
 
 int main(void)
 {
