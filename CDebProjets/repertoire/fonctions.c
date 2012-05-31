@@ -118,9 +118,8 @@ void ajouter_contact(struct Fiche *contact, int capacite)
     contact[i].prenom=longueur_chaine(get_str(buff,256));
     printf("Sexe: ");
     contact[i].sexe=longueur_chaine(get_str(buff,256));
-    printf("Date de naissance: ");
-    /*pour la date attendre que yrnas ait fait la fonction de parsing "0/0/0" */
-    /*contact[i].date_naissance=x(get_str(buff,256));*/
+    printf("Date de naissance JJ/MM/AA : ");
+    contact[i].date_naissance=s_naissance(get_str(buff,256));
     printf("Email: ");
     contact[i].email=longueur_chaine(get_str(buff,256));
     printf("Telephone fixe: ");
@@ -223,9 +222,8 @@ void modifier_contact(struct Fiche *contact,int i)
         contact[i].sexe=longueur_chaine(get_str(buff,256));
         break;
     case 4:
-        printf("Date de naissance: ");
-        /*pour la date attendre que yrnas ait fait la fonction de parsing "0/0/0" */
-        /*contact[i].date_naissance=x(get_str(buff,256));*/
+        printf("Date de naissance JJ/MM/AA : ");
+        contact[i].date_naissance=s_naissance(get_str(buff,256));
         break;
     case 5:
         printf("Email: ");
@@ -307,22 +305,40 @@ void affiche_naissance(time_t date)
     dn = localtime(&date);
     printf("%d/%d/%d\n",dn->tm_mday,dn->tm_mon+1,dn->tm_year+1900);
 }
+/* copie et retourne le time_t dans un tableau de char sous la forme JJ/MM/AA */
+char *cp_naissance(char *s,time_t date){
+    struct tm *dn;
+    dn = localtime(&date);
+    sprintf(s,"%d/%d/%d\0",dn->tm_mday,dn->tm_mon+1,dn->tm_year+1900);
+    return s;
+}
+/* s_naissance
+ * retourne un time_t en utilisant une date dans une chaîne sous la forme
+ * JJ/MM/AA (jour/mois/année) */
+time_t s_naissance(char *tab){
+    int i,cpt=1,a,b,c;
+    char *p[3];
+    p[0]=tab;
+    for(i=0;tab[i];i++){
+        if(tab[i]=='/'){
+            p[cpt]=&tab[i+1];
+            tab[i]='\0';
+            cpt+=1;
+        }
+    }
+    a=atoi(p[0]),b=atoi(p[1]),c=atoi(p[2]);
+    return ret_naissance(a,b,c);
+}
 
 /*Ajout dans un fichier texte*/
 int save_fiche(struct Fiche *contact,int capacite,const char *fichier)
 {
     int i;
     char retour='\n',virgule=',';
-    char date[9]="00/00/00";
+    char date[30]="00/00/00";
 
     FILE *FICHIER=NULL;
-    FICHIER=fopen(fichier,"wb"); /* le "a" pour append est utilisé uniquement lorsqu'on veut ouvrir
-                                    un fichier déjà existant, ou le créer en cas de problème lorsqu'il
-                                    n'existe pas (utilisé pour les fichier de log etc en gros).
-                                    Dans nôtre cas cela créerait des doublons de contact,
-                                    si on venait à ajouter à la fin du fichier la fiche vu qu'on n'utilise
-                                    pas le fichier comme une base de donnée mais comme une sauvegarde :
-                                    la fiche étant entièrement chargée en mémoire on utilise "w" */
+    FICHIER=fopen(fichier,"wb");
     if (FICHIER != NULL)
     {
         for(i=0; i<capacite; i++)
@@ -335,6 +351,7 @@ int save_fiche(struct Fiche *contact,int capacite,const char *fichier)
                 fwrite(&virgule,sizeof(char),1,FICHIER);
                 fwrite(contact[i].sexe,sizeof(char),strlen(contact[i].sexe),FICHIER);
                 fwrite(&virgule,sizeof(char),1,FICHIER);
+                cp_naissance(date,contact[i].date_naissance);
                 fwrite(date,sizeof(char),strlen(date),FICHIER);
                 fwrite(&virgule,sizeof(char),1,FICHIER);
                 fwrite(contact[i].email,sizeof(char),strlen(contact[i].email),FICHIER);
@@ -395,8 +412,8 @@ int load_fiche(struct Fiche *contact,int capacite,char *nom_fichier)
                     case 2:
                         contact[ct_contact].sexe=longueur_chaine(tampon);
                         break;
-                        /* case 3:
-                             contact[ct_contact].date_naissance=longueur_chaine(tampon);*/
+                    case 3:
+                        contact[ct_contact].date_naissance=s_naissance(tampon);
                         break;
                     case 4:
                         contact[ct_contact].email=longueur_chaine(tampon);

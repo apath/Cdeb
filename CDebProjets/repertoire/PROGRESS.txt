@@ -1,3 +1,7 @@
+path: Projet complet ! je viens d'ajouter l'utilisation de la date de naissance en time_t partout
+Le problème avec le time_t c'est qu'il commence en 1970 et pose problème pour les date antérieures
+à celle-ci ahahaha, au moins on aura un exemple d'utilisation du time_t etc. 
+
 spycom: Je n'arrive pas à utiliser la fonction atoi pour recupere les 3 variables j,m,a.
 Comment tu fais pour recuperer 3 valeurs ?
 @ bientot j'espère.

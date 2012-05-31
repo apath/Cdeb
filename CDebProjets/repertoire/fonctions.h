@@ -27,6 +27,7 @@ int recherche_id(struct Fiche *contact,int id_rechercher,int capacite);
 void affiche_id(struct Fiche *contact,int i);
 char *longueur_chaine(char *chaine);
 time_t ret_naissance(int j,int m,int a);
+time_t s_naissance(char *date);
 void affiche_naissance(time_t date);
 int save_fiche(struct Fiche *contact,int capacite,const char *fichier);
 int load_fiche(struct Fiche *contact,int capacite,char *nom_fichier);
