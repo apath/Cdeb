@@ -286,23 +286,35 @@ char *longueur_chaine(char *chaine)  /* la fonction retourne un pointeur */
 /* ret_naissance retourne une date dans un time_t
  * on affiche le time_t avec la fonction ctime() */
 time_t ret_naissance(int j,int m,int a)
-{
-    time_t date_naissance;
-    struct tm *dn;
-    date_naissance = time(NULL);
-    dn = localtime(&date_naissance);
-    dn->tm_year = a-1900;
-    dn->tm_mon = m-1;
-    dn->tm_mday = j;
-    date_naissance = mktime(dn);
-    return date_naissance;
+{ /* http://www.cplusplus.com/reference/clibrary/ctime/ */
+    time_t date_naissance; /* time_t c'est un type standard (time.h)
+							  équivalent à un entier non signé (unsigned int) qui
+							  ne représente que les secondes écoulée depuis l'année 70
+							  heure "unix" je crois, n'ai pas cherché plus loin */
+    struct tm *dn; /* la structure tm fait partie de time.h ici on créer un pointeur
+					  de type "struct tm" cette structure contient des membres pour
+					  représenter une date : jour, mois, annee, heure, minute, seconde... 
+					  http://www.cplusplus.com/reference/clibrary/ctime/tm/ */
+    date_naissance = time(NULL); /* time() donne la date actuel sous forme d'un time_t 
+                                    ici ça permet pour la suite de completer la structure
+									avec des données cohérantes avant de la modifier */
+    dn = localtime(&date_naissance); /* localtime() remplie la structure tm à l'aide du time_t */
+    dn->tm_year = a-1900; /* modification des membres de la structure qui nous interesse : année, */
+    dn->tm_mon = m-1; /* mois */
+    dn->tm_mday = j; /* jour */
+	/* le -1900 et -1 mis en rapport à un exemple trouvé sur le net
+	n'ayant pas cherché à savoir pourquoi car trop bancal pour être interessant je ne peux commenter d'avantage */
+    date_naissance = mktime(dn); /* mktime() fait l'inverse de localtime en retournant les données
+	                                sous la forme d'un time_t */
+    return date_naissance; /* retourne le time_t */
 }
 
 /* affichage de la date de naissance en time_t sous la forme j/m/a */
 void affiche_naissance(time_t date)
 {
     struct tm *dn;
-    dn = localtime(&date);
+    dn = localtime(&date); /* récupération du time_t dans les membres d'une structure tm
+	                          pour y lire l'annee,mois et jour */
     printf("%d/%d/%d\n",dn->tm_mday,dn->tm_mon+1,dn->tm_year+1900);
 }
 /* copie et retourne le time_t dans un tableau de char sous la forme JJ/MM/AA */
@@ -310,28 +322,33 @@ char *cp_naissance(char *s,time_t date)
 {
     struct tm *dn;
     dn = localtime(&date);
+	/* utilisation de sprintf pour le format JJ/MM/AAAA */
     sprintf(s,"%d/%d/%d\0",dn->tm_mday,dn->tm_mon+1,dn->tm_year+1900);
     return s;
 }
 /* s_naissance
  * retourne un time_t en utilisant une date dans une chaîne sous la forme
  * JJ/MM/AA (jour/mois/année) */
-time_t s_naissance(char *tab)
-{
+time_t s_naissance(char *tab) /* tab n'est pas un const char car il se doit d'être modifiable */
+{ /* simple parsing du format "JJ/MM/AAAA"
+     a=JJ, b=MM, c=AAAA */
     int i,cpt=1,a,b,c;
-    char *p[3];
-    p[0]=tab;
-    for(i=0; tab[i]; i++)
+    char *p[3]; /* tableau de 3 pointeurs */
+    p[0]=tab; /* premier pointeur pointe sur le debut de "JJ/MM/AAAA" */
+    for(i=0; tab[i]; i++) /* traverse "JJ/MM/AAAA" */
     {
         if(tab[i]=='/')
         {
-            p[cpt]=&tab[i+1];
-            tab[i]='\0';
+            p[cpt]=&tab[i+1]; /* le second et troisieme pointeront sur le debut MM et AAAA */
+            tab[i]='\0'; /* les slash "/" sont remplacés par un \0 pour créer trois chaînes
+			                indépendante à partir des pointeurs */
             cpt+=1;
         }
     }
+	/* atoi() est une fonction standard pour la convertion d'une chaîne en entier */
     a=atoi(p[0]),b=atoi(p[1]),c=atoi(p[2]);
-    return ret_naissance(a,b,c);
+    return ret_naissance(a,b,c); /* utilisation de ret_naissance qui se charge de
+	                                retourner un time_t à l'aide des trois int */
 }
 
 /*Ajout dans un fichier texte*/
