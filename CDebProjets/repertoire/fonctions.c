@@ -118,7 +118,7 @@ void ajouter_contact(struct Fiche *contact, int capacite)
     contact[i].prenom=longueur_chaine(get_str(buff,256));
     printf("Sexe: ");
     contact[i].sexe=longueur_chaine(get_str(buff,256));
-    printf("Date de naissance JJ/MM/AA : ");
+    printf("Date de naissance JJ/MM/AAAA : ");
     contact[i].date_naissance=s_naissance(get_str(buff,256));
     printf("Email: ");
     contact[i].email=longueur_chaine(get_str(buff,256));
@@ -222,7 +222,7 @@ void modifier_contact(struct Fiche *contact,int i)
         contact[i].sexe=longueur_chaine(get_str(buff,256));
         break;
     case 4:
-        printf("Date de naissance JJ/MM/AA : ");
+        printf("Date de naissance JJ/MM/AAAA : ");
         contact[i].date_naissance=s_naissance(get_str(buff,256));
         break;
     case 5:
