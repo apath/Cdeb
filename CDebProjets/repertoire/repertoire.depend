@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1338485504 source:c:\cdeb\projet\test\cdebprojets\repertoire\main.c
+	<stdio.h>
+	<stdlib.h>
+	"fonctions.h"
+
+1338436080 c:\cdeb\projet\test\cdebprojets\repertoire\fonctions.h
+	<time.h>
+
+1338485059 source:c:\cdeb\projet\test\cdebprojets\repertoire\fonctions.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"fonctions.h"
+

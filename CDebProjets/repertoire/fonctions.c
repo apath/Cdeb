@@ -161,7 +161,7 @@ void affiche_tout(struct Fiche *contact,int capacite)
 void affiche_id(struct Fiche *contact,int i)
 {
     i--;
-    printf("---------------------------------------------------------------\n");
+    printf("------------------------------------------------------------------------\n");
     printf("Identifiant: %d\n", contact[i].id);
     printf("Nom: %s\n", contact[i].nom);
     printf("Prenom: %s\n", contact[i].prenom);
@@ -172,7 +172,7 @@ void affiche_id(struct Fiche *contact,int i)
     printf("Telephone fixe: %s\n", contact[i].numfix);
     printf("Telephone mobile: %s\n", contact[i].nummobil);
     printf("Adresse: %s\n", contact[i].adresse);
-    printf("---------------------------------------------------------------\n");
+    printf("------------------------------------------------------------------------\n");
 }
 
 
@@ -306,7 +306,8 @@ void affiche_naissance(time_t date)
     printf("%d/%d/%d\n",dn->tm_mday,dn->tm_mon+1,dn->tm_year+1900);
 }
 /* copie et retourne le time_t dans un tableau de char sous la forme JJ/MM/AA */
-char *cp_naissance(char *s,time_t date){
+char *cp_naissance(char *s,time_t date)
+{
     struct tm *dn;
     dn = localtime(&date);
     sprintf(s,"%d/%d/%d\0",dn->tm_mday,dn->tm_mon+1,dn->tm_year+1900);
@@ -315,12 +316,15 @@ char *cp_naissance(char *s,time_t date){
 /* s_naissance
  * retourne un time_t en utilisant une date dans une chaîne sous la forme
  * JJ/MM/AA (jour/mois/année) */
-time_t s_naissance(char *tab){
+time_t s_naissance(char *tab)
+{
     int i,cpt=1,a,b,c;
     char *p[3];
     p[0]=tab;
-    for(i=0;tab[i];i++){
-        if(tab[i]=='/'){
+    for(i=0; tab[i]; i++)
+    {
+        if(tab[i]=='/')
+        {
             p[cpt]=&tab[i+1];
             tab[i]='\0';
             cpt+=1;
