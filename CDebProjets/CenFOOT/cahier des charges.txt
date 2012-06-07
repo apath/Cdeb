@@ -1,0 +1,100 @@
+Cahier des Charges:
+
+
+Info Jeu: 
+-Jeu en mode console avec pour langage de programmation le c.
+-Il est composé de menu est des décisions humaines qui donne une note aléatoire.
+-Il a pour thème le football.
+
+Le déroulement:
+Menu d'accueil avec plusieurs choix
+- match simple
+- Coupe
+- Saison
+- Editeur
+- Info/Règle
+- Quitter
+On mettra un message d'erreur en cas de mauvais  choix.
+
+Match simple:
+-Choix des 2 équipes avec possibilté de mettre aléatoire.
+-On présente la composition de son équipe et on propose de faire des changements.
+-Le match débute.
+
+Mode coupe:
+-Choix d'une équipe possibilté de mettre aléatoire.
+- ou chargement d'une sauvegarde.
+-Tirage sort des rencontres (32 équipescoupes match unique)
+-On arrive sur le menu Accueil coupe.
+
+Accueil coupe:
+-Match:
+	-On présente la composition de son équipe et on propose de 	faire des changements.
+	-Le match débute.
+-Tour de coupe.
+-Calendrier Coupe.
+-Sauvegarde
+
+Mode Saison:
+-Choix d'une équipe possibilté de mettre aléatoire
+- ou chargement d'une sauvegarde.
+-Lister les rencontres (20 equipes championnat aller -retour soit 38 matchs et 32 équipes coupes match unique)
+-On arrive sur le menu 
+
+Accueil saison:
+-Match:
+	-On présente la composition de son équipe et on propose de 	faire des changements.
+	-Le match débute.
+-Classement championnat.
+-Calendrier championnat.
+-Tour de coupe.
+-Calendrier Coupe.
+-Sauvegarde.
+
+Match:
+-Chargement des compositions des équipes 11 joueurs titulaires + 5 remplacants.
+-Mentalité de départ.
+-Durée: 2 mi-temps de 45s.
+-Le match demarre affichage des équipes score et temps.
+-On lance une fonction qui decide à quel moment il y aura une action.
+-Si il y a une action une fonction aleatoire décide d'ou demarre l'action et quel est l'equipe qui attaque et met en pause le chrono.
+-Choix du joueur offensif et du joueur defensif.
+-On affiche les notes de départ des joueurs en fonction off. ou def. 
+-On lance une fonction qui decide d'une note en fonction de la mentalité choisie.
+-On affiche la note des joueurs actualisé note départ + note mentalité
+-On demande quel type d'action on envisage (note bonus).
+-On affiche la note finale note depart + note mentalité + note bonus.
+-En fonction de la comparaison des notes soit l'action continue soit elle s'arrête(la défense gagne ou l'attaque a marqué un but).
+-Les notes finales deviennent les notes de depart des joueurs pour la durée du match.
+-Si l'action continue on recommence a choix des joueurs et ainsi de suite jusqu'a ce que l'action se termine.
+-Une fois l'action terminé on demande au joueur si il veut changer de mentalité et/ou faire un/ou des remplacemetns(3 maxi par match/equipe).
+-reprise chrono
+-affichage des équipes score et temps.
+-on redémarre a fonction qui decide d'une action.
+-Si chono est égal à 45s alors une menu mi-temps s'ouvre.
+-Reprise de la 2 eme mi-temps comme la 1ere.
+-Fin de match
+-Si match coupe et score final et a égalité alors  tir au but.
+
+Mi-temps:
+-Remplacement.
+-Causerie permet d'améliorer les notes des joueurs mais peu aussi la diminuer si le choix n'est pas le bon.
+-Quitter le match(match perdu 3-0 par forfait).
+
+Tir au buts:
+-Choix de 5 tireurs.
+-Comparaison des notes
+-Si note joueur plus grande que le gardien alors but (score+1) sinon arret du gardien (score -1).
+-On répéte 5 fois.
+-Si score identique on recommence au debut de la fonction tir au but- les 5 joueurs deja utilisés.
+-Si core different le vainqueur et celui qui a le score le plus grand.
+
+Editeur:
+-Modification des équipes noms des joueurs et des clubs.
+
+Info/Règle:
+-Explication des règles du jeu et information de concepetion programmation.
+
+Quitter:
+-Permet de quitter le jeu avec une demande de confirmation.
+	
