@@ -1,0 +1,6 @@
+spycom:
+Je viens de regarder les structures c'est pas mal. J'aurais juste besoin d'une explication pour les structures dans une structure.
+Sinon j'ai rajouter pen (penaltie) pour les matchs de coupes en cas d'égalité, a part cela je n'ai rien vu d'autre pour l'instant.
+Pour le démarrage cela traine j'essaie de recruter sur quelques chats et forums.
+Je pense me laisse jusqu'au 20/06 pour trouver des personnes voulant participer au projet.
+Autrement est ce que cela te gene si on fait le projet à deux si on trouve personne d'autre ?
