@@ -1,3 +1,19 @@
+apath:
+les fichiers team.h et team.c sont pour la gestion (création/modification) et l'enregistrement des équipes
+avec les valeurs par défault des joueurs pour la partie éditeur et chargement/choix des équipes. Le penaltie
+n'est pas vraiment au bon endroit serait dans la gestion des matchs et donc plus dans le moteur du jeu.
+J'ai ajouté une illustration de l'utilité d'un pointeur de la même struct dans celle-ci, tu peux aussi
+jetter un oeil dans l'aide sur les structures à la fin j'en avais parlé briévement et dans un commentaire j'avais
+mis un exemple des listes chaînées. Le principe est simple, c'est de facilement ajouter de nouvelles données sans
+avoir à utiliser un tableau dynamique qui est dure à gérer lors d'une suppression ou d'un ajout car il faut le 
+redimensionné et faire des décalages lors des supression alors qu'avec des pointeurs (liste chaînée) l'ajout/supression 
+peut se faire n'importe où en bougeant les adresses correctement juste des free et des malloc à faire (pas de realloc).
+Je vais t'ajouter un exercice dans ton dossier pour que tu assimiles le principe.
+Si personne ne veut se joindre à nous bah tant pis on continue à deux puis c'est tout! Si tu penses pouvoir progresser
+et que t'es toujours motivé ça ne me dérange pas. Okey pour le 20 jusque là je laisse le projet comme il est et tu
+pourras faire l'exo sur liste chaînée comme ça tu seras d'attaque pour la suite.
+
+
 spycom:
 Je viens de regarder les structures c'est pas mal. J'aurais juste besoin d'une explication pour les structures dans une structure.
 Sinon j'ai rajouter pen (penaltie) pour les matchs de coupes en cas d'égalité, a part cela je n'ai rien vu d'autre pour l'instant.
