@@ -1,2 +1,8 @@
-apath:j'ajoute une petite vidé car je sais que le concept de listchainee est assez raid à comprendre au début et à expliquer ça l'est presque autant j'espère que ça va te donner le déclique
-demain on est le 20 on va devoir commencer à se pencher sérieusement sur le second projet! et cet exercice est important pour aprentissage du c et le second projet
+apath:j'ajoute une petite vidéo car je sais que le concept de
+listchainee est assez raid à comprendre au début et à expliquer ça
+l'est presque autant j'espère que ça va te donner le déclique avec
+les commentaires que j'y ai mis.
+apres on va commencer à se pencher sur le second projet!
+il est important que tu arrives à faire ce petit exo et le comprendre.
+La vidéo ne passe pas sur github donc l'ai up sur rutube voici le lien
+http://rutube.ru/tracks/5720133.html
