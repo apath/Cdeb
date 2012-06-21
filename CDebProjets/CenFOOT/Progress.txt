@@ -1,3 +1,7 @@
+spycom:
+Bien nous sommes deux et dommage mais on va y arriver. Pour ma motivation t'inquiéte elle est toujours là. Je viens de voir l'exo dans mon dossier (dsl j'ai pas été attentif ;) ).
+Alors je propose que l'on se connect demain soir(vendredi) vers 21h si c'est jouable pour toi.
+
 apath:
 les fichiers team.h et team.c sont pour la gestion (création/modification) et l'enregistrement des équipes
 avec les valeurs par défault des joueurs pour la partie éditeur et chargement/choix des équipes. Le penaltie
