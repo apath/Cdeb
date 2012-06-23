@@ -1,19 +1,22 @@
 #ifndef __list__
 #define __list__
 
+typedef struct test test;
 struct test{
     int id; /* identifiant */
     int val; /* valeur */
-    struct test *next; /* pointeur gardant l'adresse du "bloc" suivant */
+    test *next; /* pointeur gardant l'adresse du "bloc" suivant */
 };
 
 /* le type suivant "list" sera utilisé pour ne garder
  * que l'adresse du début d'une list, ça simplifie
  * les fonctions pour modifier l'adresse start, chaque
  * nouvelle entrée sera ajoutée au début de la liste */
-typedef struct{
-    struct test *start;
-}list;
+typedef struct list list;
+struct list
+{
+    test *start;
+};
 
 /* quelque prototype de fonction pour donner une idée
  * de comment tu pourrais faire pour gerer la liste tu
@@ -38,7 +41,7 @@ list *init_list(void);
  * en cas où lptr est NULL (problem d'initialisation ou que malloc
  * retourne NULL la fonction retourne 1 (erreur) si l'ajout c'est
  * bien déroulée la fonction retourne 0 (tout est ok) */
-int ajout(list *lptr,int id,int val);
+int ajout(list *lptr,int nvid,int nvval);
 
 /* la fonction supp recherche dans la list un bloc contenant l'id
  * passé en paramètre, si elle le trouve elle replace les adresse
@@ -46,7 +49,7 @@ int ajout(list *lptr,int id,int val);
  * puis free l'item ayant l'id recherché
  * la fonction retourne 1 si l'id est introuvable
  * et retourne 0 si l'id est trouvé et supprimé */
-int supp(list *lptr,int id);
+int supp(list *lptr,int suppid);
 
 /* la fonction recherche, recherche dans la list un bloc contenant l'id
  * passé en paramètre et affiche sa valeur actuel, aucune
@@ -55,7 +58,7 @@ int supp(list *lptr,int id);
  * vera sa valeur modifiée en fonction du paramètre val.
  * la fonction retourne 1 en cas où l'id est introuvable
  * la fonction retourne 0 si l'id est trouvé */
-int recherche(list *lptr,int id,int val);
+int recherche(list *lptr,int rechid,int rechval);
 
 
 /* la fonction affiche_list traverse la list sans la modifier

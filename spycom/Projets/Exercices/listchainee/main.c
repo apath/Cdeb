@@ -14,6 +14,7 @@ int main(void){
         recherche(lptr,10,-1);
         affiche_list(lptr);
         free_list(lptr);
+        affiche_list(lptr);
     }
     return 0;
 }
