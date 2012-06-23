@@ -7,16 +7,21 @@ list *init_list(void)
     /* initialisation retourne un pointeur type list
      * et met l'adresse start à NULL */
     list *list = malloc(sizeof(*list));
-    test *test = malloc(sizeof(*test));
-    if (list == NULL || test == NULL)
+    /* test *test = malloc(sizeof(*test));
+     * pas necessaire d'init une struct test car là ça fait comme si
+     * tu ajoutais un premier bloc à ta chaîne avec pour id et val à 0
+     * le but d'init la list c'est de mettre le pointeur start à NULL
+     * lors de l'ajout d'un nouveau bloc cette adresse NULL se retrouvera
+     * automatiquement à la fin et ce sera bon */
+    if (list == NULL)/* || test == NULL)*/
     {
         exit(EXIT_FAILURE);
     }
-    test->id = 0;
+    /*test->id = 0;
     test->val= 0;
-    test->next = NULL;
-    list->start = test;
-
+    test->next = NULL;*/
+    list->start = NULL; /* sera mis directement dans le next du
+                           premier bloc (lors du premier ajout) */
     return list;
 }
 
@@ -29,12 +34,13 @@ int ajout(list *lptr,int nvid,int nvval)
     test *nouveau = malloc(sizeof(*nouveau));
     if (lptr == NULL || nouveau == NULL)
     {
-        exit(EXIT_FAILURE);
+        return 1;
     }
     nouveau->id = nvid;
     nouveau->val= nvval;
     nouveau->next = lptr->start;
     lptr->start = nouveau;
+    return 0;
 }
 
 int supp(list *lptr, int suppid)
@@ -133,7 +139,8 @@ void free_list(list *lptr)
 
     while (actuel != NULL)
     {
-        free(actuel);
+        free(actuel); /* si tu free l'actuel là tu ne peux plus recup son
+                         contenu (l'adresse dans next) !!! */
         actuel = actuel->next;
     }
     free(lptr);

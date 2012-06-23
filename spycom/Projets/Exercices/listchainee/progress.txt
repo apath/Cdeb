@@ -1,3 +1,7 @@
+apath:Dans la fonction free_list il y a une erreur, tu as libéré l'adresse actuel
+avant de lire l'adresse next qu'il contient faut corriger ça. Sans quoi c'est du bon!
+Est-ce que ça t'as aidé à mieux comprendre les listes chaînées ?
+
 spycom:Bon je regarde tout cela et j'essaye de comprendre tout cela.
 
 apath:j'ajoute une petite vidéo car je sais que le concept de
