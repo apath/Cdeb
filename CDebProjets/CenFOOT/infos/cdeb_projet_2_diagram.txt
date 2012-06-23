@@ -1,0 +1,11 @@
+Ce diagram reprend le cahier des charges pour définir les différents modules,
+de la console jusqu'aux fichiers de sauvegarde.
+
+La partie gestion des données est séparée en deux, une pour les équipes et une
+pour les match. Ces deux parties auront leur propre fichier de sauvegarde.
+La gestion des données s'occupe donc du chargement des données en mémoire, de
+leur sauvegarde dans un fichier, et met à disposition toutes les fonctions
+et structures/types nécessaires permettant de les manipuler.
+
+Le coeur, suivant les commandes reçues par la console et les règles du jeu
+manipule les données.
