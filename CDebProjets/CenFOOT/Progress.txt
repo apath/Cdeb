@@ -1,7 +1,12 @@
 apath:j'ai ajouté un fichier team.txt pour la sauvegarde de la configuration des equipes&joueurs
 avec leurs stats par défault.
 Voici le format :
-[nom_equipe,nom_joueur,pos_joueur,numero_joueur,points_def_joueur,points_atk_joueur]
+
+{nom de l'equipe[infos joueur1][infos joueur2][infos joueurs3]...}
+-
+{nom_equipe[nom_joueur,pos_joueur,numero_joueur,points_def_joueur,points_atk_joueur]}
+regarde dans le fichier team.txt c'est plus explicite j'ai repris des valeurs que t'avais donné.
+
 Il va falloir faire un fichier match.txt avec un format dans le même genre pour la sauvegarde
 des match mais là le foot et moi ça fait deux donc ça va être à toi de créer le format du fichier match.txt
 Aussi faut que tu m'explique la différence entre une équipe et un club, est-ce qu'un club peut contenir
