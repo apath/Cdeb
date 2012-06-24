@@ -1,0 +1,4 @@
+[equipeA,Cole,G,1,85,15]
+[equipeA,Joe,D,2,75,60]
+[equipeB,Benayou,G,1,91,20]
+[equipeB,Schmeich,D,2,76,15]
