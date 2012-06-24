@@ -9,7 +9,7 @@
 
 struct team{
     char *name; /* nom du joueur */
-    int pos,num,def,atk,pen; /* position,numero,points def et atk +pen pour penaltie */
+    int pos,num,def,atk; /* position,numero,points def et atk */
     struct team *next; /* ptr next (liste chaînée) */
 };
 struct club{
