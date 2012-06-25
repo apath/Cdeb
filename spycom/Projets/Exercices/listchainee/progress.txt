@@ -1,3 +1,6 @@
+spycom:L'exercice ma bien aidé mais il m'a pris du temps va falloir que je manipule beaucoup pour que
+cela rentre en memoire. Pour free_list je ne vois pas trop comment faire stocker l'adresse dans une variabler char ?
+
 apath:Dans la fonction free_list il y a une erreur, tu as libéré l'adresse actuel
 avant de lire l'adresse next qu'il contient faut corriger ça. Sans quoi c'est du bon!
 Est-ce que ça t'as aidé à mieux comprendre les listes chaînées ?

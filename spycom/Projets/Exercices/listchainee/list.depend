@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1340453022 source:c:\cdeb\projet\test\spycom\projets\exercices\listchainee\main.c
+	<stdio.h>
+	"list.h"
+
+1340452829 c:\cdeb\projet\test\spycom\projets\exercices\listchainee\list.h
+

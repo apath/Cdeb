@@ -67,7 +67,7 @@ Match:
 -En fonction de la comparaison des notes soit l'action continue soit elle s'arrête(la défense gagne ou l'attaque a marqué un but).
 -Les notes finales deviennent les notes de depart des joueurs pour la durée du match.
 -Si l'action continue on recommence a choix des joueurs et ainsi de suite jusqu'a ce que l'action se termine.
--Une fois l'action terminé on demande au joueur si il veut changer de mentalité et/ou faire un/ou des remplacemetns(3 maxi par match/equipe).
+-Une fois l'action terminé on demande au joueur si il veut changer de mentalité et/ou faire un/ou des remplacements(3 maxi par match/equipe).
 -reprise chrono
 -affichage des équipes score et temps.
 -on redémarre a fonction qui decide d'une action.
@@ -90,7 +90,7 @@ Tir au buts:
 -Si core different le vainqueur et celui qui a le score le plus grand.
 
 Editeur:
--Modification des équipes noms des joueurs et des clubs.
+-Modification des équipes: noms des joueurs et noms des clubs.
 
 Info/Règle:
 -Explication des règles du jeu et information de concepetion programmation.

@@ -1,3 +1,6 @@
+spycom:La reponse pour club ou équipe dans le jeu se sera la même chose. Sinon pour match.txt j'ai fait quelque chose je sais pas si cela est bon.
+J'ai rajouté une note pour les penalties qui sera entre 0 et 10. 
+
 apath:j'ai ajouté un fichier team.txt pour la sauvegarde de la configuration des equipes&joueurs
 avec leurs stats par défault.
 Voici le format :
