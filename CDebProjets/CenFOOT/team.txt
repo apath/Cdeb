@@ -1,2 +1,2 @@
-{equipeA[Cole,G,1,85,15][Joe,D,2,75,60]}
-{equipeB[Benayou,G,1,91,20][Schmeich,D,2,76,15]}
+{(FR,1,LILLE)[Cole,G,1,85,15,10][Joe,D,2,75,60,6]}
+{(FR,1,PARIS)[Benayou,G,1,91,20,6][Schmeich,D,2,76,15,7]}

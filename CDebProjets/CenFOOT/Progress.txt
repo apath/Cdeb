@@ -1,3 +1,38 @@
+apath:ok je vais changé en fonction de tes noucelles données les struct et la syntaxe du fichier
+pour faciliter le parsing. Ne prend pas en compte les noms des joueurs et équipe dans l'exemple du
+fichier team.txt c'est juste pour la syntaxe de sauvegarde vu qu'on éditera les equipes
+à partir de la fonction éditeur du programme et que ça sera sauvegarder sous ce format par le prog.
+Nouvelle syntaxe :
+{(pays,niveau,equipe)[info_joueur_1][info_joueur_2]...}
+info joueur : [joueur,poste,numero,note_defense,note_attaque,note_penaltie]
+
+Dans la struct j'ai mis pour le nom du pays un pointeur char comme pour une chaîne
+à la place d'un int dans lequel on aurait pu mettre le code du pays, ça aurait été
+mieux de mettre un code par pays mais le problème c'est qu'il faille qu'on gère ça
+(lister tout les pays et donner un code avec le diminutif c'est trop de boulo pour
+pas grand chose enfin là dis moi ce que tu en penses là dessus).
+
+Pour la sauvegarde des match ce sera la sauvegarde des rencontres entre équipes et
+des scores, donc il faut que tu stipule le type de match, j'y connais rien la dedans
+à par la coupe du monde ahahah, donc hm enfin j'essai un exemple pour coupe du monde :
+{WORLD[FR,BR,3,0]...}
+WORLD = pour coupe du monde
+et entre les crochets [] on a la rencontre et le score
+FR = France, BR = Brésil, FR=3 but, BR=0 but
+et les trois petits points pour indiquer qu'il y aura toutes les recontres et les score
+truc dans le genre :
+{WORLD[FR,BR,3,0][DE,IT,4,2][JP,RU,1,2]...}
+
+En gros c'est ce que le fichier match doit contenir pour qu'on puisse charger les
+différentes rencontres ayant déjà eu lieu ainsi que leur type et score.
+On pourra lier par le nom les fichiers team et match pour ne pas avoir à préciser
+les joueurs des équipes ayant participé dans ces match, exemple
+team_0.txt et match_0.txt seront liés lors du chargement on demandera quel sauvegarde
+à charger en fonction du numéro de la sauve comme ça pas besoin de mélanger les joueurs etc dans la
+sauvegarde des match/rencontres.
+
+PS: faudrait pas ajouté une donnée pour l'équipe selectionnée national dans la partie team ?
+
 spycom:La reponse pour club ou équipe dans le jeu se sera la même chose. Sinon pour match.txt j'ai fait quelque chose je sais pas si cela est bon dit moi.
 Pour la partie team.txt regarde le fichier teambis.txt car j'aimerais rajouter des infos.
 J'ai rajouté:

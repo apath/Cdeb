@@ -9,11 +9,12 @@
 
 struct team{
     char *name; /* nom du joueur */
-    int pos,num,def,atk; /* position,numero,points def et atk */
+    int pos,num,def,atk,pen; /* position,numero,points def,atk et pen */
     struct team *next; /* ptr next (liste chaînée) */
 };
 struct club{
-    char *team_name; /* nom de l'equipe */
+    char *country,*team_name; /* nom du pays, nom de l'equipe */
+    int lvl; /* niveau de l'equipe */
     struct team *tm; /* ptr sur la liste de joueurs dans l'equipe */
     struct club *next; /* ptr next (liste chaînée) */
 };
