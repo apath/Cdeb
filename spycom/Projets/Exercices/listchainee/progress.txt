@@ -1,3 +1,13 @@
+apath:le type n'est pas char pour l'adresse c'est un type struct test
+alors en créant un pointeur temporaire tu peux sauvegarder l'adresse next
+avant de free l'actuel et ensuite apres avoir free l'actuel
+mettre l'adresse sauvegardé (donc la next) dans l'actuel. En gros :
+
+struct test *temp;
+temp=actuel->next;
+free(actuel);
+actuel=temp;
+
 spycom:L'exercice ma bien aidé mais il m'a pris du temps va falloir que je manipule beaucoup pour que
 cela rentre en memoire. Pour free_list je ne vois pas trop comment faire stocker l'adresse dans une variabler char ?
 
