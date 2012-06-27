@@ -1,3 +1,6 @@
+spycom: avant de continuer tout le calendrier pour saison c'est bien cela que tu souhaite pour le fichier match.txt ?
+Sinon pour les pays j'ai trouve une ficher de l'OTAN liste_pays.txt avec les abréviations et des numéros. Si ca peut faciliter la tache il se touve dans le dossier infos.
+
 apath:ok je vais changé en fonction de tes noucelles données les struct et la syntaxe du fichier
 pour faciliter le parsing. Ne prend pas en compte les noms des joueurs et équipe dans l'exemple du
 fichier team.txt c'est juste pour la syntaxe de sauvegarde vu qu'on éditera les equipes

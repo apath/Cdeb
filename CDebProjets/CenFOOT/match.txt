@@ -1,3 +1,44 @@
 {[type_match]}
-{[nom_equipeA][changement restant][Mentalite][nom_joueur,pos_joueur,numero_joueur,points_def_joueur,points_atk_joueur,point_peno_joueur]...chargement des 16 joueurs}
-{[nom_equipeB][changement restant][Mentalite][nom_joueur,pos_joueur,numero_joueur,points_def_joueur,points_atk_joueur,point_peno_joueur]...chargement des 16 joueurs}
+{[nom_equipe1][changement restant][Mentalite][nom_joueur,pos_joueur,numero_joueur,points_def_joueur,points_atk_joueur,point_peno_joueur]...chargement des 16 joueurs}
+{[nom_equipe2][changement restant][Mentalite][nom_joueur,pos_joueur,numero_joueur,points_def_joueur,points_atk_joueur,point_peno_joueur]...chargement des 16 joueurs}
+
+/*MATCH AMICAL*/
+{Amical[equipe1,equipe2,3,0]...}
+
+/*COUPE depart 32 equipe 5 tour pour la victoire*/
+{Coupe,Tour16eme[equipe1,equipe32,3,0]...}/*32 equipes*/
+{Coupe,Tour_8eme[equipe12,equipe1,3,4]...}/*16 equipes*/
+{Coupe,Tour_quart[equipe1,equipe9,3,1]...}/*8 equipes*/
+{Coupe,Tour_demi[equipe1,equipe5,4,2]equipe21,equipe12,3,2]}/*4 equipes*/
+{Coupe,Tour_final[equipe21,equipe1,3,0]}/*2 equipes*/
+
+/*SAISON*/
+{Saison,Journee1[equipe1,equipe2,0,0][equipe3,equipe4,0,0][equipe5,equipe6,0,0][equipe7,equipe8,0,0][equipe9,equipe10,0,0][equipe11,equipe12,0,0][equipe13,equipe14,0,0][equipe15,equipe16,0,0][equipe17,equipe18,0,0][equipe19,equipe20,0,0]}
+{Saison,Journee2[equipe3,equipe1,0,0][equipe2,equipe5,0,0][equipe4,equipe7,0,0][equipe6,equipe9,0,0][equipe8,equipe11,0,0][equipe10,equipe13,0,0][equipe12,equipe15,0,0][equipe14,equipe17,0,0][equipe16,equipe19,0,0][equipe18,equipe20,0,0]}
+{Saison,Journee3[equipe1,equipe5,0,0][equipe3,equipe7,0,0][equipe9,equipe2,0,0][equipe11,equipe4,0,0][equipe13,equipe6,0,0][equipe15,equipe8,0,0][equipe17,equipe10,0,0][equipe19,equipe12,0,0][equipe20,equipe14,0,0][equipe18,equipe16,0,0]}
+...
+*/Il faut integrer les tours de coupes dans la saison*/
+....
+{Saison,Journee38[equipe20,equipe1,0,0][equipe3,equipe4,0,0][equipe5,equipe6,0,0][equipe7,equipe8,0,0][equipe9,equipe10,0,0][equipe11,equipe12,0,0][equipe13,equipe14,0,0][equipe15,equipe16,0,0][equipe17,equipe18,0,0][equipe19,equipe20,0,0]}
+j1:                   j2:                   j3:                     ...         j19:
+equipe1   equipe2     equipe3   equipe1     equipe1   equipe5                   equipe1   equipe20   
+equipe3   equipe4     equipe2   equipe5     equipe7   equipe3                   equipe18  equipe19   
+equipe5   equipe6     equipe4   equipe7     equipe9   equipe2                   equipe16  equipe17   
+equipe7   equipe8     equipe6   equipe9     equipe11  equipe4                   equipe14  equipe15   
+equipe9   equipe10    equipe8   equipe11    equipe13  equipe6                   equipe12  equipe13   
+equipe11  equipe12    equipe10  equipe13    equipe15  equipe8                   equipe10  equipe11   
+equipe13  equipe14    equipe12  equipe15    equipe17  equipe10                  equipe8   equipe9    
+equipe15  equipe16    equipe14  equipe17    equipe19  equipe12                  equipe6   equipe7    
+equipe17  equipe18    equipe16  equipe19    equipe20  equipe14                  equipe4   equipe5    
+equipe19  equipe20    equipe18  equipe20    equipe18  equipe16                  equipe2   equipe3    
+j19:                  j20:                  j21:                    ...         j38:
+equipe2   equipe1     equipe1   equipe3     equipe5   equipe1                   equipe20  equipe1   
+equipe4   equipe3     equipe5   equipe2     equipe3   equipe7                   equipe19  equipe18  
+equipe6   equipe5     equipe7   equipe4     equipe2   equipe9                   equipe17  equipe16  
+equipe8   equipe7     equipe9   equipe6     equipe4   equipe11                  equipe15  equipe14  
+equipe10  equipe9     equipe11  equipe8     equipe6   equipe13                  equipe13  equipe12  
+equipe12  equipe11    equipe13  equipe10    equipe8   equipe15                  equipe11  equipe10  
+equipe14  equipe13    equipe15  equipe12    equipe10  equipe17                  equipe9   equipe8   
+equipe16  equipe15    equipe17  equipe14    equipe12  equipe19                  equipe7   equipe6   
+equipe18  equipe17    equipe19  equipe16    equipe14  equipe20                  equipe5   equipe4   
+equipe20  equipe19    equipe20  equipe18    equipe16  equipe18                  equipe3   equipe2  
