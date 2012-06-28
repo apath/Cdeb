@@ -1,3 +1,13 @@
+apath:super le fichier pour les pays ça va bien nous servir! On utilisera le code du pays dans les struct et
+l'abréviation dans les fichiers de sauvegarde et nom du pays ou abréviation lors de l'édition par l'utilisateur final.
+Voilà pour les pays j'ai fait le code pour s'en servir directement en dure (dans le code) avec les fonctions.
+Dans le main il y a l'exemple et test d'usage de country.h
+
+Oui pour le fichier match c'est un truc dans le genre
+qu'il nous faut et niveau syntaxe ça à l'air bien. Il faut terminer la syntaxe du fichier match
+en prenant en compte tout ce que le programme permet niveau rencontre et score. Apres on fera une verif du format
+et des oublis avant de se pencher sur le code.
+
 spycom: avant de continuer tout le calendrier pour saison c'est bien cela que tu souhaite pour le fichier match.txt ?
 Sinon pour les pays j'ai trouve une ficher de l'OTAN liste_pays.txt avec les abréviations et des numéros. Si ca peut faciliter la tache il se touve dans le dossier infos.
 
