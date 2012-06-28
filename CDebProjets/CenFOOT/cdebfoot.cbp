@@ -39,8 +39,20 @@
 			<Add option="-Wall" />
 			<Add option="-ansi" />
 		</Compiler>
+		<Unit filename="src\country.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src\country.h" />
 		<Unit filename="src\main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="src\team.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src\team.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
 	</Project>
 </CodeBlocks_project_file>
