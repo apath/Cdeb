@@ -1,5 +1,5 @@
 ----------------
-spycom: J'ai fini le calendrier saison. Le chiffre 1 ou 0 {Saison,Journee1,1<===Signifie que la journée a été joué 0 si pas joué)
+spycom: J'ai fini le calendrier saison. Le chiffre 1 ou 0 {Saison,Journee1,1,<===Signifie que la journée a été joué 0 si pas joué)
 Pour les matchs de saison l'algorithme est de cet forme:
 -equipe 1 ne bouge pas 
 -les autres tounent dans le sens horaire
@@ -18,6 +18,8 @@ equipe19    equipe20         equipe20    equipe18      equipe18 equipe20        
 Pour les match coupes:
 on fait le tirage des 16 matchs avec les 32 equipes puis les gagants se rencontres jusqu' a la finale.
 C6 C6 C11 match6= gagnant match 6 precedent contre gagnant match 11 precedent
+
+
 -------------------
 apath:super le fichier pour les pays ça va bien nous servir! On utilisera le code du pays dans les struct et
 l'abréviation dans les fichiers de sauvegarde et nom du pays ou abréviation lors de l'édition par l'utilisateur final.

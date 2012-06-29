@@ -1,47 +1,16 @@
 {[type_match]}
-{[nom_equipe1][changement restant][Mentalite][nom_joueur,pos_joueur,numero_joueur,points_def_joueur,points_atk_joueur,point_peno_joueur]...chargement des 16 joueurs}
-{[nom_equipe2][changement restant][Mentalite][nom_joueur,pos_joueur,numero_joueur,points_def_joueur,points_atk_joueur,point_peno_joueur]...chargement des 16 joueurs}
+{[nom_equipe1][changement][Mentalite][nom_joueur,pos_joueur,numero_joueur,points_def_joueur,points_atk_joueur,point_peno_joueur]...chargement des 16 joueurs}
+{[nom_equipe2][changement][Mentalite][nom_joueur,pos_joueur,numero_joueur,points_def_joueur,points_atk_joueur,point_peno_joueur]...chargement des 16 joueurs}
 ***************************************************************************************************************************************************************************************************************
 /*MATCH AMICAL*/
-{Amical[equipe1,equipe2,3,0]...}
+{Amical[equipe1,equipe2,0,0]}
 ****************************************************************************************************************************************************************************************************************
 /*COUPE depart 32 equipe 5 tour pour la victoire*/
-{Coupe,Tour16eme,1,[C1,equipe1,equipe32,3,0]...}/*32 equipes*/
-C1   equipe1 equipe32
-C2   equipe2 equipe31
-C3   equipe3 equipe30
-C4   equipe4 equipe29
-C5   equipe5 equipe28
-C6   equipe6 equipe27
-C7   equipe7 equipe26
-C8   equipe8 equipe25
-C9   equipe9 equipe24
-C10  equipe10 equipe23
-C11  equipe11 equipe22
-C12  equipe12 equipe21
-C13  equipe13 equipe20
-C14  equipe14 equipe19
-C15  equipe15 equipe18
-C16  equipe16 equipe17
-{Coupe,Tour_8eme,0,[C1,equipe12,equipe1,3,4]...}/*16 equipes*/
-C1 C1 C16
-C2 C2 C15
-C3 C3 C14
-C4 C4 C13
-C5 C5 C12
-C6 C6 C11
-C7 C7 C10
-C8 C8 C9
-{Coupe,Tour_quart,0,[C1,equipe1,equipe9,3,1]...}/*8 equipes*/
-C1 C1 C8
-C2 C2 C7
-C3 C3 C6
-C4 C4 C5
-{Coupe,Tour_demi,0,[C1,equipe1,equipe5,4,2]equipe21,equipe12,3,2]}/*4 equipes*/
-C1 C1 C4
-C2 C2 C3
-{Coupe,Tour_final,0,[C1,equipe21,equipe1,3,0]}/*2 equipes*/
-C1 C1 C2
+{Coupe,Tour16eme,1,[C1,equipe1,equipe32,0,0][C1,equipe1 equipe32,0,0][C2,equipe2 equipe31,0,0][C3,equipe3 equipe30,0,0][C4,equipe4 equipe29,0,0][C5,equipe5 equipe28,0,0][C6,equipe6 equipe27,0,0][C7,equipe7 equipe26,0,0][C8,equipe8 equipe25,0,0][C9,equipe9 equipe24,0,0][C10,equipe10 equipe23,0,0][C11,equipe11 equipe22,0,0][C12,equipe12 equipe21,0,0][C13,equipe13 equipe20,0,0][C14,equipe14 equipe19,0,0][C15,equipe15 equipe18,0,0][C16,equipe16 equipe17,0,0]}
+{Coupe,Tour_8eme,0,[C1,C1,C16,0,0][C2,C2,C15,0,0][C3,C3,C14,0,0][C4,C4,C13,0,0][C5,C5,C12,0,0][C6,C6,C11,0,0][C7,C7,C10,0,0][C8,C8,C9,0,0]}
+{Coupe,Tour_quart,0,[C1,C1,C8,0,0][C2,C2,C7,0,0][C3,C3,C6,0,0][C4,C4,C5,0,0]}
+{Coupe,Tour_demi,0,[C1,C1,C4,0,0][C2,C2,C3,0,0]}
+{Coupe,Tour_final,0,[C1,C1,C2,0,0]}
 ************************************************************************************************************************************************************************************************************************
 /*SAISON*/
 {Saison,Journee1,1,[M1,equipe1,equipe2,0,0][M2,equipe3,equipe4,0,0][M3,equipe5,equipe6,0,0][M4,equipe7,equipe8,0,0][M5,equipe9,equipe10,0,0][M6,equipe11,equipe12,0,0][M7,equipe13,equipe14,0,0][M8,equipe15,equipe16,0,0][M9,equipe17,equipe18,0,0][M10,equipe19,equipe20,0,0]}
