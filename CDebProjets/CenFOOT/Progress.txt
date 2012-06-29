@@ -1,3 +1,24 @@
+----------------
+spycom: J'ai fini le calendrier saison. Le chiffre 1 ou 0 {Saison,Journee1,1<===Signifie que la journée a été joué 0 si pas joué)
+Pour les matchs de saison l'algorithme est de cet forme:
+-equipe 1 ne bouge pas 
+-les autres tounent dans le sens horaire
+-les journées pairs on inverse les equipes domiciles par exterieures
+j1                           j2 rotation horaire       j2= pair inversement       j3 rotation horaire  pas de rotation car journee impair
+equipe1     equipe2          equipe1     equipe3       equipe3  equipe1           equipe1     equipe5  
+equipe3     equipe4          equipe5     equipe2       equipe2  equipe5           equipe7     equipe3  
+equipe5     equipe6          equipe7     equipe4       equipe4  equipe7           equipe9     equipe2  
+equipe7     equipe8          equipe9     equipe6       equipe6  equipe9           equipe11    equipe4  
+equipe9     equipe10         equipe11    equipe8       equipe8  equipe11          equipe13    equipe6  
+equipe11    equipe12         equipe13    equipe10      equipe10 equipe13          equipe15    equipe8 
+equipe13    equipe14         equipe15    equipe12      equipe12 equipe15          equipe17    equipe10 
+equipe15    equipe16         equipe17    equipe14      equipe14 equipe17          equipe19    equipe11 
+equipe17    equipe18         equipe19    equipe16      equipe16 equipe19          equipe20    equipe14 
+equipe19    equipe20         equipe20    equipe18      equipe18 equipe20          equipe18    equipe16 
+Pour les match coupes:
+on fait le tirage des 16 matchs avec les 32 equipes puis les gagants se rencontres jusqu' a la finale.
+C6 C6 C11 match6= gagnant match 6 precedent contre gagnant match 11 precedent
+-------------------
 apath:super le fichier pour les pays ça va bien nous servir! On utilisera le code du pays dans les struct et
 l'abréviation dans les fichiers de sauvegarde et nom du pays ou abréviation lors de l'édition par l'utilisateur final.
 Voilà pour les pays j'ai fait le code pour s'en servir directement en dure (dans le code) avec les fonctions.
@@ -7,10 +28,10 @@ Oui pour le fichier match c'est un truc dans le genre
 qu'il nous faut et niveau syntaxe ça à l'air bien. Il faut terminer la syntaxe du fichier match
 en prenant en compte tout ce que le programme permet niveau rencontre et score. Apres on fera une verif du format
 et des oublis avant de se pencher sur le code.
-
+------------
 spycom: avant de continuer tout le calendrier pour saison c'est bien cela que tu souhaite pour le fichier match.txt ?
 Sinon pour les pays j'ai trouve une ficher de l'OTAN liste_pays.txt avec les abréviations et des numéros. Si ca peut faciliter la tache il se touve dans le dossier infos.
-
+-------------
 apath:ok je vais changé en fonction de tes noucelles données les struct et la syntaxe du fichier
 pour faciliter le parsing. Ne prend pas en compte les noms des joueurs et équipe dans l'exemple du
 fichier team.txt c'est juste pour la syntaxe de sauvegarde vu qu'on éditera les equipes
