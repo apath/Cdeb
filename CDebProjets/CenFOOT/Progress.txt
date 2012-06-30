@@ -1,3 +1,15 @@
+apath:Hm est-ce vraiment necessaire de sauvegarder ceux qui ne se sont pas encore rencontrés ?
+Penses-tu que ça peut être fait avec un algo ?
+Car en premier on chargera toutes les équipes en mémoire, puis
+les match, je me disais qu'en ayant d'un côté toutes les équipes et de l'autre les rencontres effectuées qu'on
+pouvait avec un algo déterminé celles qu'il reste à se faire rencontrer. Est-ce faisable ? Ce sera à toi
+de faire la partie gestion match évidemment ahahahah j'en suis incapable sérieusement j'ai trop de mal.
+va falloir que tu créés une hierarchie dans tout ça pour en faire des struct, j'ajoute les fichier match.c et .h
+comme ça tu peux commencer à créer des struct pour les match et on vera mieux comment avancer!
+
+Dis moi s'il ne manque rien dans la sauvegarde des teams, si c'est ok je verif les struct team
+et code toute la gestion team dans le même mouvement.
+
 ----------------
 spycom: J'ai fini le calendrier saison. Le chiffre 1 ou 0 {Saison,Journee1,1,<===Signifie que la journée a été joué 0 si pas joué)
 Pour les matchs de saison l'algorithme est de cet forme:
