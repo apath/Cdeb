@@ -13,8 +13,8 @@ struct team{
     struct team *next; /* ptr next (liste chaînée) */
 };
 struct club{
-    char *country,*team_name; /* nom du pays, nom de l'equipe */
-    int lvl; /* niveau de l'equipe */
+    char *team_name; /* nom de l'equipe */
+    int country,lvl; /* code pays, niveau de l'equipe */
     struct team *tm; /* ptr sur la liste de joueurs dans l'equipe */
     struct club *next; /* ptr next (liste chaînée) */
 };
