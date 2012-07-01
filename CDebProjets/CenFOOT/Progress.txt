@@ -1,3 +1,26 @@
+apath:Si tu n'arrives pas à séparer les deux dans la même struct c'est qu'ils sont peut être trop differents
+l'un de l'autre et qu'on peut alors leur créer des struct "perso". Juste une idée :
+une struct pour amical
+une struct pour coupe
+une struct pour saison
+Ainsi seront séparés et ça peut être plus facile à gérer (et rien ne t'empeche de mettre un pointeur
+struct coupe dans la struct saison ou un tableau de la struct coupe dans la saison
+c'est toi qui vois si tu preferes utiliser une liste chaînée ou un tableau ou autres).
+
+N'oublis pas qu'il faut que tu stock le nom des teams aussi (un "char *team_name;" devrait faire l'affaire)
+Attention car les données de la partie team ne pourront être récupérer qu'à l'aide de fonctions
+(pas d'appel des struct team dans la partie match ça doit être séparer)
+
+Pas d'initialisation dans les struct!! les struct ne font que faire un "tableau" de plusieurs type
+pour les regrouper sous un type particulier, en gros c'est juste là comme une info pour
+la réservation de la mémoire lorsqu'on créer des var avec. vu que les types on différentes taille ça utilise tout les types qu'elle contient pour
+créer un type à la taille adapter en additionnant les types qu'elle contient genre de sizeof puis qu'on utilise ensuite ce nouveau type
+exemple "struct test" pour créer des variables qui utiliseront une portion de mémoire de la taille de "struct test", (de son contenu)
+donc son contenu ne doit être qu'une info sur les types et avec les noms des membres pour y accéder.
+J'ignore si mon explication est clair à me relire c'est encore pire ahahah!! dis moi si ça va!
+
+Essai de séparer les types de rencontres comme l'inspiration que j'ai donnée plus haut si c'est trop galère
+en plusieurs struct je pense que ça pourra t'aider
 ------------------
 spycom:Bon je pense que c'est compet pour les teams. Sinon j'ai commencé pour match. Parcontre j'ai un soucis pour le int tour coupe et journee (regarde dans match.h).
 Sinon j'espère que ca correspond et que je n'ai pas ecrit que des aneries. Pour l'algo oui c'est faisable je pense pour les matchs. Je penche sur la suite dit moi si tu as des idees  ou des remarques.
