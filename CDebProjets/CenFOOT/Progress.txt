@@ -1,3 +1,7 @@
+------------------
+spycom:Bon je pense que c'est compet pour les teams. Sinon j'ai commencé pour match. Parcontre j'ai un soucis pour le int tour coupe et journee (regarde dans match.h).
+Sinon j'espère que ca correspond et que je n'ai pas ecrit que des aneries. Pour l'algo oui c'est faisable je pense pour les matchs. Je penche sur la suite dit moi si tu as des idees  ou des remarques.
+------------------
 apath:Hm est-ce vraiment necessaire de sauvegarder ceux qui ne se sont pas encore rencontrés ?
 Penses-tu que ça peut être fait avec un algo ?
 Car en premier on chargera toutes les équipes en mémoire, puis
