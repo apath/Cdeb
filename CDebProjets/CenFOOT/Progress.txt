@@ -1,3 +1,22 @@
+apath: j'ai revu un peu les struct seront donc utilisées en liste chaînée ! C'est soit ça soit en tableau
+et tableau de struct, bon quand on connait le nombre d'entrée exact c'est faisable simplement
+mais tu n'apprendras rien de nouveau car tu sais très bien faire et utiliser les tableaux donc liste chaînée
+enfin c'est comme tu veux.
+dans les struct saison et coupe tu as mis pour tour et journée des tableaux mais il semble
+que tu aies mélangé un peu car les struct sont pour une rencontre entre deux equipes et dedans
+tu as mis tout[5][16] et journee[38][10] comme si c'était pour l'ensemble des rencontres.
+Si on reprend par rapport au fichier match.txt une entrée pour coupe prend une variable pour le tour 
+donc tu peux mettre un simple int tour dans coupe on y mettra la valeur soit 16 8 4 2 1 ? comme ça
+on pourra déterminé à quel tour s'est effectué la rencontre entre les deux équipes (est-ce que j'ai bien compris
+le truc ? ou je me plante completement ?)
+si c'est ok alors faudrait faire la même pour journee dans saison, mettre un simple int journee qui contiendra
+le num de la journee ?
+Si tu laisses ainsi dans chaque rencontre entre deux equipe on va avoir les tableaux de int et ça me semble un peu
+beaucoup de matchs entre les même équipes (5*16 match coupe + 38*10 pour saison !!!!) j'avoue ne pas avoir trop
+pigé en fait eclair moi!
+
+
+---------------------
 apath:Si tu n'arrives pas à séparer les deux dans la même struct c'est qu'ils sont peut être trop differents
 l'un de l'autre et qu'on peut alors leur créer des struct "perso". Juste une idée :
 une struct pour amical
