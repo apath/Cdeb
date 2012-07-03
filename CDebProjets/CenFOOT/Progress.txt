@@ -1,3 +1,9 @@
+spycom: Bon et bien je pense que j'utilise mal les strucutres. Pour une journée en mode saison il ya 10 matchs,9 simulés et 1 joué(celui du joueur).
+Pour la coupe c'est pareil sauf que le nombre de matchs diminue a chaque tour tour 1 16 matchs, tour 2 8 matchs ...
+La je patoge un peu. Alors si j'ai compris ce que tu as ecris les struct sont la pour un match ?
+Donc on fera en sorte une boucle autour de la structure pour chaque journée ?
+
+-------------------------
 apath: j'ai revu un peu les struct seront donc utilisées en liste chaînée ! C'est soit ça soit en tableau
 et tableau de struct, bon quand on connait le nombre d'entrée exact c'est faisable simplement
 mais tu n'apprendras rien de nouveau car tu sais très bien faire et utiliser les tableaux donc liste chaînée
