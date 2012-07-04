@@ -1,0 +1,8 @@
+{(Pays,niveau,club)[nom_joueur,position_joueur,numero_joueur,points_def,points_atk,points_pen][...]}
+
+
+format : {()[]...}
+
+{} une entrée contient une infos_equipe et plusieurs infos_joueurs
+() infos equipe
+[] infos joueur
