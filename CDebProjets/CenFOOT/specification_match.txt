@@ -1,0 +1,6 @@
+{(Coupe,Tour_final,0)[1,C1,C2,0,0]}
+format : {()[]}
+
+{} une entrée contient une infos_calendrier et une infos_rencontre
+() infos calendrier avec competion,journée ou tour et indice si la rencontre à été joué ou pas.
+[] infos rencontre :numero de la rencontre+ equipe domicile+equipe exterieure +score equipe domicile +score equipe exterieure

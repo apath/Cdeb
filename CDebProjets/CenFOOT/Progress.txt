@@ -1,3 +1,11 @@
+spycom ok fichie modifié.Sinon C1 MATCH COUPE NUMERO DU TOUR EN COURS(Pour le tour 16  eme finale il ya donc 16 matchs: c1,c2,c3,c4,...)
+Pour {Coupe,Tour_final,0,[C1,C1,C2,0,0]} match de coupe c'est la finale il ya 1 rencontre le vainqueur de la rencontre 1(c1) et de la rencontre 2(c2) du tour precedent(demi finale).
+Pour simplifie on peut mettre que un numéro 1 pour match de coupe ou saison(C1 M1).
+J'ai rajoute un fichier liste_equipes formaté comme ceci 84,1,1,Ajaccio  (code pays,niveau club ,numero de l'equipe, nom de l'equipe)
+Sinon je cherche pour l'algo je sais comment faire mais je trouve pas comment l'ecrire. lol
+
+
+--------------------------------------
 apath:les structures doivent pouvoir contenir "une entrée" de la sauvegarde dans match.txt et on utilisera
 ces structures en boucle effectivement donc soit en tableau de struct soit en liste chaînée.
 Juste un exemple en reprenant une entrée de la sauvegarde dans match.txt :
