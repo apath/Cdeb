@@ -1,3 +1,47 @@
+apath:les structures doivent pouvoir contenir "une entrée" de la sauvegarde dans match.txt et on utilisera
+ces structures en boucle effectivement donc soit en tableau de struct soit en liste chaînée.
+Juste un exemple en reprenant une entrée de la sauvegarde dans match.txt :
+{Coupe,Tour_final,0,[C1,C1,C2,0,0]}
+Pour cette entrée je ferai deux struct (j'ai pas compris le premier C1 donc c'est pour l'idée),
+
+une pour {Coupe,Tour,0, et une autre pour les rencontres entre [] qui est une liste donc on aura une liste
+des rencontres à l'interieur d'une entrée "coupe".
+
+struct rencontre{
+    int c; /* pour le premier C1 entre les [] ?? */
+    char *team1,*team2; /* nom equipe 1 et 2 */
+    int score[2]; /* tableau pour le score, score[0] team1, score[1] team2 */
+    struct rencontre *next; /* pointeur next pour en faire une liste de bloc */
+};
+struct coupe{
+    int tour; /* pour le type de tour (16 8 quart demi final) */
+    int act; /* pour le 0 ou 1, si c'est terminé ou en cours ? */
+    struct rencontre *index; /* un index sur la liste des rencontres pour ce bloc struct coupe */
+    struct coupe *next; /* pour créer une liste de blocs struct coupe */
+};
+
+avec ces deux struct on peut stocker toutes les lignes de la sauvegarde avec {Coupe,...}
+Mais oublis ces struct d'exemple car les struct du match.h faut les revoir,
+la syntaxe du match.txt n'est pas ok.
+
+En premier refais en plus clair le match.txt car c'est grâce à lui que tu vas
+pouvoir définir tes structures alors fais en sorte de simplifier au max ne met pas de commentaires dedans
+fais comme si c'était une vrai sauvegarde avec juste une entrée de chaque type de rencontres que
+le programme se doit de pouvoir sauvegarder.
+Est-ce que le calendrier saison peut-être génerer avec un algo ? si oui tu peux te passer de le mettre dans
+la sauvegarde et donner un numero à chaque équipe qui determinera leur emplacement/position dans le calendrier?
+Et ça simplifiera pour te donner une idée dans le genre:
+
+{Saison[num_equipe1,num_equipe2,nom_equipe1,nom_equipe2,score_1,score_2][...][...]}
+
+avec le num donné aux equipes on pourrait retrouver l'emplacement de la rencontre dans le calendrier saison
+et plus besoin de savoir la journée du coup, les numéro revenant à des positions dans le calendrier.
+
+Créé un fichier "specification_match.txt" pour expliquer la syntaxe du fichier match.txt vu qu'on ne met
+pas de commentaire dedans.
+
+-------------------------
+
 spycom: Bon et bien je pense que j'utilise mal les strucutres. Pour une journée en mode saison il ya 10 matchs,9 simulés et 1 joué(celui du joueur).
 Pour la coupe c'est pareil sauf que le nombre de matchs diminue a chaque tour tour 1 16 matchs, tour 2 8 matchs ...
 La je patoge un peu. Alors si j'ai compris ce que tu as ecris les struct sont la pour un match ?
