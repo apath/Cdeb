@@ -1,3 +1,6 @@
+apath:l'algo du calendrier est terimé, je l'ai fait à part dans calend.c et l'header calend.h
+avec quelques fonctions pour l'utiliser simplement voir dans le main pour l'exemple etc.
+
 apath:Salut, j'ai pensé à l'algo après avoir compris le principe et t'ai pondu
 une illustration de comment tu pourrais faire à l'aide d'un tableau pour générer
 tout le calendrier. N'ai pas reussi à trouver un moyen de le calculer mais je suis
