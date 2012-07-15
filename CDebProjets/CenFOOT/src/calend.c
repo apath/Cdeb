@@ -72,7 +72,7 @@ int get_calend_nt(int day,int match,int ***ptr,int *get){
             *get=ptr[day-1][match-1][0];
             *(get+1)=ptr[day-1][match-1][1];
         } else return 1; /* erreur match incorrect <0 ou >10 */
-        else return 2; /* erreur jour incorrect <0 ou >10 */
+        else return 2; /* erreur jour incorrect <0 ou >38 */
     return 0; /* ok */
 }
 int get_calend_dm(int team1,int team2,int ***ptr,int *get){
