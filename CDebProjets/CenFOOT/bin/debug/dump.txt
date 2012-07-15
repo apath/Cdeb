@@ -1,0 +1,502 @@
+print_calend
+------
+
+jour 1
+------
+	equipe1 vs equipe2
+	equipe3 vs equipe4
+	equipe5 vs equipe6
+	equipe7 vs equipe8
+	equipe9 vs equipe10
+	equipe11 vs equipe12
+	equipe13 vs equipe14
+	equipe15 vs equipe16
+	equipe17 vs equipe18
+	equipe19 vs equipe20
+
+jour 2
+------
+	equipe4 vs equipe1
+	equipe6 vs equipe2
+	equipe8 vs equipe3
+	equipe10 vs equipe5
+	equipe12 vs equipe7
+	equipe14 vs equipe9
+	equipe16 vs equipe11
+	equipe18 vs equipe13
+	equipe20 vs equipe15
+	equipe19 vs equipe17
+
+jour 3
+------
+	equipe1 vs equipe6
+	equipe4 vs equipe8
+	equipe2 vs equipe10
+	equipe3 vs equipe12
+	equipe5 vs equipe14
+	equipe7 vs equipe16
+	equipe9 vs equipe18
+	equipe11 vs equipe20
+	equipe13 vs equipe19
+	equipe15 vs equipe17
+
+jour 4
+------
+	equipe8 vs equipe1
+	equipe10 vs equipe6
+	equipe12 vs equipe4
+	equipe14 vs equipe2
+	equipe16 vs equipe3
+	equipe18 vs equipe5
+	equipe20 vs equipe7
+	equipe19 vs equipe9
+	equipe17 vs equipe11
+	equipe15 vs equipe13
+
+jour 5
+------
+	equipe1 vs equipe10
+	equipe8 vs equipe12
+	equipe6 vs equipe14
+	equipe4 vs equipe16
+	equipe2 vs equipe18
+	equipe3 vs equipe20
+	equipe5 vs equipe19
+	equipe7 vs equipe17
+	equipe9 vs equipe15
+	equipe11 vs equipe13
+
+jour 6
+------
+	equipe12 vs equipe1
+	equipe14 vs equipe10
+	equipe16 vs equipe8
+	equipe18 vs equipe6
+	equipe20 vs equipe4
+	equipe19 vs equipe2
+	equipe17 vs equipe3
+	equipe15 vs equipe5
+	equipe13 vs equipe7
+	equipe11 vs equipe9
+
+jour 7
+------
+	equipe1 vs equipe14
+	equipe12 vs equipe16
+	equipe10 vs equipe18
+	equipe8 vs equipe20
+	equipe6 vs equipe19
+	equipe4 vs equipe17
+	equipe2 vs equipe15
+	equipe3 vs equipe13
+	equipe5 vs equipe11
+	equipe7 vs equipe9
+
+jour 8
+------
+	equipe16 vs equipe1
+	equipe18 vs equipe14
+	equipe20 vs equipe12
+	equipe19 vs equipe10
+	equipe17 vs equipe8
+	equipe15 vs equipe6
+	equipe13 vs equipe4
+	equipe11 vs equipe2
+	equipe9 vs equipe3
+	equipe7 vs equipe5
+
+jour 9
+------
+	equipe1 vs equipe18
+	equipe16 vs equipe20
+	equipe14 vs equipe19
+	equipe12 vs equipe17
+	equipe10 vs equipe15
+	equipe8 vs equipe13
+	equipe6 vs equipe11
+	equipe4 vs equipe9
+	equipe2 vs equipe7
+	equipe3 vs equipe5
+
+jour 10
+------
+	equipe20 vs equipe1
+	equipe19 vs equipe18
+	equipe17 vs equipe16
+	equipe15 vs equipe14
+	equipe13 vs equipe12
+	equipe11 vs equipe10
+	equipe9 vs equipe8
+	equipe7 vs equipe6
+	equipe5 vs equipe4
+	equipe3 vs equipe2
+
+jour 11
+------
+	equipe1 vs equipe19
+	equipe20 vs equipe17
+	equipe18 vs equipe15
+	equipe16 vs equipe13
+	equipe14 vs equipe11
+	equipe12 vs equipe9
+	equipe10 vs equipe7
+	equipe8 vs equipe5
+	equipe6 vs equipe3
+	equipe4 vs equipe2
+
+jour 12
+------
+	equipe17 vs equipe1
+	equipe15 vs equipe19
+	equipe13 vs equipe20
+	equipe11 vs equipe18
+	equipe9 vs equipe16
+	equipe7 vs equipe14
+	equipe5 vs equipe12
+	equipe3 vs equipe10
+	equipe2 vs equipe8
+	equipe4 vs equipe6
+
+jour 13
+------
+	equipe1 vs equipe15
+	equipe17 vs equipe13
+	equipe19 vs equipe11
+	equipe20 vs equipe9
+	equipe18 vs equipe7
+	equipe16 vs equipe5
+	equipe14 vs equipe3
+	equipe12 vs equipe2
+	equipe10 vs equipe4
+	equipe8 vs equipe6
+
+jour 14
+------
+	equipe13 vs equipe1
+	equipe11 vs equipe15
+	equipe9 vs equipe17
+	equipe7 vs equipe19
+	equipe5 vs equipe20
+	equipe3 vs equipe18
+	equipe2 vs equipe16
+	equipe4 vs equipe14
+	equipe6 vs equipe12
+	equipe8 vs equipe10
+
+jour 15
+------
+	equipe1 vs equipe11
+	equipe13 vs equipe9
+	equipe15 vs equipe7
+	equipe17 vs equipe5
+	equipe19 vs equipe3
+	equipe20 vs equipe2
+	equipe18 vs equipe4
+	equipe16 vs equipe6
+	equipe14 vs equipe8
+	equipe12 vs equipe10
+
+jour 16
+------
+	equipe9 vs equipe1
+	equipe7 vs equipe11
+	equipe5 vs equipe13
+	equipe3 vs equipe15
+	equipe2 vs equipe17
+	equipe4 vs equipe19
+	equipe6 vs equipe20
+	equipe8 vs equipe18
+	equipe10 vs equipe16
+	equipe12 vs equipe14
+
+jour 17
+------
+	equipe1 vs equipe7
+	equipe9 vs equipe5
+	equipe11 vs equipe3
+	equipe13 vs equipe2
+	equipe15 vs equipe4
+	equipe17 vs equipe6
+	equipe19 vs equipe8
+	equipe20 vs equipe10
+	equipe18 vs equipe12
+	equipe16 vs equipe14
+
+jour 18
+------
+	equipe5 vs equipe1
+	equipe3 vs equipe7
+	equipe2 vs equipe9
+	equipe4 vs equipe11
+	equipe6 vs equipe13
+	equipe8 vs equipe15
+	equipe10 vs equipe17
+	equipe12 vs equipe19
+	equipe14 vs equipe20
+	equipe16 vs equipe18
+
+jour 19
+------
+	equipe1 vs equipe3
+	equipe5 vs equipe2
+	equipe7 vs equipe4
+	equipe9 vs equipe6
+	equipe11 vs equipe8
+	equipe13 vs equipe10
+	equipe15 vs equipe12
+	equipe17 vs equipe14
+	equipe19 vs equipe16
+	equipe20 vs equipe18
+
+jour 20
+------
+	equipe2 vs equipe1
+	equipe4 vs equipe3
+	equipe6 vs equipe5
+	equipe8 vs equipe7
+	equipe10 vs equipe9
+	equipe12 vs equipe11
+	equipe14 vs equipe13
+	equipe16 vs equipe15
+	equipe18 vs equipe17
+	equipe20 vs equipe19
+
+jour 21
+------
+	equipe1 vs equipe4
+	equipe2 vs equipe6
+	equipe3 vs equipe8
+	equipe5 vs equipe10
+	equipe7 vs equipe12
+	equipe9 vs equipe14
+	equipe11 vs equipe16
+	equipe13 vs equipe18
+	equipe15 vs equipe20
+	equipe17 vs equipe19
+
+jour 22
+------
+	equipe6 vs equipe1
+	equipe8 vs equipe4
+	equipe10 vs equipe2
+	equipe12 vs equipe3
+	equipe14 vs equipe5
+	equipe16 vs equipe7
+	equipe18 vs equipe9
+	equipe20 vs equipe11
+	equipe19 vs equipe13
+	equipe17 vs equipe15
+
+jour 23
+------
+	equipe1 vs equipe8
+	equipe6 vs equipe10
+	equipe4 vs equipe12
+	equipe2 vs equipe14
+	equipe3 vs equipe16
+	equipe5 vs equipe18
+	equipe7 vs equipe20
+	equipe9 vs equipe19
+	equipe11 vs equipe17
+	equipe13 vs equipe15
+
+jour 24
+------
+	equipe10 vs equipe1
+	equipe12 vs equipe8
+	equipe14 vs equipe6
+	equipe16 vs equipe4
+	equipe18 vs equipe2
+	equipe20 vs equipe3
+	equipe19 vs equipe5
+	equipe17 vs equipe7
+	equipe15 vs equipe9
+	equipe13 vs equipe11
+
+jour 25
+------
+	equipe1 vs equipe12
+	equipe10 vs equipe14
+	equipe8 vs equipe16
+	equipe6 vs equipe18
+	equipe4 vs equipe20
+	equipe2 vs equipe19
+	equipe3 vs equipe17
+	equipe5 vs equipe15
+	equipe7 vs equipe13
+	equipe9 vs equipe11
+
+jour 26
+------
+	equipe14 vs equipe1
+	equipe16 vs equipe12
+	equipe18 vs equipe10
+	equipe20 vs equipe8
+	equipe19 vs equipe6
+	equipe17 vs equipe4
+	equipe15 vs equipe2
+	equipe13 vs equipe3
+	equipe11 vs equipe5
+	equipe9 vs equipe7
+
+jour 27
+------
+	equipe1 vs equipe16
+	equipe14 vs equipe18
+	equipe12 vs equipe20
+	equipe10 vs equipe19
+	equipe8 vs equipe17
+	equipe6 vs equipe15
+	equipe4 vs equipe13
+	equipe2 vs equipe11
+	equipe3 vs equipe9
+	equipe5 vs equipe7
+
+jour 28
+------
+	equipe18 vs equipe1
+	equipe20 vs equipe16
+	equipe19 vs equipe14
+	equipe17 vs equipe12
+	equipe15 vs equipe10
+	equipe13 vs equipe8
+	equipe11 vs equipe6
+	equipe9 vs equipe4
+	equipe7 vs equipe2
+	equipe5 vs equipe3
+
+jour 29
+------
+	equipe1 vs equipe20
+	equipe18 vs equipe19
+	equipe16 vs equipe17
+	equipe14 vs equipe15
+	equipe12 vs equipe13
+	equipe10 vs equipe11
+	equipe8 vs equipe9
+	equipe6 vs equipe7
+	equipe4 vs equipe5
+	equipe2 vs equipe3
+
+jour 30
+------
+	equipe19 vs equipe1
+	equipe17 vs equipe20
+	equipe15 vs equipe18
+	equipe13 vs equipe16
+	equipe11 vs equipe14
+	equipe9 vs equipe12
+	equipe7 vs equipe10
+	equipe5 vs equipe8
+	equipe3 vs equipe6
+	equipe2 vs equipe4
+
+jour 31
+------
+	equipe1 vs equipe17
+	equipe19 vs equipe15
+	equipe20 vs equipe13
+	equipe18 vs equipe11
+	equipe16 vs equipe9
+	equipe14 vs equipe7
+	equipe12 vs equipe5
+	equipe10 vs equipe3
+	equipe8 vs equipe2
+	equipe6 vs equipe4
+
+jour 32
+------
+	equipe15 vs equipe1
+	equipe13 vs equipe17
+	equipe11 vs equipe19
+	equipe9 vs equipe20
+	equipe7 vs equipe18
+	equipe5 vs equipe16
+	equipe3 vs equipe14
+	equipe2 vs equipe12
+	equipe4 vs equipe10
+	equipe6 vs equipe8
+
+jour 33
+------
+	equipe1 vs equipe13
+	equipe15 vs equipe11
+	equipe17 vs equipe9
+	equipe19 vs equipe7
+	equipe20 vs equipe5
+	equipe18 vs equipe3
+	equipe16 vs equipe2
+	equipe14 vs equipe4
+	equipe12 vs equipe6
+	equipe10 vs equipe8
+
+jour 34
+------
+	equipe11 vs equipe1
+	equipe9 vs equipe13
+	equipe7 vs equipe15
+	equipe5 vs equipe17
+	equipe3 vs equipe19
+	equipe2 vs equipe20
+	equipe4 vs equipe18
+	equipe6 vs equipe16
+	equipe8 vs equipe14
+	equipe10 vs equipe12
+
+jour 35
+------
+	equipe1 vs equipe9
+	equipe11 vs equipe7
+	equipe13 vs equipe5
+	equipe15 vs equipe3
+	equipe17 vs equipe2
+	equipe19 vs equipe4
+	equipe20 vs equipe6
+	equipe18 vs equipe8
+	equipe16 vs equipe10
+	equipe14 vs equipe12
+
+jour 36
+------
+	equipe7 vs equipe1
+	equipe5 vs equipe9
+	equipe3 vs equipe11
+	equipe2 vs equipe13
+	equipe4 vs equipe15
+	equipe6 vs equipe17
+	equipe8 vs equipe19
+	equipe10 vs equipe20
+	equipe12 vs equipe18
+	equipe14 vs equipe16
+
+jour 37
+------
+	equipe1 vs equipe5
+	equipe7 vs equipe3
+	equipe9 vs equipe2
+	equipe11 vs equipe4
+	equipe13 vs equipe6
+	equipe15 vs equipe8
+	equipe17 vs equipe10
+	equipe19 vs equipe12
+	equipe20 vs equipe14
+	equipe18 vs equipe16
+
+jour 38
+------
+	equipe3 vs equipe1
+	equipe2 vs equipe5
+	equipe4 vs equipe7
+	equipe6 vs equipe9
+	equipe8 vs equipe11
+	equipe10 vs equipe13
+	equipe12 vs equipe15
+	equipe14 vs equipe17
+	equipe16 vs equipe19
+	equipe18 vs equipe20
+get_calend_nt j12 m3
+------
+T_dom = 13	T_vis = 20
+get_calend_dm T_dom = 17 T_vis = 9
+------
+jour = 33	match = 3
