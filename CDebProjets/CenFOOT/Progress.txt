@@ -1,3 +1,19 @@
+apath:Salut, j'ai pensé à l'algo après avoir compris le principe et t'ai pondu
+une illustration de comment tu pourrais faire à l'aide d'un tableau pour générer
+tout le calendrier. N'ai pas reussi à trouver un moyen de le calculer mais je suis
+certain qu'il doit y avoir un moyen de calculer une rencontre rien qu'à partir
+du jour et du match (exemple jour1 et second match du jour). Enfin n'ai pas reussi
+à trouver donc pour le moment l'algo que j'ai mis dans l'illustration à l'air ok.
+Voilà dis moi si tu as un problème pour le générer. Au fait, tu peux stocker les résultats
+dans un tableau du genre :
+int calendrier[38][10][2];
+ce qui donne 38 jours de 10 rencontres et dans chaque rencontre on peut mettre
+le numéro des équipe en position 0 et 1,
+exemple pour le jour 1, match 1, sera équipe numéro 1 contre 2 :
+calendrier[0][0][0]=1;
+calendrier[0][0][1]=2;
+
+------------
 spycom ok fichie modifié.Sinon C1 MATCH COUPE NUMERO DU TOUR EN COURS(Pour le tour 16  eme finale il ya donc 16 matchs: c1,c2,c3,c4,...)
 Pour {Coupe,Tour_final,0,[C1,C1,C2,0,0]} match de coupe c'est la finale il ya 1 rencontre le vainqueur de la rencontre 1(c1) et de la rencontre 2(c2) du tour precedent(demi finale).
 Pour simplifie on peut mettre que un numéro 1 pour match de coupe ou saison(C1 M1).
