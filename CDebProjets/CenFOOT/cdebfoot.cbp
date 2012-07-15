@@ -39,6 +39,10 @@
 			<Add option="-Wall" />
 			<Add option="-ansi" />
 		</Compiler>
+		<Unit filename="src\calend.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src\calend.h" />
 		<Unit filename="src\country.c">
 			<Option compilerVar="CC" />
 		</Unit>
