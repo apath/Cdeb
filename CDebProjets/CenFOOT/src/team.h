@@ -18,6 +18,9 @@ struct club{
     struct team *tm; /* ptr sur la liste de joueurs dans l'equipe */
     struct club *next; /* ptr next (liste chaînée) */
 };
+typedef struct{/* type CLUB garde l'adr de debut d'une liste d'equipe */
+    struct club *start;
+}CLUB;
 
 /* si structures ok, la suite les fonctions pour les utiliser */
 /* construction et destruction d'une equipe, creation de club
