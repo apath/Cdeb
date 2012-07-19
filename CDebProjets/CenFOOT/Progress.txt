@@ -1,3 +1,10 @@
+apath:pas de problème c'est un peu pareil pour moi, boulot fatigue dormir jeu anime! Mais j'avoue
+que la génération du calendrier à fait fumer mes cellules grises ahahahaha c'était un bon casse
+tête n'ai pas trop avancé sur la partie team mais j'ai quand même up le petit bout.
+Hm oui n'ayant pas fait à l'avance les prototypes des fonctions ça risque d'être dure de reprendre
+la suite, vais jetez un oeil pour les faire je pense que ça sera mieux pour qu'on puisse chacun
+travailler sur les fonctions imcomplètes.
+
 spycom: Slut apath j'étais pas très présent en ce moment. Le boulot et les enfants me prennent du temps. A partir de samedi cela devrais s'arranger.
 Sinon pour team.h je pense que les strucutures sont complétes. Tu veux que je fasse les fonctions suivantes de team.h ? Car je sais pas par ou commencer.
 @+
