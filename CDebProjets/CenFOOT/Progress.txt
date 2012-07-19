@@ -1,3 +1,7 @@
+spycom: Slut apath j'étais pas très présent en ce moment. Le boulot et les enfants me prennent du temps. A partir de samedi cela devrais s'arranger.
+Sinon pour team.h je pense que les strucutures sont complétes. Tu veux que je fasse les fonctions suivantes de team.h ? Car je sais pas par ou commencer.
+@+
+
 apath:l'algo du calendrier est terimé, je l'ai fait à part dans calend.c et l'header calend.h
 avec quelques fonctions pour l'utiliser simplement voir dans le main pour l'exemple etc.
 
