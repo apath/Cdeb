@@ -20,10 +20,17 @@ CLUB *club_init(void){
     return ptr;
 }
 
+/* club_getptrbyname
+ * si le nom de l'équipe est trouvé dans la liste de club
+ * alors la fonction retourne le pointeur de cette équipe
+ * sinon elle retourne NULL.
+ * peut être utilisé pour déterminer si l'équipe existe déjà
+ * ou pour rechercher une équipe à partir de son nom afin
+ * d'y ajouter un joueur ou faire des modifications etc. */
 struct club *club_getptrbyname(CLUB *c,const char *team_name){
     struct club *ptr;
     ptr=c->start;
-    wile(ptr){
+    while(ptr){
         if(!strcmp(team_name,ptr->team_name))
             return ptr;
         ptr=ptr->next;

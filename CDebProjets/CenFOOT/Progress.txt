@@ -1,3 +1,8 @@
+apath:voilà j'ai mis ce qui doit être fait pour la suite de la partie team avec l'ordre
+dans lequel coder tout ça, hésite pas à essayer de faire ce que tu peux ça risque d'être difficile
+car il y a la liste de joueurs d'une équipe imbriqué dans la liste des équipes donc si tu as un 
+problème de comprehension sur le concept dis le je ferai des illustrations etc voir des exos.
+
 apath:pas de problème c'est un peu pareil pour moi, boulot fatigue dormir jeu anime! Mais j'avoue
 que la génération du calendrier à fait fumer mes cellules grises ahahahaha c'était un bon casse
 tête n'ai pas trop avancé sur la partie team mais j'ai quand même up le petit bout.
